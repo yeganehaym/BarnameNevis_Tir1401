@@ -1,0 +1,34 @@
+﻿@model Note
+
+<form method="post" asp-controller="Home" asp-action="New">
+    <input type="text" class="form-control" asp-for="Title"/>
+    <textarea asp-for="Description" class="form-control" rows="4" cols="80"></textarea>
+    <button type="submit" class="btn btn-primary">Save New Note</button>
+</form>
+
+@section Header
+{
+   
+}
+@section Scripts
+{
+    <script>
+    $("form").submit(function (e){
+        e.preventDefault();
+        
+        $.ajax('/Home/New',{
+            type:'POST',
+            data:{title:$("#Title").val(),description:$("#Description").val()},
+            success:function (data){
+                console.log(data);
+                alert(data.title);
+                alert(data.description);
+                alert(JSON.stringify(data));
+            },
+            error:function (data){
+                console.log(data);
+            }
+        })
+    });
+    </script>
+}

@@ -11,12 +11,16 @@ build_property.RootNamespace = BarnameNevis1401
 build_property.ProjectDir = C:\Users\8tagco\Desktop\ASP.NET CORE\Project\Hamyari\BarnameNevis1401\BarnameNevis1401\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
-build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = true
 build_property.MSBuildProjectDirectory = C:\Users\8tagco\Desktop\ASP.NET CORE\Project\Hamyari\BarnameNevis1401\BarnameNevis1401
 build_property._RazorSourceGeneratorDebug = 
 
 [C:/Users/8tagco/Desktop/ASP.NET CORE/Project/Hamyari/BarnameNevis1401/BarnameNevis1401/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/8tagco/Desktop/ASP.NET CORE/Project/Hamyari/BarnameNevis1401/BarnameNevis1401/Views/Home/New.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxOZXcuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/8tagco/Desktop/ASP.NET CORE/Project/Hamyari/BarnameNevis1401/BarnameNevis1401/Views/Home/Privacy.cshtml]
