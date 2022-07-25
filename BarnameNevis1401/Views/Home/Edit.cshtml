@@ -1,0 +1,15 @@
+﻿@model BarnameNevis1401.Data.Entities.Product
+
+<form method="post">
+    <input type="hidden" asp-for="Id"/>
+    <label>Name</label>
+    <input type="text" class="form-control" asp-for="Name"/>
+
+    <label>Price</label>
+    <input type="text" class="form-control" asp-for="Price"/>
+
+    <label>Dicsount</label>
+    <input type="text" class="form-control" asp-for="Discount"/>
+    <br/>
+    <button type="submit" class="btn btn-success">Update Data</button>
+</form>

@@ -1,8 +1,16 @@
+using BarnameNevis1401.Data;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews()
     .AddRazorRuntimeCompilation();
+
+builder.Services.AddDbContextPool<ApplicationDbContext>(options =>
+{
+    options.UseSqlServer("server=.;database=gallery;trusted_connection=true;TrustServerCertificate=true");
+});
 
 var app = builder.Build();
 

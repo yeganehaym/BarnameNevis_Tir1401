@@ -1,0 +1,35 @@
+﻿@using DNTPersianUtils.Core
+@model List<BarnameNevis1401.Data.Entities.Product>
+
+<table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Discount</th>
+        <th>FinalPrice</th>
+        <th>CreationDate</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    @{
+        foreach (var product in Model)
+        {
+            <tr>
+                <td>@product.Id</td>
+                <td>@product.Name</td>
+                <td>@product.Price</td>
+                <td>@product.Discount</td>
+                <td>@product.FinalPrice</td>
+                <td>@product.CreationDate.ToShortPersianDateString() @product.CreationDate.ToString("HH:mm")</td>
+                <td>
+                    <a class="btn btn-warning" asp-controller="Home" asp-action="Edit" asp-route-id="@product.Id">Edit</a>
+                    <a class="btn btn-danger"  asp-controller="Home" asp-action="Remove" asp-route-id="@product.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    }
+    </tbody>
+</table>
