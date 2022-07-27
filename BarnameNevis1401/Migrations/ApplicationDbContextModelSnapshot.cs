@@ -22,6 +22,61 @@ namespace BarnameNevis1401.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
+            modelBuilder.Entity("BarnameNevis1401.Data.Entities.ImageItem", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("FileName")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<long>("FileSize")
+                        .HasColumnType("bigint");
+
+                    b.Property<bool>("IsRemoved")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ModificationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("ImageItems");
+                });
+
+            modelBuilder.Entity("BarnameNevis1401.Data.Entities.ImageTag", b =>
+                {
+                    b.Property<int>("TagId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ImageItemId")
+                        .HasColumnType("int");
+
+                    b.HasKey("TagId", "ImageItemId");
+
+                    b.HasIndex("ImageItemId");
+
+                    b.ToTable("ImageTags");
+                });
+
             modelBuilder.Entity("BarnameNevis1401.Data.Entities.Product", b =>
                 {
                     b.Property<int>("Id")
@@ -44,7 +99,8 @@ namespace BarnameNevis1401.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<int>("Price")
                         .HasColumnType("int");
@@ -52,6 +108,33 @@ namespace BarnameNevis1401.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Products");
+                });
+
+            modelBuilder.Entity("BarnameNevis1401.Data.Entities.Tag", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsRemoved")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ModificationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Tags");
                 });
 
             modelBuilder.Entity("BarnameNevis1401.Data.Entities.User", b =>
@@ -64,6 +147,11 @@ namespace BarnameNevis1401.Migrations
 
                     b.Property<DateTime>("CreationDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("FirstName")
                         .IsRequired()
@@ -78,12 +166,75 @@ namespace BarnameNevis1401.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
+                    b.Property<string>("Mobile")
+                        .IsRequired()
+                        .HasMaxLength(11)
+                        .HasColumnType("nvarchar(11)");
+
                     b.Property<DateTime?>("ModificationDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("Username")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
                     b.HasKey("Id");
 
+                    b.HasIndex("Username")
+                        .IsUnique();
+
                     b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("BarnameNevis1401.Data.Entities.ImageItem", b =>
+                {
+                    b.HasOne("BarnameNevis1401.Data.Entities.User", "User")
+                        .WithMany("ImageItems")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("BarnameNevis1401.Data.Entities.ImageTag", b =>
+                {
+                    b.HasOne("BarnameNevis1401.Data.Entities.ImageItem", "ImageItem")
+                        .WithMany("ImageTags")
+                        .HasForeignKey("ImageItemId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("BarnameNevis1401.Data.Entities.Tag", "Tag")
+                        .WithMany("ImageTags")
+                        .HasForeignKey("TagId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ImageItem");
+
+                    b.Navigation("Tag");
+                });
+
+            modelBuilder.Entity("BarnameNevis1401.Data.Entities.ImageItem", b =>
+                {
+                    b.Navigation("ImageTags");
+                });
+
+            modelBuilder.Entity("BarnameNevis1401.Data.Entities.Tag", b =>
+                {
+                    b.Navigation("ImageTags");
+                });
+
+            modelBuilder.Entity("BarnameNevis1401.Data.Entities.User", b =>
+                {
+                    b.Navigation("ImageItems");
                 });
 #pragma warning restore 612, 618
         }
