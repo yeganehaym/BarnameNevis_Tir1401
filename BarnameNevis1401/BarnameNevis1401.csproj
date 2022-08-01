@@ -20,6 +20,7 @@
     <ItemGroup>
       <Folder Include="Pages" />
       <Folder Include="Pictures" />
+      <Folder Include="wwwroot\plugins" />
     </ItemGroup>
 
 </Project>

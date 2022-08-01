@@ -1,0 +1,12 @@
+﻿@model LoginModel
+@{
+    Layout = "_AuthLayout";
+}
+<form method="post">
+    <input type="text" class="form-control" asp-for="Username"/>
+    <span asp-validation-for="Username"></span>
+        <input type="password" class="form-control" asp-for="Password"/>
+    <span asp-validation-for="Password"></span>
+    
+    <button type="submit" class="btn btn-success btn-block">Login</button>
+</form>
