@@ -1,4 +1,6 @@
 ﻿using System.Security.Claims;
+using System.Security.Cryptography;
+using System.Text;
 using BarnameNevis1401.Data;
 using BarnameNevis1401.Models;
 using Microsoft.AspNetCore.Authentication;
@@ -24,14 +26,20 @@ public class AuthController : Controller
    [HttpPost]
    public IActionResult Login(LoginModel model)
    {
+      
+      var password = model.Password.Hash();
       if (ModelState.IsValid)
       {
-         var user = _context.Users.FirstOrDefault(x => x.Username == model.Username && x.Password == model.Password);
+         var user = _context.Users.FirstOrDefault(x => x.Username == model.Username && x.Password == password);
          if (user == null)
          {
             ModelState.AddModelError("Username","چنین گاربری یافت نشد");
             return View(model);
          }
+
+         var s = "12";
+         var x = s.ToInt();
+         
 
          var claim = new ClaimsIdentity(CookieAuthenticationDefaults.AuthenticationScheme);
          claim.AddClaim(new Claim(ClaimTypes.NameIdentifier,user.Id.ToString()));

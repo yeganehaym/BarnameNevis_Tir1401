@@ -3,10 +3,12 @@ using BarnameNevis1401.Data;
 using BarnameNevis1401.Data.Entities;
 using Microsoft.AspNetCore.Mvc;
 using BarnameNevis1401.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 
 namespace BarnameNevis1401.Controllers;
 
+[Authorize]
 public class HomeController : Controller
 {
     private ApplicationDbContext _applicationDbContext;

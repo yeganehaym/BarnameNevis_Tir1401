@@ -1,0 +1,19 @@
+﻿@model List<BarnameNevis1401.Data.Entities.ImageItem>
+
+<div class="container">
+    <div class="row">
+        @{
+            if (Model.Count == 0)
+            {
+                <h1>Not Found</h1>
+            }
+            foreach (var imageItem in Model)
+            {
+                <div class="col-3">
+                    <img class="img-fluid" src="@Url.Action("ShowImage","Image",new {id=imageItem.Id})"/>
+                    <span class="badge badge-info">@imageItem.FileName : @imageItem.FileSize.ToUnit()</span>
+                </div>
+            }
+        }
+    </div>
+</div>

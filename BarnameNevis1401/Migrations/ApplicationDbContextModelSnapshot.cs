@@ -41,6 +41,10 @@ namespace BarnameNevis1401.Migrations
                     b.Property<long>("FileSize")
                         .HasColumnType("bigint");
 
+                    b.Property<byte[]>("Image")
+                        .IsRequired()
+                        .HasColumnType("varbinary(max)");
+
                     b.Property<bool>("IsRemoved")
                         .HasColumnType("bit");
 

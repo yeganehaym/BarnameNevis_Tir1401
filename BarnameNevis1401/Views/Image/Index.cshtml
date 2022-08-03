@@ -1,6 +1,6 @@
 ﻿@model ImageUploadModel
-<form method="post" enctype="multipart/form-data" asp-controller="Image" asp-action="Upload">
+<form method="post" enctype="multipart/form-data" asp-controller="Image" asp-action="Index">
     <input type="file" asp-for="Picture"/>
-    
+    <span asp-validation-for="Picture"></span>
     <button type="submit" class="btn btn-primary">Upload</button>
 </form>

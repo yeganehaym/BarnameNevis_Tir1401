@@ -17,4 +17,15 @@ public class Utils
     
         return fileName;
     }
+
+    public bool IsValidImage(string fileName)
+    {
+        var array = new string[] { ".jpg", ".png", "bmp" };
+        var ext = Path.GetExtension(fileName);
+        if (ext == null)
+            return false;
+
+        return array.Contains(ext);
+
+    }
 }
