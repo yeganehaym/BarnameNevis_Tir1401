@@ -1,0 +1,24 @@
+﻿@model DateViewModel
+
+<form method="post">
+    <input type="text" class="form-control" asp-for="Year" placeholder="Year"/>
+    <input type="text" class="form-control" asp-for="Month" placeholder="Month"/>
+    <input type="text" class="form-control" asp-for="Day" placeholder="Day"/>
+    <button type="submit" class="btn btn-success">Get Occasions</button>
+</form>
+
+@{
+    if (Model !=null && Model.Occasion != null)
+    {
+        <strong>تعطیلی : @(Model.Occasion.IsHoliday ? "Yes" : "No")</strong> 
+        <ul>
+            @foreach (var ev in Model.Occasion.Events)
+            {
+                <li>@ev.Description</li>
+            }
+        </ul>
+        
+    }
+
+   
+}

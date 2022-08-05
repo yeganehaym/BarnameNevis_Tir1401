@@ -20,12 +20,13 @@
   <!-- Custom style for RTL -->
   <link rel="stylesheet" href="~/dist/css/custom.css">
   
+  @await RenderSectionAsync("Header",false)
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
 
   <!-- Navbar -->
-        @Html.Partial("_NavBar")
+        @await Html.PartialAsync("_NavBar")
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
@@ -72,6 +73,6 @@
 <script src="~/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
 <!-- AdminLTE App -->
 <script src="~/dist/js/adminlte.js"></script>
-
+@await  RenderSectionAsync("Scripts",false)
 </body>
 </html>

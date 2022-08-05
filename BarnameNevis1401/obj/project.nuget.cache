@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "bqpntyNtryGpKulZX3+51pn9BVy9Xk6wq349urjWv3xYeuPX6c1UM4YYehl/oZH7/OHfGZtM3Ke7gZNgiqZpJg==",
+  "dgSpecHash": "LBP3ySBE4phuEcrorrDnSxiUmbm0y2XhzTEvEyFpeiT8/ne7tvoCDSYTt9eVX2kRF31bpY6Ucu6baF5sNa+8tw==",
   "success": true,
   "projectFilePath": "C:\\TirAspCore\\gallery\\BarnameNevis1401\\BarnameNevis1401.csproj",
   "expectedPackageFiles": [
@@ -41,6 +41,8 @@
     "C:\\Users\\8tagco\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\8tagco\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\8tagco\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
+    "C:\\Users\\8tagco\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\8tagco\\.nuget\\packages\\restsharp\\108.0.1\\restsharp.108.0.1.nupkg.sha512",
     "C:\\Users\\8tagco\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
     "C:\\Users\\8tagco\\.nuget\\packages\\system.collections.immutable\\6.0.0\\system.collections.immutable.6.0.0.nupkg.sha512",
     "C:\\Users\\8tagco\\.nuget\\packages\\system.configuration.configurationmanager\\4.7.0\\system.configuration.configurationmanager.4.7.0.nupkg.sha512",

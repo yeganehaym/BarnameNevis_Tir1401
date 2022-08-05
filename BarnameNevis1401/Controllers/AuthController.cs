@@ -28,7 +28,7 @@ public class AuthController : Controller
    }
 
    [HttpPost]
-   public IActionResult Login(LoginModel model)
+   public async Task<IActionResult> Login(LoginModel model)
    {
       
       if (ModelState.IsValid)
@@ -49,15 +49,15 @@ public class AuthController : Controller
          claim.AddClaim(new Claim(ClaimTypes.GivenName,user.Username));
          claim.AddClaim(new Claim(ClaimTypes.Name,user.FullName));
          var claimPrincipals = new ClaimsPrincipal(claim);
-         HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,claimPrincipals);
+         await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,claimPrincipals);
          return RedirectToAction("TestCookie", "Test");
       }
       return View(model);
    }
 
-   public IActionResult Logout()
+   public async Task<IActionResult> Logout()
    {
-      HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+      await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
       return RedirectToAction("Login");
    }
 
@@ -68,11 +68,11 @@ public class AuthController : Controller
    }
 
    [HttpPost]
-   public IActionResult Register(RegisterModel model)
+   public async Task<IActionResult> Register(RegisterModel model)
    {
       if (ModelState.IsValid)
       {
-         var isExists = _userService.IsExists(model.Username,model.Email,model.MobileNumber);
+         var isExists =await _userService.IsExists(model.Username,model.Email,model.MobileNumber);
          if (isExists.UsernameExists)
          {
             ModelState.AddModelError("Username","نام کاربری تکراری است");

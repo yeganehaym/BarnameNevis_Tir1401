@@ -18,9 +18,14 @@ public class UserService
         return _context.Users.Any(x => x.Username == username);
     }
 
-    public RegisterCheck IsExists(string username, string email, string mobile)
+    public async Task<bool> IsUserExistsAsync(string username)
     {
-        return _context
+        return await _context.Users.AnyAsync(x => x.Username == username);
+    }
+    
+    public async Task<RegisterCheck> IsExists(string username, string email, string mobile)
+    {
+        return await _context
             .Users
             .Select(x => new RegisterCheck()
             {
@@ -28,13 +33,14 @@ public class UserService
                 MobileExists = _context.Users.Any(v => v.Mobile == mobile),
                 UsernameExists = _context.Users.Any(v => v.Username == username),
             })
-            .FirstOrDefault();
+            .FirstOrDefaultAsync();
         
     }
 
-    public void NewUser(User user)
+    public async Task NewUser(User user)
     {
-        _context.Users.Add(user);
+       await _context.Users.AddAsync(user);
+        
     }
 
     public void AddOtpCode(OtpCode otpCode)
