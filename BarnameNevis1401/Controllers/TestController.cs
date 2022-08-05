@@ -86,11 +86,7 @@ public class TestController : Controller
                return View(model);
            }*/
 
-        if (response.IsSuccessful)
-        {
-            model.Occasion = response.Data;
-            return View(model);
-        }
+        
 
         return Content("Failed");
     }
