@@ -5,6 +5,9 @@ using BarnameNevis1401.Data;
 using BarnameNevis1401.Data.Entities;
 using BarnameNevis1401.Models;
 using BarnameNevis1401.Services;
+using BarnameNevis1401.SmsManagers;
+using Ghasedak.Core;
+using Hangfire;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
@@ -113,6 +116,7 @@ public class AuthController : Controller
          if (rows > 0)
          {
             //send sms
+            BackgroundJob.Enqueue(() => SendSms(model.MobileNumber, otpCode.Code));
             return RedirectToAction("Otp");
          }
          else
@@ -123,6 +127,11 @@ public class AuthController : Controller
       return View(model);
    }
 
+   public async Task SendSms(string mobile,string code)
+   {
+      var smsManager = SmsFactory.Get();
+      await smsManager.SendSmsTemplate("Login1401", mobile, new[] { code });
+   }
    public IActionResult Otp()
    {
       return View();

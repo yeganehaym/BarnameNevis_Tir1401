@@ -1,5 +1,6 @@
 ﻿using BarnameNevis1401.Models;
 using BarnameNevis1401.SmsManagers;
+using Hangfire;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -89,5 +90,26 @@ public class TestController : Controller
         
 
         return Content("Failed");
+    }
+
+    public async Task SendSms(string mobile,string code)
+    {
+        var smsManager = SmsFactory.Get();
+        await smsManager.SendSmsTemplate("Login1401", mobile, new[] { code });
+    }
+    public async Task<IActionResult> SendSms2()
+    {
+        var x = DateTime.Now.AddDays(1) - DateTime.Now.AddMinutes(-30);
+
+        BackgroundJob.Schedule(() => SendSms("09365437062", "0000"), TimeSpan.FromMinutes(1));
+        return Content("OK");
+    }
+    public async Task<IActionResult> SendSms3()
+    {
+        RecurringJob.AddOrUpdate(
+            "myrecurringjob",
+            () => Console.WriteLine("Recurring!"),
+            "* * * * *");
+        return Content("OK");
     }
 }

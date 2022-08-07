@@ -11,4 +11,9 @@ public class TubaSms : ISmsManager
     {
         return 10000;
     }
+
+    public Task<string> SendSmsTemplate(string template, string mobileNo, string[] param)
+    {
+        throw new NotImplementedException();
+    }
 }

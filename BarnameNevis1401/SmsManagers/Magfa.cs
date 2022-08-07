@@ -11,4 +11,9 @@ public class Magfa : ISmsManager
     {
         return 5000000;
     }
+
+    public Task<string> SendSmsTemplate(string template, string mobileNo, string[] param)
+    {
+        throw new NotImplementedException();
+    }
 }
