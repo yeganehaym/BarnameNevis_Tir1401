@@ -16,6 +16,7 @@ public class ApplicationDbContext:DbContext
     public DbSet<ImageItem> ImageItems { get; set; }
     public DbSet<Tag> Tags { get; set; }
     public DbSet<ImageTag> ImageTags { get; set; }
+    public DbSet<OtpCode> OtpCodes { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

@@ -81,6 +81,44 @@ namespace BarnameNevis1401.Migrations
                     b.ToTable("ImageTags");
                 });
 
+            modelBuilder.Entity("BarnameNevis1401.Data.Entities.OtpCode", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Code")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("ExpireTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsRemoved")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsUsed")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ModificationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("OtpCodes");
+                });
+
             modelBuilder.Entity("BarnameNevis1401.Data.Entities.Product", b =>
                 {
                     b.Property<int>("Id")
@@ -162,6 +200,9 @@ namespace BarnameNevis1401.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
                     b.Property<bool>("IsRemoved")
                         .HasColumnType("bit");
 
@@ -226,6 +267,17 @@ namespace BarnameNevis1401.Migrations
                     b.Navigation("Tag");
                 });
 
+            modelBuilder.Entity("BarnameNevis1401.Data.Entities.OtpCode", b =>
+                {
+                    b.HasOne("BarnameNevis1401.Data.Entities.User", "User")
+                        .WithMany("OtpCodes")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("BarnameNevis1401.Data.Entities.ImageItem", b =>
                 {
                     b.Navigation("ImageTags");
@@ -239,6 +291,8 @@ namespace BarnameNevis1401.Migrations
             modelBuilder.Entity("BarnameNevis1401.Data.Entities.User", b =>
                 {
                     b.Navigation("ImageItems");
+
+                    b.Navigation("OtpCodes");
                 });
 #pragma warning restore 612, 618
         }

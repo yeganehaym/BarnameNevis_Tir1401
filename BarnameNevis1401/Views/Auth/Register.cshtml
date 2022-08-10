@@ -1,0 +1,20 @@
+﻿@model RegisterModel
+
+@{
+    Layout = "_AuthLayout";
+}
+<form method="post">
+    <input type="text" class="form-control" asp-for="Username" placeholder="نام کاربری"/>
+    <span asp-validation-for="Username"></span>
+    <input type="password" class="form-control" asp-for="Password" placeholder="کلمه عبور"/>
+    <span asp-validation-for="Password"></span>
+       <input type="password" class="form-control" asp-for="RePassword" placeholder="تکرار کلمه عبور"/>
+    <span asp-validation-for="RePassword"></span>
+       <input type="text" class="form-control" asp-for="Email" placeholder="ایمیل"/>
+    <span asp-validation-for="Email"></span>
+       <input type="text" class="form-control" asp-for="MobileNumber" placeholder="موبایل"/>
+    <span asp-validation-for="MobileNumber"></span>
+    
+    
+    <button type="submit" class="btn btn-success btn-block">Register</button>
+</form>

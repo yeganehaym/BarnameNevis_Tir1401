@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authentication.Cookies;
+﻿using BarnameNevis1401.SmsManagers;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -24,5 +25,24 @@ public class TestController : Controller
             
         });
         return View();
+    }
+
+    [AllowAnonymous]
+    public IActionResult SendSms1(int id=1)
+    {
+        ISmsManager smsManager = null;
+        switch (id)
+        {
+            case 1:
+                smsManager= new TubaSms();
+                break;
+            default:
+                smsManager = new Magfa();
+                break;
+        }
+        var smsCode = smsManager.SendMessage("0912...", "my sms");
+        var rep = smsManager.GetRepository();
+
+        return Content($"SmsCode: {smsCode} - Rep: {rep}");
     }
 }

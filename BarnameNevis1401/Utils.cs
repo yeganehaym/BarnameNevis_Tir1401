@@ -28,4 +28,32 @@ public class Utils
         return array.Contains(ext);
 
     }
+    
+    private static Random random = new Random();
+
+    public static string RandomString(int length,RandomType randomType)
+    {
+        const string letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        const string numbers = "0123456789";
+         string chars = "0123456789";
+
+        switch (randomType)
+        {
+            case RandomType.OnlyLetters:
+                chars = letters;
+                break;
+            case RandomType.All:
+                chars = letters + numbers;
+                break;
+        }
+        return new string(Enumerable.Repeat(chars, length)
+            .Select(s => s[random.Next(s.Length)]).ToArray());
+    }
+}
+
+public enum RandomType
+{
+    OnlyNumbers,
+    OnlyLetters,
+    All
 }

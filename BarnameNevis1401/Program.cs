@@ -1,4 +1,5 @@
 using BarnameNevis1401.Data;
+using BarnameNevis1401.Services;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 
@@ -13,6 +14,7 @@ builder.Services.AddDbContextPool<ApplicationDbContext>(options =>
     options.UseSqlServer("server=.;database=gallery;trusted_connection=true;TrustServerCertificate=true");
 });
 
+builder.Services.AddScoped<UserService>();
 
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(options =>

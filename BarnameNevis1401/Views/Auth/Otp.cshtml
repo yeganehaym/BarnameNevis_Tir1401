@@ -1,0 +1,13 @@
+﻿@model OtpModel
+
+@{
+    Layout = "_AuthLayout";
+}
+
+<form method="post">
+    <input type="text" class="form-control" asp-for="Code"/>
+    <span asp-validation-for="Code"></span>
+
+    
+    <button type="submit" class="btn btn-success btn-block">Check Otp Code</button>
+</form>
