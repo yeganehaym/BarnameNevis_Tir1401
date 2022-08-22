@@ -3,26 +3,37 @@ using System.Security.Cryptography;
 using System.Text;
 using BarnameNevis1401.Data;
 using BarnameNevis1401.Data.Entities;
+using BarnameNevis1401.Email;
 using BarnameNevis1401.Models;
 using BarnameNevis1401.Services;
 using BarnameNevis1401.SmsManagers;
 using Ghasedak.Core;
 using Hangfire;
+using MailKit.Net.Smtp;
+using MailKit.Security;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
+using MimeKit;
+using MimeKit.Text;
+using MimeMessage = MimeKit.MimeMessage;
 
 namespace BarnameNevis1401.Controllers;
 
 public class AuthController : Controller
 {
    private ApplicationDbContext _context;
+   private readonly IWebHostEnvironment _env;
    private UserService _userService;
+   private EmailSettings _emailSettings;
 
-   public AuthController(ApplicationDbContext context, UserService userService)
+   public AuthController(ApplicationDbContext context,IWebHostEnvironment _env, UserService userService,IOptionsSnapshot<EmailSettings> options)
    {
       _context = context;
+      this._env = _env;
       _userService = userService;
+      _emailSettings = options.Value;
    }
 
    public IActionResult Login()
@@ -136,7 +147,18 @@ public class AuthController : Controller
    {
       return View();
    }
-   
+
+   public IActionResult CheckEmailSettings()
+   {
+      return Content($"Server={_emailSettings.SmtpServer} - Username={_emailSettings.Username} -" +
+                     $"Password={_emailSettings.Password} - Port={_emailSettings.Port}");
+   }
+   private bool RemoteServerCertificateValidationCallback(object sender, System.Security.Cryptography.X509Certificates.X509Certificate certificate, System.Security.Cryptography.X509Certificates.X509Chain chain, System.Net.Security.SslPolicyErrors sslPolicyErrors)
+   {
+      //Console.WriteLine(certificate);
+      return true;
+   }
+
    [HttpPost]
    public IActionResult Otp(OtpModel model)
    {
@@ -156,6 +178,41 @@ public class AuthController : Controller
          var rows = _context.SaveChanges();
          if (rows > 0)
          {
+      
+            //============= Message ==================
+            var message = new MimeMessage();
+            message.From.Add(new MailboxAddress("آموزشگاه برنامه نویس",_emailSettings.Username));
+            message.To.Add(new MailboxAddress(otp.User.LastName,otp.User.Email));
+            message.Subject = "به مدیریت تصاویر خوش آمدید";
+            
+            var body = new TextPart(TextFormat.Html)
+            {
+               Text = "به برنامه <a href='https://barnameneviss.ir/'>برنامه نویس</a> خوش آمدید"
+            };
+
+            var multipartBody = new Multipart("mixed");
+            multipartBody.Add(body);
+            
+            var stream = new FileStream(Path.Combine(_env.WebRootPath,"1.jpg"), FileMode.Open);
+            var attachment = new MimePart ("image/jpg") {
+               Content = new MimeContent (stream),
+               ContentDisposition = new ContentDisposition (ContentDisposition.Attachment),
+               ContentTransferEncoding = ContentEncoding.Base64,
+               FileName = Path.GetFileName ("berry.jpg")
+            };
+            multipartBody.Add (attachment);
+            message.Body = multipartBody;
+            
+            //===============================
+            
+            //send email
+            System.Net.ServicePointManager.ServerCertificateValidationCallback = new System.Net.Security.RemoteCertificateValidationCallback(RemoteServerCertificateValidationCallback);
+            var client = new SmtpClient();
+            client.Connect(_emailSettings.SmtpServer,_emailSettings.Port,_emailSettings.SSL);
+            client.Authenticate(_emailSettings.Username,_emailSettings.Password);
+            client.Send(message);
+            client.Disconnect(true);
+            
             return RedirectToAction("Login");
          }
          else

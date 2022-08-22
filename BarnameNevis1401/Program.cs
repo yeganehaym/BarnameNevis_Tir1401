@@ -1,4 +1,5 @@
 using BarnameNevis1401.Data;
+using BarnameNevis1401.Email;
 using BarnameNevis1401.Services;
 using Hangfire;
 using Hangfire.SqlServer;
@@ -11,9 +12,11 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews()
     .AddRazorRuntimeCompilation();
 
+builder.Services.Configure<EmailSettings>(x => builder.Configuration.Bind("email",x));
+
 builder.Services.AddDbContextPool<ApplicationDbContext>(options =>
 {
-    options.UseSqlServer("server=.;database=gallery;trusted_connection=true;TrustServerCertificate=true");
+    options.UseSqlServer(builder.Configuration.GetConnectionString("default"));
 });
 
 builder.Services.AddScoped<UserService>();
@@ -33,7 +36,7 @@ builder.Services.AddHangfire(configuration => configuration
     .SetDataCompatibilityLevel(CompatibilityLevel.Version_170)
     .UseSimpleAssemblyNameTypeSerializer()
     .UseRecommendedSerializerSettings()
-    .UseSqlServerStorage("server=.;database=gallery;trusted_connection=true;TrustServerCertificate=true", new SqlServerStorageOptions
+    .UseSqlServerStorage(builder.Configuration.GetConnectionString("hangfire"), new SqlServerStorageOptions
     {
         CommandBatchMaxTimeout = TimeSpan.FromMinutes(5),
         SlidingInvisibilityTimeout = TimeSpan.FromMinutes(5),
