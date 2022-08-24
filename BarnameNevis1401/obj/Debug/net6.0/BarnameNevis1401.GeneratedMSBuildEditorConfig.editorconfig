@@ -75,6 +75,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/TirAspCore/gallery/BarnameNevis1401/Views/Tag/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFnXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/TirAspCore/gallery/BarnameNevis1401/Views/Test/Occasions.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVzdFxPY2Nhc2lvbnMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

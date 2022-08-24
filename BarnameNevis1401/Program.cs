@@ -20,6 +20,7 @@ builder.Services.AddDbContextPool<ApplicationDbContext>(options =>
 });
 
 builder.Services.AddScoped<UserService>();
+builder.Services.AddScoped<TagService>();
 
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(options =>

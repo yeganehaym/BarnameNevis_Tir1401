@@ -1,0 +1,77 @@
+﻿@section Header{
+    <link href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css" rel="stylesheet"/>
+    <link href="~/css/dataTables.bootstrap5.min.css" rel="stylesheet"/>
+}
+
+@section Scripts
+{
+    <script src="//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script>
+    $(document).ready( function () {
+        var table=$('#myTable').DataTable({
+        serverSide:true,
+       // lengthMenu:[[2,5,20],['Two','Pay','20ta']],
+        ajax:{
+            url:'@Url.Action("LoadTags")',
+            type:'Get'
+            },
+        columns:[
+            {name:'id',data:'id',searchable:false,orderable:false,render(data, type, row, meta){
+
+                    return '1';
+                }
+            },
+            {name:'name',data:'name'},
+            {name:'date',data:'date',render(data, type, row, meta){
+                return data + '<br/>' + row.time;
+            }},
+            {name:'imagesCount',data:'imagesCount'},
+            {name:'actons',data:'id',searchable:false,orderable:false,render(data, type, row, meta){
+                return `
+                <a class="btn btn-warning" href="/tag/edit/${data}" target="_blank">Edit</a>
+                <button class="btn btn-danger btnDelete" data-id="${data}">Delete</button>
+                `;
+            }}
+        ]
+        });
+        
+        
+        $("#myTable").on("click",".btnDelete",function (){
+                         var id=$(this).data("id");
+                         $.ajax({
+                         url:'@Url.Action("RemoveTag")',
+                         data:{id},
+                         type:'post',
+                         success:function (data){
+                             if (data.result==true)
+                             {
+                                 alert('OK');
+                                 table.ajax.reload();
+                             }
+                             else{
+                                 alert('Error');
+                                 }
+                             },
+                             error:function (data){
+                             }
+                         })
+                     });
+        
+    } );
+    </script>
+   
+}
+<table id="myTable" class="table table-striped table-bordered">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>عنوان برچسب</th>
+        <th>زمان ایجاد</th>
+        <th>تعداد تصاویر</th>
+        <th>عملیات</th>
+    </tr>
+    </thead>
+    <tbody>
+ 
+    </tbody>
+</table>
