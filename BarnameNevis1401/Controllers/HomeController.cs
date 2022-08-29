@@ -1,6 +1,8 @@
 ﻿using System.Diagnostics;
 using BarnameNevis1401.Data;
-using BarnameNevis1401.Data.Entities;
+using BarnameNevis1401.Data.SqlServer;
+using BarnameNevis1401.Domains;
+using BarnameNevis1401.Domains.Users;
 using Microsoft.AspNetCore.Mvc;
 using BarnameNevis1401.Models;
 using Microsoft.AspNetCore.Authorization;

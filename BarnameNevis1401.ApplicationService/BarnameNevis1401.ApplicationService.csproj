@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.7" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\BarnameNevis1401.Core\BarnameNevis1401.Core.csproj" />
+      <ProjectReference Include="..\BarnameNevis1401.Data.SqlServer\BarnameNevis1401.Data.SqlServer.csproj" />
+      <ProjectReference Include="..\BarnameNevis1401.Domains\BarnameNevis1401.Domains.csproj" />
+      <ProjectReference Include="..\BarnameNevis1401.Infrastructure\BarnameNevis1401.Infrastructure.csproj" />
+    </ItemGroup>
+
+</Project>

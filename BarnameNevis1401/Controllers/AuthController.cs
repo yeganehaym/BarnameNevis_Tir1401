@@ -1,11 +1,13 @@
 ﻿using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
+using BarnameNevis1401.ApplicationService;
 using BarnameNevis1401.Data;
-using BarnameNevis1401.Data.Entities;
+using BarnameNevis1401.Data.SqlServer;
+using BarnameNevis1401.Domains.Users;
 using BarnameNevis1401.Email;
+using BarnameNevis1401.Infrastructure;
 using BarnameNevis1401.Models;
-using BarnameNevis1401.Services;
 using BarnameNevis1401.SmsManagers;
 using Ghasedak.Core;
 using Hangfire;

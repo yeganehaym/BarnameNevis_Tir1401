@@ -25,9 +25,24 @@
     </ItemGroup>
 
     <ItemGroup>
+      <Folder Include="Data\Configs" />
+      <Folder Include="Data\Conversions" />
+      <Folder Include="Data\Entities" />
+      <Folder Include="Data\Selectmodels" />
+      <Folder Include="Migrations" />
       <Folder Include="Pages" />
       <Folder Include="Pictures" />
+      <Folder Include="Services" />
+      <Folder Include="wwwroot\lib\datatable" />
       <Folder Include="wwwroot\plugins" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\BarnameNevis1401.ApplicationService\BarnameNevis1401.ApplicationService.csproj" />
+      <ProjectReference Include="..\BarnameNevis1401.Core\BarnameNevis1401.Core.csproj" />
+      <ProjectReference Include="..\BarnameNevis1401.Data.SqlServer\BarnameNevis1401.Data.SqlServer.csproj" />
+      <ProjectReference Include="..\BarnameNevis1401.Domains\BarnameNevis1401.Domains.csproj" />
+      <ProjectReference Include="..\BarnameNevis1401.Infrastructure\BarnameNevis1401.Infrastructure.csproj" />
     </ItemGroup>
 
 </Project>

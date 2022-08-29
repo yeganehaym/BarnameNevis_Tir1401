@@ -4,6 +4,334 @@
     "C:\\TirAspCore\\gallery\\BarnameNevis1401\\BarnameNevis1401.csproj": {}
   },
   "projects": {
+    "C:\\TirAspCore\\gallery\\BarnameNevis1401.ApplicationService\\BarnameNevis1401.ApplicationService.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\TirAspCore\\gallery\\BarnameNevis1401.ApplicationService\\BarnameNevis1401.ApplicationService.csproj",
+        "projectName": "BarnameNevis1401.ApplicationService",
+        "projectPath": "C:\\TirAspCore\\gallery\\BarnameNevis1401.ApplicationService\\BarnameNevis1401.ApplicationService.csproj",
+        "packagesPath": "C:\\Users\\8tagco\\.nuget\\packages\\",
+        "outputPath": "C:\\TirAspCore\\gallery\\BarnameNevis1401.ApplicationService\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\8tagco\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\TirAspCore\\gallery\\BarnameNevis1401.Core\\BarnameNevis1401.Core.csproj": {
+                "projectPath": "C:\\TirAspCore\\gallery\\BarnameNevis1401.Core\\BarnameNevis1401.Core.csproj"
+              },
+              "C:\\TirAspCore\\gallery\\BarnameNevis1401.Data.SqlServer\\BarnameNevis1401.Data.SqlServer.csproj": {
+                "projectPath": "C:\\TirAspCore\\gallery\\BarnameNevis1401.Data.SqlServer\\BarnameNevis1401.Data.SqlServer.csproj"
+              },
+              "C:\\TirAspCore\\gallery\\BarnameNevis1401.Domains\\BarnameNevis1401.Domains.csproj": {
+                "projectPath": "C:\\TirAspCore\\gallery\\BarnameNevis1401.Domains\\BarnameNevis1401.Domains.csproj"
+              },
+              "C:\\TirAspCore\\gallery\\BarnameNevis1401.Infrastructure\\BarnameNevis1401.Infrastructure.csproj": {
+                "projectPath": "C:\\TirAspCore\\gallery\\BarnameNevis1401.Infrastructure\\BarnameNevis1401.Infrastructure.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.7, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\TirAspCore\\gallery\\BarnameNevis1401.Core\\BarnameNevis1401.Core.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\TirAspCore\\gallery\\BarnameNevis1401.Core\\BarnameNevis1401.Core.csproj",
+        "projectName": "BarnameNevis1401.Core",
+        "projectPath": "C:\\TirAspCore\\gallery\\BarnameNevis1401.Core\\BarnameNevis1401.Core.csproj",
+        "packagesPath": "C:\\Users\\8tagco\\.nuget\\packages\\",
+        "outputPath": "C:\\TirAspCore\\gallery\\BarnameNevis1401.Core\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\8tagco\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\TirAspCore\\gallery\\BarnameNevis1401.Domains\\BarnameNevis1401.Domains.csproj": {
+                "projectPath": "C:\\TirAspCore\\gallery\\BarnameNevis1401.Domains\\BarnameNevis1401.Domains.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "DNTPersianUtils.Core": {
+              "target": "Package",
+              "version": "[5.4.5, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\TirAspCore\\gallery\\BarnameNevis1401.Data.SqlServer\\BarnameNevis1401.Data.SqlServer.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\TirAspCore\\gallery\\BarnameNevis1401.Data.SqlServer\\BarnameNevis1401.Data.SqlServer.csproj",
+        "projectName": "BarnameNevis1401.Data.SqlServer",
+        "projectPath": "C:\\TirAspCore\\gallery\\BarnameNevis1401.Data.SqlServer\\BarnameNevis1401.Data.SqlServer.csproj",
+        "packagesPath": "C:\\Users\\8tagco\\.nuget\\packages\\",
+        "outputPath": "C:\\TirAspCore\\gallery\\BarnameNevis1401.Data.SqlServer\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\8tagco\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\TirAspCore\\gallery\\BarnameNevis1401.Core\\BarnameNevis1401.Core.csproj": {
+                "projectPath": "C:\\TirAspCore\\gallery\\BarnameNevis1401.Core\\BarnameNevis1401.Core.csproj"
+              },
+              "C:\\TirAspCore\\gallery\\BarnameNevis1401.Domains\\BarnameNevis1401.Domains.csproj": {
+                "projectPath": "C:\\TirAspCore\\gallery\\BarnameNevis1401.Domains\\BarnameNevis1401.Domains.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.7, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.7, )"
+            },
+            "Microsoft.EntityFrameworkCore.Relational": {
+              "target": "Package",
+              "version": "[6.0.7, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[6.0.7, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.7, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\TirAspCore\\gallery\\BarnameNevis1401.Domains\\BarnameNevis1401.Domains.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\TirAspCore\\gallery\\BarnameNevis1401.Domains\\BarnameNevis1401.Domains.csproj",
+        "projectName": "BarnameNevis1401.Domains",
+        "projectPath": "C:\\TirAspCore\\gallery\\BarnameNevis1401.Domains\\BarnameNevis1401.Domains.csproj",
+        "packagesPath": "C:\\Users\\8tagco\\.nuget\\packages\\",
+        "outputPath": "C:\\TirAspCore\\gallery\\BarnameNevis1401.Domains\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\8tagco\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\TirAspCore\\gallery\\BarnameNevis1401.Infrastructure\\BarnameNevis1401.Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\TirAspCore\\gallery\\BarnameNevis1401.Infrastructure\\BarnameNevis1401.Infrastructure.csproj",
+        "projectName": "BarnameNevis1401.Infrastructure",
+        "projectPath": "C:\\TirAspCore\\gallery\\BarnameNevis1401.Infrastructure\\BarnameNevis1401.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\8tagco\\.nuget\\packages\\",
+        "outputPath": "C:\\TirAspCore\\gallery\\BarnameNevis1401.Infrastructure\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\8tagco\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Http.Features": {
+              "target": "Package",
+              "version": "[5.0.17, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
     "C:\\TirAspCore\\gallery\\BarnameNevis1401\\BarnameNevis1401.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -25,7 +353,23 @@
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\TirAspCore\\gallery\\BarnameNevis1401.ApplicationService\\BarnameNevis1401.ApplicationService.csproj": {
+                "projectPath": "C:\\TirAspCore\\gallery\\BarnameNevis1401.ApplicationService\\BarnameNevis1401.ApplicationService.csproj"
+              },
+              "C:\\TirAspCore\\gallery\\BarnameNevis1401.Core\\BarnameNevis1401.Core.csproj": {
+                "projectPath": "C:\\TirAspCore\\gallery\\BarnameNevis1401.Core\\BarnameNevis1401.Core.csproj"
+              },
+              "C:\\TirAspCore\\gallery\\BarnameNevis1401.Data.SqlServer\\BarnameNevis1401.Data.SqlServer.csproj": {
+                "projectPath": "C:\\TirAspCore\\gallery\\BarnameNevis1401.Data.SqlServer\\BarnameNevis1401.Data.SqlServer.csproj"
+              },
+              "C:\\TirAspCore\\gallery\\BarnameNevis1401.Domains\\BarnameNevis1401.Domains.csproj": {
+                "projectPath": "C:\\TirAspCore\\gallery\\BarnameNevis1401.Domains\\BarnameNevis1401.Domains.csproj"
+              },
+              "C:\\TirAspCore\\gallery\\BarnameNevis1401.Infrastructure\\BarnameNevis1401.Infrastructure.csproj": {
+                "projectPath": "C:\\TirAspCore\\gallery\\BarnameNevis1401.Infrastructure\\BarnameNevis1401.Infrastructure.csproj"
+              }
+            }
           }
         },
         "warningProperties": {

@@ -1,6 +1,8 @@
 ﻿using System.Security.Claims;
 using BarnameNevis1401.Data;
-using BarnameNevis1401.Data.Entities;
+using BarnameNevis1401.Data.SqlServer;
+using BarnameNevis1401.Domains.Images;
+using BarnameNevis1401.Infrastructure;
 using BarnameNevis1401.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -53,7 +55,9 @@ public class ImageController : Controller
                 FileSize = model.Picture.Length,
                 Type = model.Picture.ContentType,
                 UserId = userId,
-                Image = image
+                Image = image,
+                Names = new []{"canon","fp2","light"},
+                UploadTimeDuration = TimeSpan.FromSeconds(5)
             };
             _context.ImageItems.Add(imageItem);
             var rows = _context.SaveChanges();
