@@ -5,7 +5,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BarnameNevis1401.ApplicationService;
 
-public class TagService
+
+public class TagService : ITagService
 {
     private ApplicationDbContext _context;
 
@@ -64,5 +65,17 @@ public class TagService
     public async Task<Tag> FindTagAsync(int id)
     {
         return await _context.Tags.FindAsync(id);
+    }
+}
+
+public class Test : ITest
+{
+    public Test(string s)
+    {
+        
+    }
+    public void X()
+    {
+        throw new NotImplementedException();
     }
 }

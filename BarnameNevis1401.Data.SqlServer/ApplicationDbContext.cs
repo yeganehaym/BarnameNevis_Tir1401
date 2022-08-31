@@ -3,6 +3,7 @@ using BarnameNevis1401.Data.SqlServer.Configs;
 using BarnameNevis1401.Data.SqlServer.Conversions;
 using BarnameNevis1401.Domains;
 using BarnameNevis1401.Domains.Images;
+using BarnameNevis1401.Domains.Payments;
 using BarnameNevis1401.Domains.Users;
 using Microsoft.EntityFrameworkCore;
 
@@ -20,6 +21,7 @@ public class ApplicationDbContext:DbContext
     public DbSet<Tag> Tags { get; set; }
     public DbSet<ImageTag> ImageTags { get; set; }
     public DbSet<OtpCode> OtpCodes { get; set; }
+    public DbSet<Payment> Payments { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

@@ -428,6 +428,22 @@
               "target": "Package",
               "version": "[13.0.1, )"
             },
+            "Parbad": {
+              "target": "Package",
+              "version": "[3.8.3, )"
+            },
+            "Parbad.AspNetCore": {
+              "target": "Package",
+              "version": "[1.2.0, )"
+            },
+            "Parbad.Gateway.ZarinPal": {
+              "target": "Package",
+              "version": "[1.2.0, )"
+            },
+            "Parbad.Storage.Cache": {
+              "target": "Package",
+              "version": "[1.2.0, )"
+            },
             "RestSharp": {
               "target": "Package",
               "version": "[108.0.1, )"

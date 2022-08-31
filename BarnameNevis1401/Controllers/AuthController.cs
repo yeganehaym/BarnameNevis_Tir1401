@@ -2,6 +2,7 @@
 using System.Security.Cryptography;
 using System.Text;
 using BarnameNevis1401.ApplicationService;
+using BarnameNevis1401.Core;
 using BarnameNevis1401.Data;
 using BarnameNevis1401.Data.SqlServer;
 using BarnameNevis1401.Domains.Users;
@@ -27,10 +28,10 @@ public class AuthController : Controller
 {
    private ApplicationDbContext _context;
    private readonly IWebHostEnvironment _env;
-   private UserService _userService;
+   private IUserService _userService;
    private EmailSettings _emailSettings;
 
-   public AuthController(ApplicationDbContext context,IWebHostEnvironment _env, UserService userService,IOptionsSnapshot<EmailSettings> options)
+   public AuthController(ApplicationDbContext context,IWebHostEnvironment _env, IUserService userService,IOptionsSnapshot<EmailSettings> options)
    {
       _context = context;
       this._env = _env;
@@ -89,24 +90,29 @@ public class AuthController : Controller
       if (ModelState.IsValid)
       {
          var isExists =await _userService.IsExists(model.Username,model.Email,model.MobileNumber);
-         if (isExists.UsernameExists)
+         if (isExists != null)
          {
-            ModelState.AddModelError("Username","نام کاربری تکراری است");
-         }
-         if (isExists.MobileExists)
-         {
-            ModelState.AddModelError("MobileNumber","شماره همراه  تکراری است");
-         }
-         if (isExists.EmailExists)
-         {
-            ModelState.AddModelError("Email","ایمیل  تکراری است");
+            if (isExists.UsernameExists)
+            {
+               ModelState.AddModelError("Username","نام کاربری تکراری است");
+            }
+            if (isExists.MobileExists)
+            {
+               ModelState.AddModelError("MobileNumber","شماره همراه  تکراری است");
+            }
+            if (isExists.EmailExists)
+            {
+               ModelState.AddModelError("Email","ایمیل  تکراری است");
+            }
+            
+            if (isExists.IsExists)
+            {
+               return View(model);
+
+            }
          }
 
-         if (isExists.IsExists)
-         {
-            return View(model);
-
-         }
+        
 
          var newUser = new User()
          {

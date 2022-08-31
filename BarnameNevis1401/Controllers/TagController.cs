@@ -10,11 +10,11 @@ namespace BarnameNevis1401.Controllers;
 
 public class TagController : Controller
 {
-    private TagService _tagService;
+    private ITagService _tagService;
 
     private ApplicationDbContext _context;
     // GET
-    public TagController(TagService tagService, ApplicationDbContext context)
+    public TagController(ITagService tagService, ApplicationDbContext context)
     {
         _tagService = tagService;
         _context = context;

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Csz6uQjBzS7YXWL3cEm2VGO18yStq9c6iPgLp2nU/HCsodlKXJp6USI2Vn0HbFLYJ2noIZ+zrDg2inx2XtqoVw==",
+  "dgSpecHash": "4WiZ9EITS/3VcZ5Ni7v665/cVcYOUia7dXk+zATgf9AF1SjyGBE3izRYJaRO7mAQNhG9yPcyGFOBPIrTxQoiIA==",
   "success": true,
   "projectFilePath": "C:\\TirAspCore\\gallery\\BarnameNevis1401\\BarnameNevis1401.csproj",
   "expectedPackageFiles": [
@@ -49,6 +49,11 @@
     "C:\\Users\\8tagco\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
     "C:\\Users\\8tagco\\.nuget\\packages\\mimekit\\3.3.0\\mimekit.3.3.0.nupkg.sha512",
     "C:\\Users\\8tagco\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\8tagco\\.nuget\\packages\\parbad\\3.8.3\\parbad.3.8.3.nupkg.sha512",
+    "C:\\Users\\8tagco\\.nuget\\packages\\parbad.aspnetcore\\1.2.0\\parbad.aspnetcore.1.2.0.nupkg.sha512",
+    "C:\\Users\\8tagco\\.nuget\\packages\\parbad.gateway.zarinpal\\1.2.0\\parbad.gateway.zarinpal.1.2.0.nupkg.sha512",
+    "C:\\Users\\8tagco\\.nuget\\packages\\parbad.storage.abstractions\\1.0.0\\parbad.storage.abstractions.1.0.0.nupkg.sha512",
+    "C:\\Users\\8tagco\\.nuget\\packages\\parbad.storage.cache\\1.2.0\\parbad.storage.cache.1.2.0.nupkg.sha512",
     "C:\\Users\\8tagco\\.nuget\\packages\\portable.bouncycastle\\1.9.0\\portable.bouncycastle.1.9.0.nupkg.sha512",
     "C:\\Users\\8tagco\\.nuget\\packages\\restsharp\\108.0.1\\restsharp.108.0.1.nupkg.sha512",
     "C:\\Users\\8tagco\\.nuget\\packages\\runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",

@@ -1,4 +1,5 @@
 ﻿using BarnameNevis1401.Domains.Images;
+using BarnameNevis1401.Domains.Payments;
 
 namespace BarnameNevis1401.Domains.Users;
 
@@ -18,6 +19,7 @@ public class User:BaseEntity
     public string Mobile { get; set; }
     public bool IsActive { get; set; }
 
+    public List<Payment> Payments { get; set; }
     public List<ImageItem> ImageItems { get; set; }
     public List<OtpCode> OtpCodes { get; set; }
 }

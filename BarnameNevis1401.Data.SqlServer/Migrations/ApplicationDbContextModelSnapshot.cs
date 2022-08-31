@@ -115,6 +115,56 @@ namespace BarnameNevis1401.Data.SqlServer.Migrations
                     b.ToTable("Tags");
                 });
 
+            modelBuilder.Entity("BarnameNevis1401.Domains.Payments.Payment", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Discount")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Gateway")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsRemoved")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ModificationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("PaymentTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<long>("Price")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("RefCode")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("VAT")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Payments");
+                });
+
             modelBuilder.Entity("BarnameNevis1401.Domains.Product", b =>
                 {
                     b.Property<int>("Id")
@@ -274,6 +324,17 @@ namespace BarnameNevis1401.Data.SqlServer.Migrations
                     b.Navigation("Tag");
                 });
 
+            modelBuilder.Entity("BarnameNevis1401.Domains.Payments.Payment", b =>
+                {
+                    b.HasOne("BarnameNevis1401.Domains.Users.User", "User")
+                        .WithMany("Payments")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("BarnameNevis1401.Domains.Users.OtpCode", b =>
                 {
                     b.HasOne("BarnameNevis1401.Domains.Users.User", "User")
@@ -300,6 +361,8 @@ namespace BarnameNevis1401.Data.SqlServer.Migrations
                     b.Navigation("ImageItems");
 
                     b.Navigation("OtpCodes");
+
+                    b.Navigation("Payments");
                 });
 #pragma warning restore 612, 618
         }

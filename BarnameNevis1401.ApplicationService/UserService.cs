@@ -6,7 +6,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BarnameNevis1401.ApplicationService;
 
-public class UserService
+
+
+public class UserService:IUserService
 {
     private ApplicationDbContext _context;
     public UserService(ApplicationDbContext context)
@@ -62,4 +64,6 @@ public class UserService
             .Users
             .FirstOrDefault(x => x.Username == username && x.Password == password.Hash() && x.IsActive);
     }
+
+  
 }

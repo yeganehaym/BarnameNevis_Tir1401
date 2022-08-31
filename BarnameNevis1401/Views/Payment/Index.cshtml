@@ -1,0 +1,7 @@
+﻿@model BarnameNevis1401.Models.PayModel
+<form method="post">
+    <div asp-validation-summary="All"></div>
+    <input type="number" step="1" class="form-control" placeholder="GB" asp-for="Size">
+    <input type="text" class="form-control" placeholder="Discount Code" asp-for="DiscountCode"/>
+    <button type="submit" class="btn btn-success">Pay</button>
+</form>

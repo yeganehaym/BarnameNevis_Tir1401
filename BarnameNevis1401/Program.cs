@@ -1,4 +1,5 @@
 using BarnameNevis1401.ApplicationService;
+using BarnameNevis1401.Core;
 using BarnameNevis1401.Data;
 using BarnameNevis1401.Data.SqlServer;
 using BarnameNevis1401.Email;
@@ -6,6 +7,9 @@ using Hangfire;
 using Hangfire.SqlServer;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
+using Parbad.Builder;
+using Parbad.Gateway.Mellat;
+using Parbad.Gateway.ZarinPal;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,8 +24,16 @@ builder.Services.AddDbContextPool<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("default"));
 });
 
-builder.Services.AddScoped<UserService>();
-builder.Services.AddScoped<TagService>();
+
+
+builder.Services.AddScoped<IUserService,UserService>();
+builder.Services.AddScoped<ITagService,TagService>();
+builder.Services.AddScoped<IPaymentService,PaymentService>();
+builder.Services.AddScoped<ITest>(options =>
+{
+    var service=options.GetService<IUserService>();
+    return new Test("ConnctionString");
+});
 
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(options =>
@@ -50,6 +62,31 @@ builder.Services.AddHangfire(configuration => configuration
 // Add the processing server as IHostedService
 builder.Services.AddHangfireServer();
 
+builder.Services.AddParbad()
+    .ConfigureGateways(gateways =>
+    {
+        gateways.AddZarinPal()
+            .WithAccounts(accounts =>
+            {
+                accounts.AddInMemory(account =>
+                {
+                    account.IsSandbox = bool.Parse(builder.Configuration["gateways:zarinpal:sandbox"]);
+                    account.MerchantId = builder.Configuration["gateways:zarinpal:merchantId"];
+                    account.Name = "Default";
+                });
+
+            });
+
+
+    })
+    .ConfigureStorage(storage =>
+    {
+        storage.UseMemoryCache();
+    })
+    .ConfigureHttpContext(builder =>
+    {
+        builder.UseDefaultAspNetCore();
+    });
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -73,6 +110,7 @@ app.UseEndpoints(endpoints =>
     endpoints.MapControllers();
     endpoints.MapHangfireDashboard();
 });
+
 
 app.MapControllerRoute(
     name: "default",
