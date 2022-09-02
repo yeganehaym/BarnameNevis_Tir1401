@@ -3,18 +3,39 @@
 @{
     Layout = "_AuthLayout";
 }
-<form method="post">
-    <input type="text" class="form-control" asp-for="Username" placeholder="نام کاربری"/>
+<form method="post" class="mb-3">
+    
+    <label asp-for="Username">Username : </label>
+    <input type="text" class="form-control" asp-for="Username" />
     <span asp-validation-for="Username"></span>
-    <input type="password" class="form-control" asp-for="Password" placeholder="کلمه عبور"/>
+    <br>
+    
+    <label asp-for="Password">Password : </label>
+    <input type="password" class="form-control" asp-for="Password" />
     <span asp-validation-for="Password"></span>
-       <input type="password" class="form-control" asp-for="RePassword" placeholder="تکرار کلمه عبور"/>
+    <br>
+    
+    <label asp-for="RePassword">Re Password : </label>
+    <input type="password" class="form-control" asp-for="RePassword" />
     <span asp-validation-for="RePassword"></span>
-       <input type="text" class="form-control" asp-for="Email" placeholder="ایمیل"/>
+    <br>
+    
+    <label asp-for="Email">Email : </label>
+    <input type="text" class="form-control" asp-for="Email" />
     <span asp-validation-for="Email"></span>
-       <input type="text" class="form-control" asp-for="MobileNumber" placeholder="موبایل"/>
+    <br>
+    
+    <label asp-for="MobileNumber">Mobile Number : </label>
+    <input type="text" class="form-control" asp-for="MobileNumber" />
     <span asp-validation-for="MobileNumber"></span>
-    
-    
+    <br>
+
     <button type="submit" class="btn btn-success btn-block">Register</button>
+    
 </form>
+
+<div>
+    You already have an account ?
+    <a asp-controller="Auth" asp-action="Login">Sign in</a>
+</div>
+

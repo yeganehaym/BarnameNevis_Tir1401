@@ -37,8 +37,8 @@
       <Folder Include="Pages" />
       <Folder Include="Pictures" />
       <Folder Include="Services" />
+      <Folder Include="wwwroot\dist\fonts\iranyekan" />
       <Folder Include="wwwroot\lib\datatable" />
-      <Folder Include="wwwroot\plugins" />
     </ItemGroup>
 
     <ItemGroup>
@@ -47,6 +47,57 @@
       <ProjectReference Include="..\BarnameNevis1401.Data.SqlServer\BarnameNevis1401.Data.SqlServer.csproj" />
       <ProjectReference Include="..\BarnameNevis1401.Domains\BarnameNevis1401.Domains.csproj" />
       <ProjectReference Include="..\BarnameNevis1401.Infrastructure\BarnameNevis1401.Infrastructure.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="wwwroot\dist\svg\iranyekanwebblackfanum.svg" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\svg\iranyekanwebboldfanum.svg" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\svg\iranyekanwebextrablackfanum.svg" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\svg\iranyekanwebextraboldfanum.svg" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\svg\iranyekanweblightfanum.svg" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\svg\iranyekanwebmediumfanum.svg" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\svg\iranyekanwebregularfanum.svg" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\svg\iranyekanwebthinfanum.svg" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\ttf\iranyekanwebblackfanum.ttf" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\ttf\iranyekanwebboldfanum.ttf" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\ttf\iranyekanwebextrablackfanum.ttf" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\ttf\iranyekanwebextraboldfanum.ttf" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\ttf\iranyekanweblightfanum.ttf" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\ttf\iranyekanwebmediumfanum.ttf" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\ttf\iranyekanwebregularfanum.ttf" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\ttf\iranyekanwebthinfanum.ttf" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\woff\iranyekanwebblackfanum.woff" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\woff\iranyekanwebboldfanum.woff" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\woff\iranyekanwebextrablackfanum.woff" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\woff\iranyekanwebextraboldfanum.woff" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\woff\iranyekanweblightfanum.woff" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\woff\iranyekanwebmediumfanum.woff" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\woff\iranyekanwebregularfanum.woff" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\woff\iranyekanwebthinfanum.woff" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\fonts\ttf\iranyekanwebblackfanum.ttf" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\fonts\ttf\iranyekanwebboldfanum.ttf" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\fonts\ttf\iranyekanwebextrablackfanum.ttf" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\fonts\ttf\iranyekanwebextraboldfanum.ttf" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\fonts\ttf\iranyekanweblightfanum.ttf" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\fonts\ttf\iranyekanwebmediumfanum.ttf" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\fonts\ttf\iranyekanwebregularfanum.ttf" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\fonts\ttf\iranyekanwebthinfanum.ttf" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\fonts\woff\iranyekanwebblackfanum.woff" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\fonts\woff\iranyekanwebboldfanum.woff" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\fonts\woff\iranyekanwebextrablackfanum.woff" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\fonts\woff\iranyekanwebextraboldfanum.woff" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\fonts\woff\iranyekanweblightfanum.woff" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\fonts\woff\iranyekanwebmediumfanum.woff" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\fonts\woff\iranyekanwebregularfanum.woff" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\fonts\woff\iranyekanwebthinfanum.woff" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\fonts\eot\iranyekanwebblackfanum.eot" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\fonts\eot\iranyekanwebboldfanum.eot" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\fonts\eot\iranyekanwebextrablackfanum.eot" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\fonts\eot\iranyekanwebextraboldfanum.eot" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\fonts\eot\iranyekanweblightfanum.eot" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\fonts\eot\iranyekanwebmediumfanum.eot" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\fonts\eot\iranyekanwebregularfanum.eot" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\fonts\eot\iranyekanwebthinfanum.eot" />
     </ItemGroup>
 
 </Project>

@@ -67,7 +67,7 @@ public class AuthController : Controller
          claim.AddClaim(new Claim(ClaimTypes.Name,user.FullName));
          var claimPrincipals = new ClaimsPrincipal(claim);
          await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,claimPrincipals);
-         return RedirectToAction("TestCookie", "Test");
+         return RedirectToAction("Index", "Home");
       }
       return View(model);
    }
