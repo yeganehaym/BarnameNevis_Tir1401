@@ -3660,19 +3660,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\8tagco\\.nuget\\packages\\": {}
+    "C:\\Users\\gh\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\TirAspCore\\gallery\\BarnameNevis1401\\BarnameNevis1401.csproj",
+      "projectUniqueName": "E:\\Programming\\Dotnet\\BarnameNevis_Tir1401\\BarnameNevis1401\\BarnameNevis1401.csproj",
       "projectName": "BarnameNevis1401",
-      "projectPath": "C:\\TirAspCore\\gallery\\BarnameNevis1401\\BarnameNevis1401.csproj",
-      "packagesPath": "C:\\Users\\8tagco\\.nuget\\packages\\",
-      "outputPath": "C:\\TirAspCore\\gallery\\BarnameNevis1401\\obj\\",
+      "projectPath": "E:\\Programming\\Dotnet\\BarnameNevis_Tir1401\\BarnameNevis1401\\BarnameNevis1401.csproj",
+      "packagesPath": "C:\\Users\\gh\\.nuget\\packages\\",
+      "outputPath": "E:\\Programming\\Dotnet\\BarnameNevis_Tir1401\\BarnameNevis1401\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\8tagco\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\gh\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
@@ -3684,20 +3684,20 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\TirAspCore\\gallery\\BarnameNevis1401.ApplicationService\\BarnameNevis1401.ApplicationService.csproj": {
-              "projectPath": "C:\\TirAspCore\\gallery\\BarnameNevis1401.ApplicationService\\BarnameNevis1401.ApplicationService.csproj"
+            "E:\\Programming\\Dotnet\\BarnameNevis_Tir1401\\BarnameNevis1401.ApplicationService\\BarnameNevis1401.ApplicationService.csproj": {
+              "projectPath": "E:\\Programming\\Dotnet\\BarnameNevis_Tir1401\\BarnameNevis1401.ApplicationService\\BarnameNevis1401.ApplicationService.csproj"
             },
-            "C:\\TirAspCore\\gallery\\BarnameNevis1401.Core\\BarnameNevis1401.Core.csproj": {
-              "projectPath": "C:\\TirAspCore\\gallery\\BarnameNevis1401.Core\\BarnameNevis1401.Core.csproj"
+            "E:\\Programming\\Dotnet\\BarnameNevis_Tir1401\\BarnameNevis1401.Core\\BarnameNevis1401.Core.csproj": {
+              "projectPath": "E:\\Programming\\Dotnet\\BarnameNevis_Tir1401\\BarnameNevis1401.Core\\BarnameNevis1401.Core.csproj"
             },
-            "C:\\TirAspCore\\gallery\\BarnameNevis1401.Data.SqlServer\\BarnameNevis1401.Data.SqlServer.csproj": {
-              "projectPath": "C:\\TirAspCore\\gallery\\BarnameNevis1401.Data.SqlServer\\BarnameNevis1401.Data.SqlServer.csproj"
+            "E:\\Programming\\Dotnet\\BarnameNevis_Tir1401\\BarnameNevis1401.Data.SqlServer\\BarnameNevis1401.Data.SqlServer.csproj": {
+              "projectPath": "E:\\Programming\\Dotnet\\BarnameNevis_Tir1401\\BarnameNevis1401.Data.SqlServer\\BarnameNevis1401.Data.SqlServer.csproj"
             },
-            "C:\\TirAspCore\\gallery\\BarnameNevis1401.Domains\\BarnameNevis1401.Domains.csproj": {
-              "projectPath": "C:\\TirAspCore\\gallery\\BarnameNevis1401.Domains\\BarnameNevis1401.Domains.csproj"
+            "E:\\Programming\\Dotnet\\BarnameNevis_Tir1401\\BarnameNevis1401.Domains\\BarnameNevis1401.Domains.csproj": {
+              "projectPath": "E:\\Programming\\Dotnet\\BarnameNevis_Tir1401\\BarnameNevis1401.Domains\\BarnameNevis1401.Domains.csproj"
             },
-            "C:\\TirAspCore\\gallery\\BarnameNevis1401.Infrastructure\\BarnameNevis1401.Infrastructure.csproj": {
-              "projectPath": "C:\\TirAspCore\\gallery\\BarnameNevis1401.Infrastructure\\BarnameNevis1401.Infrastructure.csproj"
+            "E:\\Programming\\Dotnet\\BarnameNevis_Tir1401\\BarnameNevis1401.Infrastructure\\BarnameNevis1401.Infrastructure.csproj": {
+              "projectPath": "E:\\Programming\\Dotnet\\BarnameNevis_Tir1401\\BarnameNevis1401.Infrastructure\\BarnameNevis1401.Infrastructure.csproj"
             }
           }
         }

@@ -2,11 +2,23 @@
 @{
     Layout = "_AuthLayout";
 }
-<form method="post">
+<form method="post" class="mb-3">
+    
+    <label asp-for="Username" class="form-label">User name : </label>
     <input type="text" class="form-control" asp-for="Username"/>
     <span asp-validation-for="Username"></span>
-        <input type="password" class="form-control" asp-for="Password"/>
-    <span asp-validation-for="Password"></span>
+    <br>
     
+    <label asp-for="Password" class="form-label">Password : </label>
+    <input type="password" class="form-control" asp-for="Password"/>
+    <span asp-validation-for="Password"></span>
+    <br>
+
     <button type="submit" class="btn btn-success btn-block">Login</button>
+    
+    
 </form>
+<div>
+    You don't have any account ?
+    <a asp-controller="Auth" asp-action="Register">Sign up</a>
+</div>
