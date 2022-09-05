@@ -8,97 +8,101 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = BarnameNevis1401
 build_property.RootNamespace = BarnameNevis1401
-build_property.ProjectDir = E:\Programming\Dotnet\BarnameNevis_Tir1401\BarnameNevis1401\
+build_property.ProjectDir = C:\TirAspCore\gallery\BarnameNevis1401\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = true
-build_property.MSBuildProjectDirectory = E:\Programming\Dotnet\BarnameNevis_Tir1401\BarnameNevis1401
+build_property.MSBuildProjectDirectory = C:\TirAspCore\gallery\BarnameNevis1401
 build_property._RazorSourceGeneratorDebug = 
 
-[E:/Programming/Dotnet/BarnameNevis_Tir1401/BarnameNevis1401/Views/Auth/Login.cshtml]
+[C:/TirAspCore/gallery/BarnameNevis1401/Views/Auth/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Programming/Dotnet/BarnameNevis_Tir1401/BarnameNevis1401/Views/Auth/Otp.cshtml]
+[C:/TirAspCore/gallery/BarnameNevis1401/Views/Auth/Otp.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFxPdHAuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Programming/Dotnet/BarnameNevis_Tir1401/BarnameNevis1401/Views/Auth/Register.cshtml]
+[C:/TirAspCore/gallery/BarnameNevis1401/Views/Auth/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Programming/Dotnet/BarnameNevis_Tir1401/BarnameNevis1401/Views/Home/Edit.cshtml]
+[C:/TirAspCore/gallery/BarnameNevis1401/Views/Home/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Programming/Dotnet/BarnameNevis_Tir1401/BarnameNevis1401/Views/Home/Index.cshtml]
+[C:/TirAspCore/gallery/BarnameNevis1401/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Programming/Dotnet/BarnameNevis_Tir1401/BarnameNevis1401/Views/Home/ListProducts.cshtml]
+[C:/TirAspCore/gallery/BarnameNevis1401/Views/Home/ListProducts.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxMaXN0UHJvZHVjdHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Programming/Dotnet/BarnameNevis_Tir1401/BarnameNevis1401/Views/Home/New.cshtml]
+[C:/TirAspCore/gallery/BarnameNevis1401/Views/Home/New.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxOZXcuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Programming/Dotnet/BarnameNevis_Tir1401/BarnameNevis1401/Views/Home/Privacy.cshtml]
+[C:/TirAspCore/gallery/BarnameNevis1401/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Programming/Dotnet/BarnameNevis_Tir1401/BarnameNevis1401/Views/Image/Index.cshtml]
+[C:/TirAspCore/gallery/BarnameNevis1401/Views/Image/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW1hZ2VcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Programming/Dotnet/BarnameNevis_Tir1401/BarnameNevis1401/Views/Image/List.cshtml]
+[C:/TirAspCore/gallery/BarnameNevis1401/Views/Image/List.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW1hZ2VcTGlzdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Programming/Dotnet/BarnameNevis_Tir1401/BarnameNevis1401/Views/Payment/Index.cshtml]
+[C:/TirAspCore/gallery/BarnameNevis1401/Views/Payment/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5bWVudFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Programming/Dotnet/BarnameNevis_Tir1401/BarnameNevis1401/Views/Shared/Error.cshtml]
+[C:/TirAspCore/gallery/BarnameNevis1401/Views/Shared/Components/SpaceReportComponent/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcU3BhY2VSZXBvcnRDb21wb25lbnRcRGVmYXVsdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/TirAspCore/gallery/BarnameNevis1401/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Programming/Dotnet/BarnameNevis_Tir1401/BarnameNevis1401/Views/Shared/_AuthLayout.cshtml]
+[C:/TirAspCore/gallery/BarnameNevis1401/Views/Shared/_AuthLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9BdXRoTGF5b3V0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Programming/Dotnet/BarnameNevis_Tir1401/BarnameNevis1401/Views/Shared/_NavBar.cshtml]
+[C:/TirAspCore/gallery/BarnameNevis1401/Views/Shared/_NavBar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9OYXZCYXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Programming/Dotnet/BarnameNevis_Tir1401/BarnameNevis1401/Views/Shared/_SideBar.cshtml]
+[C:/TirAspCore/gallery/BarnameNevis1401/Views/Shared/_SideBar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9TaWRlQmFyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Programming/Dotnet/BarnameNevis_Tir1401/BarnameNevis1401/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/TirAspCore/gallery/BarnameNevis1401/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Programming/Dotnet/BarnameNevis_Tir1401/BarnameNevis1401/Views/Tag/Index.cshtml]
+[C:/TirAspCore/gallery/BarnameNevis1401/Views/Tag/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFnXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Programming/Dotnet/BarnameNevis_Tir1401/BarnameNevis1401/Views/Test/Occasions.cshtml]
+[C:/TirAspCore/gallery/BarnameNevis1401/Views/Test/Occasions.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVzdFxPY2Nhc2lvbnMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Programming/Dotnet/BarnameNevis_Tir1401/BarnameNevis1401/Views/Test/TestCookie.cshtml]
+[C:/TirAspCore/gallery/BarnameNevis1401/Views/Test/TestCookie.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVzdFxUZXN0Q29va2llLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Programming/Dotnet/BarnameNevis_Tir1401/BarnameNevis1401/Views/_ViewImports.cshtml]
+[C:/TirAspCore/gallery/BarnameNevis1401/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Programming/Dotnet/BarnameNevis_Tir1401/BarnameNevis1401/Views/_ViewStart.cshtml]
+[C:/TirAspCore/gallery/BarnameNevis1401/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Programming/Dotnet/BarnameNevis_Tir1401/BarnameNevis1401/Views/Shared/_Layout.cshtml]
+[C:/TirAspCore/gallery/BarnameNevis1401/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-8qu968194b

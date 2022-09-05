@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 using Parbad.Builder;
 using Parbad.Gateway.Mellat;
+using Parbad.Gateway.Melli;
 using Parbad.Gateway.ZarinPal;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -29,6 +30,7 @@ builder.Services.AddDbContextPool<ApplicationDbContext>(options =>
 builder.Services.AddScoped<IUserService,UserService>();
 builder.Services.AddScoped<ITagService,TagService>();
 builder.Services.AddScoped<IPaymentService,PaymentService>();
+builder.Services.AddScoped<IImageService,ImageService>();
 builder.Services.AddScoped<ITest>(options =>
 {
     var service=options.GetService<IUserService>();
@@ -76,8 +78,7 @@ builder.Services.AddParbad()
                 });
 
             });
-
-
+ 
     })
     .ConfigureStorage(storage =>
     {

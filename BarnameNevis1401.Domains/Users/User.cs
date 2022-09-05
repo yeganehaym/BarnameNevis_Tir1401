@@ -18,6 +18,8 @@ public class User:BaseEntity
     public string Password { get; set; }
     public string Mobile { get; set; }
     public bool IsActive { get; set; }
+    
+    public long Space { get; set; }
 
     public List<Payment> Payments { get; set; }
     public List<ImageItem> ImageItems { get; set; }

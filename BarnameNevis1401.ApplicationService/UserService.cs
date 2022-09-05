@@ -65,5 +65,10 @@ public class UserService:IUserService
             .FirstOrDefault(x => x.Username == username && x.Password == password.Hash() && x.IsActive);
     }
 
-  
+    public async Task<User> FindUserAsync(int userId)
+    {
+        return await _context
+            .Users
+            .FindAsync(userId);
+    }
 }

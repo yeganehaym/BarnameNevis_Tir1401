@@ -13,6 +13,7 @@ public class Payment:BaseEntity
     public int VAT { get; set; }
     public long FinalPrice => (Price - Discount)+(Price - Discount) * VAT / 100; 
     
+    public long Size { get; set; }
     public User User { get; set; }
     public int UserId { get; set; }
 }

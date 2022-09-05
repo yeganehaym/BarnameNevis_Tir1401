@@ -11,6 +11,7 @@ public interface IUserService
     void AddOtpCode(OtpCode otpCode);
     OtpCode GetOtpCode(string code);
     User Login(string username, string password);
+    Task<User> FindUserAsync(int userId);
 }
 
 public interface ITest

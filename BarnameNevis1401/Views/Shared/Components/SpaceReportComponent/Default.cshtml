@@ -1,0 +1,44 @@
+﻿@model SpaceReportModel
+   
+@{
+                  var className = "bg-success";
+
+                  if (Model.Percent > 80)
+                  {
+                    className = "bg-warning";
+                  }
+                  if (Model.Percent > 90)
+                  {
+                    className = "bg-danger";
+                  }
+                  
+}
+
+<li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#">
+          <i class="far fa-comments"></i>
+          <span class="badge badge-danger navbar-badge">@Model.Percent%</span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+          <a href="#" class="dropdown-item">
+            <!-- Message Start -->
+            <div class="media">
+            
+              <div class="media-body">
+                <h3 class="dropdown-item-title">
+                  Disk Space
+                  <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
+                </h3>
+                
+                <div class="progress">
+                  <div class="progress-bar progress-bar-striped @className" role="progressbar" style="width: @Model.Percent%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+              </div>
+            </div>
+            <!-- Message End -->
+          </a>
+          <div class="dropdown-divider"></div>
+          
+          
+        </div>
+      </li>

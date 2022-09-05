@@ -15,16 +15,18 @@ public class PaymentController : Controller
     private IPaymentService _paymentService;
     private IOnlinePayment _onlinePayment;
     private ApplicationDbContext _context;
+    private IUserService _userService;
 
     private readonly IConfiguration _configuration;
 
     // GET
-    public PaymentController(IPaymentService paymentService,IConfiguration _configuration, IOnlinePayment onlinePayment, ApplicationDbContext context)
+    public PaymentController(IPaymentService paymentService,IConfiguration _configuration, IOnlinePayment onlinePayment, ApplicationDbContext context, IHttpContextAccessor httpContextAccessor, IUserService userService)
     {
         _paymentService = paymentService;
         this._configuration = _configuration;
         _onlinePayment = onlinePayment;
         _context = context;
+        _userService = userService;
     }
 
     public IActionResult Index()
@@ -54,7 +56,8 @@ public class PaymentController : Controller
                 Gateway = Gateway.Zarinpal,
                 Price = price,
                 RefCode = "",
-                UserId = User.GetUserId()
+                UserId = User.GetUserId(),
+                Size = model.Size*1024*1024*1204
             };
             await _paymentService.AddNewPaymentAsync(payment);
 
@@ -66,7 +69,7 @@ public class PaymentController : Controller
                 return View(model);
             }
 
-            var callbackUrl = Url.Action("Callback", "Payment", null, null, Request.Scheme);
+            var callbackUrl = Url.Action("Callback", "Payment", null, Request.Scheme, Request.Host.Value);
             var response=await _onlinePayment.RequestAsync(invoice =>
             {
                 invoice.SetAmount(payment.FinalPrice)
@@ -79,6 +82,8 @@ public class PaymentController : Controller
 
             if (response.Status == PaymentRequestResultStatus.Succeed)
             {
+                var url = response.GatewayTransporter.Descriptor.Url;
+                //return Redirect(url);
                 await response.GatewayTransporter.TransportAsync();
             }
 
@@ -90,6 +95,30 @@ public class PaymentController : Controller
 
     public async Task<IActionResult> Callback()
     {
-        return new EmptyResult();
+        var invoice =await _onlinePayment.FetchAsync();
+        var payment = await _paymentService.GetPaymentAsync((int)invoice.TrackingNumber);
+        if (payment == null)
+        {
+            return Content("No Payment");
+        }
+        
+        if (invoice.IsSucceed)
+        {
+            var verifyResult=await _onlinePayment.VerifyAsync(invoice);
+            if (verifyResult.IsSucceed)
+            {
+                payment.Status = PaymentStatus.Success;
+                payment.RefCode = verifyResult.TransactionCode;
+
+                var user = await _userService.FindUserAsync(payment.UserId);
+                user.Space += payment.Size;
+                await _context.SaveChangesAsync();
+                return Content("Payment Is OK");
+            }
+        }
+
+        payment.Status = PaymentStatus.Failed;
+        await _context.SaveChangesAsync();
+        return Content("Not Ok");
     }
 }

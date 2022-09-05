@@ -149,6 +149,9 @@ namespace BarnameNevis1401.Data.SqlServer.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
+                    b.Property<long>("Size")
+                        .HasColumnType("bigint");
+
                     b.Property<int>("Status")
                         .HasColumnType("int");
 
@@ -280,6 +283,9 @@ namespace BarnameNevis1401.Data.SqlServer.Migrations
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
+
+                    b.Property<long>("Space")
+                        .HasColumnType("bigint");
 
                     b.Property<string>("Username")
                         .IsRequired()
