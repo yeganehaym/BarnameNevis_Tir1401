@@ -2,7 +2,12 @@ using BarnameNevis1401.ApplicationService;
 using BarnameNevis1401.Core;
 using BarnameNevis1401.Data;
 using BarnameNevis1401.Data.SqlServer;
+using BarnameNevis1401.Elmah;
 using BarnameNevis1401.Email;
+using ElmahCore;
+using ElmahCore.Mvc;
+using ElmahCore.Mvc.Notifiers;
+using ElmahCore.Sql;
 using Hangfire;
 using Hangfire.SqlServer;
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -88,6 +93,23 @@ builder.Services.AddParbad()
     {
         builder.UseDefaultAspNetCore();
     });
+
+builder.Services.AddElmah<SqlErrorLog>(options =>
+{
+    options.LogPath = Path.Combine(builder.Environment.ContentRootPath, "logs", "elmah");
+    options.OnPermissionCheck = context =>
+    {
+        return context.User?.Identity?.IsAuthenticated??false;
+    };
+    options.ConnectionString = builder.Configuration.GetConnectionString("elmah");
+    options.Filters.Add(new NotFoundErrorFilter());
+    options.Notifiers.Add(new ErrorMailNotifier("test",new EmailOptions()
+    {
+        
+    }));
+    
+    options.Notifiers.Add(new ElmahEmailNotification());
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -97,6 +119,10 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
+else
+{
+    app.UseElmahExceptionPage();
+}
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
@@ -105,6 +131,7 @@ app.UseRouting();
 
 app.UseAuthentication();
 app.UseAuthorization();
+app.UseElmah();
 app.UseHangfireDashboard();
 app.UseEndpoints(endpoints =>
 {

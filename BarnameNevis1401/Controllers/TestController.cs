@@ -1,5 +1,6 @@
 ﻿using BarnameNevis1401.Models;
 using BarnameNevis1401.SmsManagers;
+using ElmahCore;
 using Hangfire;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
@@ -12,6 +13,13 @@ namespace BarnameNevis1401.Controllers;
 [AllowAnonymous]
 public class TestController : Controller
 {
+    private ILogger<TestController> _logger;
+
+    public TestController(ILogger<TestController> logger)
+    {
+        _logger = logger;
+    }
+
     [Authorize(AuthenticationSchemes = CookieAuthenticationDefaults.AuthenticationScheme)]
     // GET
     public IActionResult TestCookie()
@@ -112,4 +120,25 @@ public class TestController : Controller
             "* * * * *");
         return Content("OK");
     }
+
+    public IActionResult TestElmah()
+    {
+        _logger.Log(LogLevel.Information,"تقسیم بر صفر");
+        int c = 0;
+        try
+        {
+            var a = 10;
+            var b = a - 10;
+            c = a / b;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            HttpContext.RaiseError(e);
+        }
+
+        return Content(c.ToString());
+    }
+
+   
 }
