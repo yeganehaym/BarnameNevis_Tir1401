@@ -66,6 +66,11 @@ public class TagService : ITagService
     {
         return await _context.Tags.FindAsync(id);
     }
+
+    public async Task AddTagsAsync(List<Tag> newTags)
+    {
+        await _context.Tags.AddRangeAsync(newTags);
+    }
 }
 
 public class Test : ITest

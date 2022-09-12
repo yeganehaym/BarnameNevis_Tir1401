@@ -386,6 +386,10 @@
               "target": "Package",
               "version": "[5.4.5, )"
             },
+            "EPPlus": {
+              "target": "Package",
+              "version": "[6.0.7, )"
+            },
             "ElmahCore": {
               "target": "Package",
               "version": "[2.1.2, )"

@@ -1,4 +1,5 @@
-﻿using BarnameNevis1401.Domains.Users;
+﻿using System.ComponentModel.DataAnnotations;
+using BarnameNevis1401.Domains.Users;
 
 namespace BarnameNevis1401.Domains.Payments;
 
@@ -24,7 +25,31 @@ public enum Gateway
 }
 public enum PaymentStatus
 {
+    [Display(Name = "نامشخص")]
     None,
+    [Display(Name = "پرداخت موفق")]
     Success,
+    [Display(Name = "پراخت ناموفق")]
     Failed
+}
+
+public static class EnumUtils
+{
+    public static string GetName(this Enum en)
+    {
+        var type = en.GetType().GetMember(en.ToString()).First();
+        
+        foreach (var attr in type.GetCustomAttributes(true))
+        {
+            var attribute = attr as DisplayAttribute;
+
+            if (attribute != null)
+            {
+                return attribute.Name;
+            }
+            
+        }
+
+        return en.ToString();
+    }
 }

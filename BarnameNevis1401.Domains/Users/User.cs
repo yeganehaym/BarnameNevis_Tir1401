@@ -23,5 +23,6 @@ public class User:BaseEntity
 
     public List<Payment> Payments { get; set; }
     public List<ImageItem> ImageItems { get; set; }
+    public List<Tag> Tags { get; set; }
     public List<OtpCode> OtpCodes { get; set; }
 }

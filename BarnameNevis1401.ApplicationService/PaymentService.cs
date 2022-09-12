@@ -64,4 +64,21 @@ public class PaymentService:IPaymentService
     {
         return await _context.Payments.FirstOrDefaultAsync(x => x.RefCode == code);
     }
+
+    public async Task<List<Payment>> GetPaymentsAsync(int? userId, DateTime from, DateTime to)
+    {
+        var query= _context
+            .Payments
+            .AsNoTracking()
+            .AsQueryable();
+        if (userId.HasValue)
+        {
+            query = query.Where(x => x.UserId == userId);
+
+        }
+        return await query
+            .Where(x => x.PaymentTime.HasValue
+                        && x.PaymentTime >= from && x.PaymentTime <= to)
+            .ToListAsync();
+    } 
 }

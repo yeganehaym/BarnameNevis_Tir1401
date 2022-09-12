@@ -9,4 +9,5 @@ public interface IPaymentService
     Task<int> GetPaymentsCountAsync( int? UserId, string search);
     Task<Payment> GetPaymentAsync(int id);
     Task<Payment> GetPaymentAsync(string code);
+    Task<List<Payment>> GetPaymentsAsync(int? userId, DateTime from, DateTime to);
 }

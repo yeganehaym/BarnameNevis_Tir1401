@@ -12,6 +12,7 @@ using Hangfire;
 using Hangfire.SqlServer;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
+using OfficeOpenXml;
 using Parbad.Builder;
 using Parbad.Gateway.Mellat;
 using Parbad.Gateway.Melli;
@@ -110,6 +111,9 @@ builder.Services.AddElmah<SqlErrorLog>(options =>
     
     options.Notifiers.Add(new ElmahEmailNotification());
 });
+
+ExcelPackage.LicenseContext = LicenseContext.Commercial;
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

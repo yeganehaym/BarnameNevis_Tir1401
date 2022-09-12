@@ -10,6 +10,7 @@
       <PackageReference Include="DNTPersianUtils.Core" Version="5.4.5" />
       <PackageReference Include="ElmahCore" Version="2.1.2" />
       <PackageReference Include="ElmahCore.Sql" Version="2.1.2" />
+      <PackageReference Include="EPPlus" Version="6.0.7" />
       <PackageReference Include="Ghasedak.Core" Version="1.1.3" />
       <PackageReference Include="Hangfire.AspNetCore" Version="1.7.30" />
       <PackageReference Include="Hangfire.Core" Version="1.7.30" />

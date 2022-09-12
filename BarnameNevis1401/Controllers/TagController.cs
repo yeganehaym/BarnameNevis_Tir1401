@@ -1,23 +1,25 @@
-﻿using BarnameNevis1401.ApplicationService;
-using BarnameNevis1401.Core;
-using BarnameNevis1401.Data;
+﻿using BarnameNevis1401.Core;
 using BarnameNevis1401.Data.SqlServer;
 using BarnameNevis1401.DataTable;
-using BarnameNevis1401.Models;
+using BarnameNevis1401.Domains.Images;
+using BarnameNevis1401.Infrastructure;
 using Microsoft.AspNetCore.Mvc;
+using OfficeOpenXml;
 
 namespace BarnameNevis1401.Controllers;
 
 public class TagController : Controller
 {
     private ITagService _tagService;
+    private IWebHostEnvironment _env;
 
     private ApplicationDbContext _context;
     // GET
-    public TagController(ITagService tagService, ApplicationDbContext context)
+    public TagController(ITagService tagService, ApplicationDbContext context, IWebHostEnvironment env)
     {
         _tagService = tagService;
         _context = context;
+        _env = env;
     }
 
     public IActionResult Index()
@@ -56,5 +58,49 @@ public class TagController : Controller
         var rows = await _context.SaveChangesAsync();
 
         return Json(new { result = rows > 0 });
+    }
+
+    public IActionResult ReadTags()
+    {
+        return View();
+    }
+    [HttpPost]
+    public async Task<IActionResult> ReadTags(IFormFile file)
+    {
+        var utils = new Utils();
+        var path = Path.Combine(_env.ContentRootPath, "Excels");
+        var fileName=utils.SaveFile(file,path);
+
+        var fullPath = Path.Combine(path, fileName);
+        using (ExcelPackage package=new ExcelPackage(new FileInfo(fullPath)))
+        {
+            var sheet = package.Workbook.Worksheets.First();
+            var rowStart = sheet.Dimension.Start.Row;
+            var rowEnd = sheet.Dimension.End.Row;
+
+            var colStart =sheet.Dimension.Start.Column;
+            var colEnd = sheet.Dimension.Start.Column;
+
+            var tags = new List<string>();
+            for (int i = rowStart;  i<= rowEnd; i++)
+            {
+                var tag = sheet.Cells[i, 1].Value.ToString();
+                tags.Add(tag);
+            }
+
+            var newTags = tags
+                .Select(x => new Tag()
+                {
+                    Name = x,
+                    UserId = User.GetUserId()
+                })
+                .ToList();
+
+            await _tagService.AddTagsAsync(newTags);
+            var rows = await _context.SaveChangesAsync();
+            if (rows > 0)
+                return Content("OK");
+            return Content("NOK");
+        }
     }
 }

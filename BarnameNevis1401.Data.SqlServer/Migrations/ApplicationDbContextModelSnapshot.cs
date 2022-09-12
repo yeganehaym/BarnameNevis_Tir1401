@@ -110,7 +110,12 @@ namespace BarnameNevis1401.Data.SqlServer.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
+                    b.Property<int?>("UserId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Tags");
                 });
@@ -330,6 +335,15 @@ namespace BarnameNevis1401.Data.SqlServer.Migrations
                     b.Navigation("Tag");
                 });
 
+            modelBuilder.Entity("BarnameNevis1401.Domains.Images.Tag", b =>
+                {
+                    b.HasOne("BarnameNevis1401.Domains.Users.User", "User")
+                        .WithMany("Tags")
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("BarnameNevis1401.Domains.Payments.Payment", b =>
                 {
                     b.HasOne("BarnameNevis1401.Domains.Users.User", "User")
@@ -369,6 +383,8 @@ namespace BarnameNevis1401.Data.SqlServer.Migrations
                     b.Navigation("OtpCodes");
 
                     b.Navigation("Payments");
+
+                    b.Navigation("Tags");
                 });
 #pragma warning restore 612, 618
         }

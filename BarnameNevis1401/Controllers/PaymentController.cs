@@ -1,9 +1,14 @@
-﻿using BarnameNevis1401.Core;
+﻿using System.Data;
+using System.Globalization;
+using BarnameNevis1401.Core;
 using BarnameNevis1401.Data.SqlServer;
 using BarnameNevis1401.Domains.Payments;
 using BarnameNevis1401.Models;
+using DNTPersianUtils.Core;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using OfficeOpenXml;
+using OfficeOpenXml.Table;
 using Parbad;
 using Parbad.Gateway.ZarinPal;
 
@@ -16,17 +21,19 @@ public class PaymentController : Controller
     private IOnlinePayment _onlinePayment;
     private ApplicationDbContext _context;
     private IUserService _userService;
+    private IWebHostEnvironment _env;
 
     private readonly IConfiguration _configuration;
 
     // GET
-    public PaymentController(IPaymentService paymentService,IConfiguration _configuration, IOnlinePayment onlinePayment, ApplicationDbContext context, IHttpContextAccessor httpContextAccessor, IUserService userService)
+    public PaymentController(IPaymentService paymentService,IConfiguration _configuration, IOnlinePayment onlinePayment, ApplicationDbContext context, IHttpContextAccessor httpContextAccessor, IUserService userService, IWebHostEnvironment env)
     {
         _paymentService = paymentService;
         this._configuration = _configuration;
         _onlinePayment = onlinePayment;
         _context = context;
         _userService = userService;
+        _env = env;
     }
 
     public IActionResult Index()
@@ -120,5 +127,56 @@ public class PaymentController : Controller
         payment.Status = PaymentStatus.Failed;
         await _context.SaveChangesAsync();
         return Content("Not Ok");
+    }
+
+    public async Task<IActionResult> ExportExcel(string from,string to)
+    {
+        var enFrom = from.ToGregorianDateTime();
+        var enTo = to.ToGregorianDateTime();
+        var payments = await _paymentService
+            .GetPaymentsAsync(User.GetUserId(), enFrom.Value, enTo.Value);
+
+        var table = new System.Data.DataTable();
+        var cap1 = new DataColumn("Date", typeof(string));
+        cap1.Caption = "تاریخ";
+        table.Columns.Add(cap1);
+        table.Columns.Add(new DataColumn("Time"));
+        table.Columns.Add(new DataColumn("Price"));
+        table.Columns.Add(new DataColumn("Space"));
+        table.Columns.Add(new DataColumn("RefCode"));
+        table.Columns.Add(new DataColumn("Status"));
+        table.Columns.Add(new DataColumn("Discount"));
+        table.Columns.Add(new DataColumn("VAT"));
+
+        foreach (var payment in payments)
+        {
+            var row = table.NewRow();
+            row["Date"] = payment.PaymentTime.ToShortPersianDateString();
+            row["Time"] = payment.PaymentTime.Value.ToString("HH:mm");
+            row["Price"] = payment.FinalPrice.ToString("N0");
+            row["Space"] = (payment.Size/1024/1024/1024) + "GB";
+            row["RefCode"] = payment.RefCode;
+            row["Status"] = payment.Status.GetName();
+            row["Discount"] = payment.Discount.ToString("N0");
+            row["VAT"] = payment.VAT;
+            table.Rows.Add(row);
+        }
+
+        var path = Path.Combine(_env.ContentRootPath, "Excels");
+        Directory.CreateDirectory(path);
+        var objName = Guid.NewGuid()
+            .ToString().Replace("-", "").Substring(0, 10) + ".xlsx";
+        var fileName = Path.Combine(path,objName ) ;
+        using (ExcelPackage package = new ExcelPackage())
+        {
+            var sheet=package.Workbook.Worksheets.Add("Payments");
+            sheet.Cells["A1"].LoadFromDataTable(table, true, TableStyles.Medium3);
+            sheet.Columns.AutoFit();
+            sheet.View.RightToLeft = true;
+            await package.SaveAsAsync(fileName,"123");
+        }
+
+        return PhysicalFile(fileName,
+            "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", objName);
     }
 }

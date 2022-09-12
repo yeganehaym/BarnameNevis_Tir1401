@@ -8,4 +8,5 @@ public interface ITagService
     Task<int> GetTagsCount(string search = null);
     Task Remove(int id);
     Task<Tag> FindTagAsync(int id);
+    Task AddTagsAsync(List<Tag> newTags);
 }
