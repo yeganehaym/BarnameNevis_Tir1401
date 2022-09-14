@@ -39,8 +39,10 @@ public class AuthController : Controller
       _emailSettings = options.Value;
    }
 
-   public IActionResult Login()
+   public IActionResult Login(string returnUrl)
    {
+      ViewData["ReturnUrl"] = returnUrl;
+      ViewBag.ReturnUrl = returnUrl;
       return View();
    }
 
@@ -65,8 +67,14 @@ public class AuthController : Controller
          claim.AddClaim(new Claim(ClaimTypes.NameIdentifier,user.Id.ToString()));
          claim.AddClaim(new Claim(ClaimTypes.GivenName,user.Username));
          claim.AddClaim(new Claim(ClaimTypes.Name,user.FullName));
+         claim.AddClaim(new Claim(ClaimTypes.SerialNumber,user.SerialNumber));
+         if(user.IsAdmin)
+            claim.AddClaim(new Claim(ClaimTypes.Role,"Admin"));
+         
          var claimPrincipals = new ClaimsPrincipal(claim);
          await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,claimPrincipals);
+         if (String.IsNullOrEmpty(model.ReturnUrl) == false && model.ReturnUrl!="/")
+            return Redirect(model.ReturnUrl);
          return RedirectToAction("Index", "Home");
       }
       return View(model);
@@ -124,6 +132,7 @@ public class AuthController : Controller
             Email = model.Email,
             Mobile = model.MobileNumber
          };
+         newUser.GenerateSerialNumber();
          _userService.NewUser(newUser);
          var otpCode = new OtpCode()
          {
@@ -165,6 +174,15 @@ public class AuthController : Controller
    {
       //Console.WriteLine(certificate);
       return true;
+   }
+
+   public async Task<IActionResult> ChangeSerialNumber()
+   {
+      var userId = User.GetUserId();
+      var user = await _userService.FindUserAsync(userId);
+      user.GenerateSerialNumber();
+      var rows = await _context.SaveChangesAsync();
+      return Content("Rows=" + rows);
    }
 
    [HttpPost]

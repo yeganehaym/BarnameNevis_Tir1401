@@ -42,6 +42,7 @@
       <Folder Include="Services" />
       <Folder Include="wwwroot\dist\fonts\iranyekan" />
       <Folder Include="wwwroot\lib\datatable" />
+      <Folder Include="wwwroot\lib\PersianDate" />
     </ItemGroup>
 
     <ItemGroup>

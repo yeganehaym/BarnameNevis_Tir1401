@@ -3,7 +3,12 @@
     Layout = "_AuthLayout";
 }
 <form method="post" class="mb-3">
-    
+    @{
+        if (ViewBag.ReturnUrl != null)
+        {
+            <input type="hidden" asp-for="ReturnUrl"  value="@ViewBag.ReturnUrl" />
+        }
+    }
     <label asp-for="Username" class="form-label">User name : </label>
     <input type="text" class="form-control" asp-for="Username"/>
     <span asp-validation-for="Username"></span>

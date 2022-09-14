@@ -1,7 +1,10 @@
+using System.Security.Claims;
+using BarnameNevis1401;
 using BarnameNevis1401.ApplicationService;
 using BarnameNevis1401.Core;
 using BarnameNevis1401.Data;
 using BarnameNevis1401.Data.SqlServer;
+using BarnameNevis1401.Domains.Users;
 using BarnameNevis1401.Elmah;
 using BarnameNevis1401.Email;
 using ElmahCore;
@@ -33,6 +36,8 @@ builder.Services.AddDbContextPool<ApplicationDbContext>(options =>
 
 
 
+builder.Services.AddScoped<IInitializerService,InitializeService>();
+
 builder.Services.AddScoped<IUserService,UserService>();
 builder.Services.AddScoped<ITagService,TagService>();
 builder.Services.AddScoped<IPaymentService,PaymentService>();
@@ -51,6 +56,20 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
         options.LogoutPath = "/auth/logout";
         options.ExpireTimeSpan=TimeSpan.FromHours(2);
         options.SlidingExpiration = true;
+        options.AccessDeniedPath = "/auth/login";
+        options.Events = new CookieAuthenticationEvents()
+        {
+            OnValidatePrincipal = async context =>
+            {
+                var userId = context.Principal.GetUserId();
+                var userService = context.HttpContext.RequestServices.GetRequiredService<IUserService>();
+                var user = await userService.FindUserAsync(userId);
+                var claimSn = context.Principal.Claims.First(x => x.Type == ClaimTypes.SerialNumber).Value;
+                if(user.SerialNumber!=claimSn)
+                    context.RejectPrincipal();
+                    
+            }
+        };
     });
 
 
@@ -100,7 +119,7 @@ builder.Services.AddElmah<SqlErrorLog>(options =>
     options.LogPath = Path.Combine(builder.Environment.ContentRootPath, "logs", "elmah");
     options.OnPermissionCheck = context =>
     {
-        return context.User?.Identity?.IsAuthenticated??false;
+        return (context.User?.Identity?.IsAuthenticated??false) && context.User.IsInRole("Admin");
     };
     options.ConnectionString = builder.Configuration.GetConnectionString("elmah");
     options.Filters.Add(new NotFoundErrorFilter());
@@ -115,6 +134,13 @@ builder.Services.AddElmah<SqlErrorLog>(options =>
 ExcelPackage.LicenseContext = LicenseContext.Commercial;
 
 var app = builder.Build();
+
+
+using (var scope=app.Services.CreateScope())
+{
+    var initializeService= scope.ServiceProvider.GetRequiredService<IInitializerService>();
+    initializeService.Seed();
+}
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

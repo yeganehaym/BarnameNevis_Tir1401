@@ -31,8 +31,16 @@
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
-            @{
-              Html.RenderPartial("_SideBar");
+  @{
+    if (User.IsInRole("Admin"))
+    {
+      Html.RenderPartial("_adminSideBar");
+
+    }
+    else
+    {
+      Html.RenderPartial("_SideBar");
+    }
             }
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">

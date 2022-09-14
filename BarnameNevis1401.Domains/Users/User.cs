@@ -19,7 +19,16 @@ public class User:BaseEntity
     public string Mobile { get; set; }
     public bool IsActive { get; set; }
     
+    public bool IsAdmin { get; set; }
+    
     public long Space { get; set; }
+    
+    public string SerialNumber { get; set; }
+
+    public void GenerateSerialNumber()
+    {
+        SerialNumber = Guid.NewGuid().ToString().Replace("-", "").Substring(0, 20);
+    }
 
     public List<Payment> Payments { get; set; }
     public List<ImageItem> ImageItems { get; set; }

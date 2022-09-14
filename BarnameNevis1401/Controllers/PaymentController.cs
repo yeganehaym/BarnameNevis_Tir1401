@@ -129,12 +129,20 @@ public class PaymentController : Controller
         return Content("Not Ok");
     }
 
+    [Authorize(Roles = "Admin,Writer,Accountant")]
+    public IActionResult ExportExcel()
+    {
+        return View();
+    }
+    
+    [Authorize(Roles = "Admin,Writer,Accountant")]
+    [HttpPost]
     public async Task<IActionResult> ExportExcel(string from,string to)
     {
         var enFrom = from.ToGregorianDateTime();
         var enTo = to.ToGregorianDateTime();
         var payments = await _paymentService
-            .GetPaymentsAsync(User.GetUserId(), enFrom.Value, enTo.Value);
+            .GetPaymentsAsync(User.IsInRole("Admin")?null:User.GetUserId(), enFrom.Value, enTo.Value);
 
         var table = new System.Data.DataTable();
         var cap1 = new DataColumn("Date", typeof(string));

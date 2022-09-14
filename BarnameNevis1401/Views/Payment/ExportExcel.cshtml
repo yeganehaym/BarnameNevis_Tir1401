@@ -1,0 +1,17 @@
+﻿<form method="post">
+    <input type="text" name="from" class="form-control" data-jdp/>
+    <input type="text" name="to" class="form-control" data-jdp/>
+    <button type="submit">Export Payments</button>
+</form>
+
+@section Header
+{
+    <link href="~/lib/PersianDate/dist/jalalidatepicker.min.css" rel="stylesheet" type="text/css" />
+}
+@section Scripts
+{
+    <script src="~/lib/PersianDate/dist/jalalidatepicker.min.js"></script>
+    <script>
+              jalaliDatepicker.startWatch();
+    </script>
+}
