@@ -9,4 +9,7 @@ public interface ITagService
     Task Remove(int id);
     Task<Tag> FindTagAsync(int id);
     Task AddTagsAsync(List<Tag> newTags);
+    Task<Tag?> FindTagAsync(string name);
+    Task<int> AddTagAsync(Tag tag);
+    Task<int> EditTagAsync(Tag tag);
 }

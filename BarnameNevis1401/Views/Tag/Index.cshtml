@@ -32,7 +32,7 @@
             {name:'imagesCount',data:'imagesCount'},
             {name:'actons',data:'id',searchable:false,orderable:false,render(data, type, row, meta){
                 return `
-                <a class="btn btn-warning" href="/tag/edit/${data}" target="_blank">Edit</a>
+                <a class="btn btn-warning" href="/tag/edit/${data}">Edit</a>
                 <button class="btn btn-danger btnDelete" data-id="${data}">Delete</button>
                 `;
             }}

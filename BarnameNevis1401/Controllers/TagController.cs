@@ -3,6 +3,7 @@ using BarnameNevis1401.Data.SqlServer;
 using BarnameNevis1401.DataTable;
 using BarnameNevis1401.Domains.Images;
 using BarnameNevis1401.Infrastructure;
+using BarnameNevis1401.Models;
 using Microsoft.AspNetCore.Mvc;
 using OfficeOpenXml;
 
@@ -101,6 +102,63 @@ public class TagController : Controller
             if (rows > 0)
                 return Content("OK");
             return Content("NOK");
+        }
+    }
+    [HttpGet]
+    public async Task<IActionResult> Add()
+    {
+        return View();
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Add(AddTagViewModel model)
+    {
+        if (ModelState.IsValid)
+        {
+            var tagIsExited = await _tagService.FindTagAsync(model.TagName);
+            if (tagIsExited == null)
+            {
+                var tag = new Tag()
+                {
+                    Name = model.TagName,
+                };
+                var rows = await _tagService.AddTagAsync(tag);
+                if (rows > 0)
+                {
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    return Content("Not Ok!");
+                }
+            }
+            else
+            {
+                ModelState.AddModelError("TagName","این تگ قبلا ثبت شده است");
+                return View(model);
+            }
+        }
+        return View(model);
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> Edit(int id)
+    {
+        var tag = await _tagService.FindTagAsync(id);
+        return View(tag);
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Edit(Tag tag)
+    {
+        var rows = await _tagService.EditTagAsync(tag);
+        if (rows > 0)
+        {
+            return RedirectToAction("Index");
+        }
+        else
+        {
+            return Content("Not Ok");
         }
     }
 }

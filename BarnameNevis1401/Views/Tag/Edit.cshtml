@@ -1,0 +1,9 @@
+﻿@model BarnameNevis1401.Domains.Images.Tag
+
+<form method="post">
+    <label asp-for="Name">اسم تگ :</label>
+    <input type="text" asp-for="Name" placeholder="نام تگ" value="@Model.Name" class="form-control">
+    <span asp-validation-for="Name"></span>
+    <br>
+    <button type="submit" class="btn btn-primary">Add Tag</button>
+</form>

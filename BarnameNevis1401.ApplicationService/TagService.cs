@@ -71,6 +71,31 @@ public class TagService : ITagService
     {
         await _context.Tags.AddRangeAsync(newTags);
     }
+
+    public async Task<Tag?> FindTagAsync(string name)
+    {
+        return await _context.Tags.FirstOrDefaultAsync(x => x.Name == name);
+    }
+
+    public async Task<int> AddTagAsync(Tag tag)
+    {
+        _context.Tags.Add(tag);
+        return await _context.SaveChangesAsync();
+    }
+
+    public async Task<int> EditTagAsync(Tag tag)
+    {
+        var tagIsExited = await _context.Tags.FirstOrDefaultAsync(x => x.Name == tag.Name);
+        if (tagIsExited == null)
+        {
+            var newTag = await _context.Tags.FindAsync(tag.Id);
+            newTag.Name = tag.Name;
+            newTag.ModificationDate = DateTime.Now;
+            return await _context.SaveChangesAsync();
+        }
+
+        return 0;
+    }
 }
 
 public class Test : ITest

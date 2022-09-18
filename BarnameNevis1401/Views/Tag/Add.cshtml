@@ -1,0 +1,9 @@
+﻿@model AddTagViewModel
+
+<form method="post">
+    <label asp-for="TagName">اسم تگ :</label>
+    <input type="text" asp-for="TagName" placeholder="نام تگ" class="form-control">
+    <span asp-validation-for="TagName"></span>
+    <br>
+    <button type="submit" class="btn btn-primary">Add Tag</button>
+</form>
