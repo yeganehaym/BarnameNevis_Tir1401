@@ -1,42 +1,43 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Programming\\Dotnet\\New folder (2)\\BarnameNevis_Tir1401\\BarnameNevis1401\\BarnameNevis1401.csproj": {}
+    "C:\\TirAspCore\\gallery\\BarnameNevis1401\\BarnameNevis1401.csproj": {}
   },
   "projects": {
-    "E:\\Programming\\Dotnet\\New folder (2)\\BarnameNevis_Tir1401\\BarnameNevis1401.ApplicationService\\BarnameNevis1401.ApplicationService.csproj": {
+    "C:\\TirAspCore\\gallery\\BarnameNevis1401.ApplicationService\\BarnameNevis1401.ApplicationService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Programming\\Dotnet\\New folder (2)\\BarnameNevis_Tir1401\\BarnameNevis1401.ApplicationService\\BarnameNevis1401.ApplicationService.csproj",
+        "projectUniqueName": "C:\\TirAspCore\\gallery\\BarnameNevis1401.ApplicationService\\BarnameNevis1401.ApplicationService.csproj",
         "projectName": "BarnameNevis1401.ApplicationService",
-        "projectPath": "E:\\Programming\\Dotnet\\New folder (2)\\BarnameNevis_Tir1401\\BarnameNevis1401.ApplicationService\\BarnameNevis1401.ApplicationService.csproj",
-        "packagesPath": "C:\\Users\\gh\\.nuget\\packages\\",
-        "outputPath": "E:\\Programming\\Dotnet\\New folder (2)\\BarnameNevis_Tir1401\\BarnameNevis1401.ApplicationService\\obj\\",
+        "projectPath": "C:\\TirAspCore\\gallery\\BarnameNevis1401.ApplicationService\\BarnameNevis1401.ApplicationService.csproj",
+        "packagesPath": "C:\\Users\\8tagco\\.nuget\\packages\\",
+        "outputPath": "C:\\TirAspCore\\gallery\\BarnameNevis1401.ApplicationService\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\gh\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\8tagco\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
+          "H:\\Stimulsoft_Reports_AIO_2020.2.1_Downloadly.ir\\Stimulsoft Reports AIO 2020.2.1\\Crack\\Libs\\Reports.NetCore": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "E:\\Programming\\Dotnet\\New folder (2)\\BarnameNevis_Tir1401\\BarnameNevis1401.Core\\BarnameNevis1401.Core.csproj": {
-                "projectPath": "E:\\Programming\\Dotnet\\New folder (2)\\BarnameNevis_Tir1401\\BarnameNevis1401.Core\\BarnameNevis1401.Core.csproj"
+              "C:\\TirAspCore\\gallery\\BarnameNevis1401.Core\\BarnameNevis1401.Core.csproj": {
+                "projectPath": "C:\\TirAspCore\\gallery\\BarnameNevis1401.Core\\BarnameNevis1401.Core.csproj"
               },
-              "E:\\Programming\\Dotnet\\New folder (2)\\BarnameNevis_Tir1401\\BarnameNevis1401.Data.SqlServer\\BarnameNevis1401.Data.SqlServer.csproj": {
-                "projectPath": "E:\\Programming\\Dotnet\\New folder (2)\\BarnameNevis_Tir1401\\BarnameNevis1401.Data.SqlServer\\BarnameNevis1401.Data.SqlServer.csproj"
+              "C:\\TirAspCore\\gallery\\BarnameNevis1401.Data.SqlServer\\BarnameNevis1401.Data.SqlServer.csproj": {
+                "projectPath": "C:\\TirAspCore\\gallery\\BarnameNevis1401.Data.SqlServer\\BarnameNevis1401.Data.SqlServer.csproj"
               },
-              "E:\\Programming\\Dotnet\\New folder (2)\\BarnameNevis_Tir1401\\BarnameNevis1401.Domains\\BarnameNevis1401.Domains.csproj": {
-                "projectPath": "E:\\Programming\\Dotnet\\New folder (2)\\BarnameNevis_Tir1401\\BarnameNevis1401.Domains\\BarnameNevis1401.Domains.csproj"
+              "C:\\TirAspCore\\gallery\\BarnameNevis1401.Domains\\BarnameNevis1401.Domains.csproj": {
+                "projectPath": "C:\\TirAspCore\\gallery\\BarnameNevis1401.Domains\\BarnameNevis1401.Domains.csproj"
               },
-              "E:\\Programming\\Dotnet\\New folder (2)\\BarnameNevis_Tir1401\\BarnameNevis1401.Infrastructure\\BarnameNevis1401.Infrastructure.csproj": {
-                "projectPath": "E:\\Programming\\Dotnet\\New folder (2)\\BarnameNevis_Tir1401\\BarnameNevis1401.Infrastructure\\BarnameNevis1401.Infrastructure.csproj"
+              "C:\\TirAspCore\\gallery\\BarnameNevis1401.Infrastructure\\BarnameNevis1401.Infrastructure.csproj": {
+                "projectPath": "C:\\TirAspCore\\gallery\\BarnameNevis1401.Infrastructure\\BarnameNevis1401.Infrastructure.csproj"
               }
             }
           }
@@ -75,30 +76,31 @@
         }
       }
     },
-    "E:\\Programming\\Dotnet\\New folder (2)\\BarnameNevis_Tir1401\\BarnameNevis1401.Core\\BarnameNevis1401.Core.csproj": {
+    "C:\\TirAspCore\\gallery\\BarnameNevis1401.Core\\BarnameNevis1401.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Programming\\Dotnet\\New folder (2)\\BarnameNevis_Tir1401\\BarnameNevis1401.Core\\BarnameNevis1401.Core.csproj",
+        "projectUniqueName": "C:\\TirAspCore\\gallery\\BarnameNevis1401.Core\\BarnameNevis1401.Core.csproj",
         "projectName": "BarnameNevis1401.Core",
-        "projectPath": "E:\\Programming\\Dotnet\\New folder (2)\\BarnameNevis_Tir1401\\BarnameNevis1401.Core\\BarnameNevis1401.Core.csproj",
-        "packagesPath": "C:\\Users\\gh\\.nuget\\packages\\",
-        "outputPath": "E:\\Programming\\Dotnet\\New folder (2)\\BarnameNevis_Tir1401\\BarnameNevis1401.Core\\obj\\",
+        "projectPath": "C:\\TirAspCore\\gallery\\BarnameNevis1401.Core\\BarnameNevis1401.Core.csproj",
+        "packagesPath": "C:\\Users\\8tagco\\.nuget\\packages\\",
+        "outputPath": "C:\\TirAspCore\\gallery\\BarnameNevis1401.Core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\gh\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\8tagco\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
+          "H:\\Stimulsoft_Reports_AIO_2020.2.1_Downloadly.ir\\Stimulsoft Reports AIO 2020.2.1\\Crack\\Libs\\Reports.NetCore": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "E:\\Programming\\Dotnet\\New folder (2)\\BarnameNevis_Tir1401\\BarnameNevis1401.Domains\\BarnameNevis1401.Domains.csproj": {
-                "projectPath": "E:\\Programming\\Dotnet\\New folder (2)\\BarnameNevis_Tir1401\\BarnameNevis1401.Domains\\BarnameNevis1401.Domains.csproj"
+              "C:\\TirAspCore\\gallery\\BarnameNevis1401.Domains\\BarnameNevis1401.Domains.csproj": {
+                "projectPath": "C:\\TirAspCore\\gallery\\BarnameNevis1401.Domains\\BarnameNevis1401.Domains.csproj"
               }
             }
           }
@@ -137,33 +139,34 @@
         }
       }
     },
-    "E:\\Programming\\Dotnet\\New folder (2)\\BarnameNevis_Tir1401\\BarnameNevis1401.Data.SqlServer\\BarnameNevis1401.Data.SqlServer.csproj": {
+    "C:\\TirAspCore\\gallery\\BarnameNevis1401.Data.SqlServer\\BarnameNevis1401.Data.SqlServer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Programming\\Dotnet\\New folder (2)\\BarnameNevis_Tir1401\\BarnameNevis1401.Data.SqlServer\\BarnameNevis1401.Data.SqlServer.csproj",
+        "projectUniqueName": "C:\\TirAspCore\\gallery\\BarnameNevis1401.Data.SqlServer\\BarnameNevis1401.Data.SqlServer.csproj",
         "projectName": "BarnameNevis1401.Data.SqlServer",
-        "projectPath": "E:\\Programming\\Dotnet\\New folder (2)\\BarnameNevis_Tir1401\\BarnameNevis1401.Data.SqlServer\\BarnameNevis1401.Data.SqlServer.csproj",
-        "packagesPath": "C:\\Users\\gh\\.nuget\\packages\\",
-        "outputPath": "E:\\Programming\\Dotnet\\New folder (2)\\BarnameNevis_Tir1401\\BarnameNevis1401.Data.SqlServer\\obj\\",
+        "projectPath": "C:\\TirAspCore\\gallery\\BarnameNevis1401.Data.SqlServer\\BarnameNevis1401.Data.SqlServer.csproj",
+        "packagesPath": "C:\\Users\\8tagco\\.nuget\\packages\\",
+        "outputPath": "C:\\TirAspCore\\gallery\\BarnameNevis1401.Data.SqlServer\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\gh\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\8tagco\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
+          "H:\\Stimulsoft_Reports_AIO_2020.2.1_Downloadly.ir\\Stimulsoft Reports AIO 2020.2.1\\Crack\\Libs\\Reports.NetCore": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "E:\\Programming\\Dotnet\\New folder (2)\\BarnameNevis_Tir1401\\BarnameNevis1401.Core\\BarnameNevis1401.Core.csproj": {
-                "projectPath": "E:\\Programming\\Dotnet\\New folder (2)\\BarnameNevis_Tir1401\\BarnameNevis1401.Core\\BarnameNevis1401.Core.csproj"
+              "C:\\TirAspCore\\gallery\\BarnameNevis1401.Core\\BarnameNevis1401.Core.csproj": {
+                "projectPath": "C:\\TirAspCore\\gallery\\BarnameNevis1401.Core\\BarnameNevis1401.Core.csproj"
               },
-              "E:\\Programming\\Dotnet\\New folder (2)\\BarnameNevis_Tir1401\\BarnameNevis1401.Domains\\BarnameNevis1401.Domains.csproj": {
-                "projectPath": "E:\\Programming\\Dotnet\\New folder (2)\\BarnameNevis_Tir1401\\BarnameNevis1401.Domains\\BarnameNevis1401.Domains.csproj"
+              "C:\\TirAspCore\\gallery\\BarnameNevis1401.Domains\\BarnameNevis1401.Domains.csproj": {
+                "projectPath": "C:\\TirAspCore\\gallery\\BarnameNevis1401.Domains\\BarnameNevis1401.Domains.csproj"
               }
             }
           }
@@ -222,22 +225,23 @@
         }
       }
     },
-    "E:\\Programming\\Dotnet\\New folder (2)\\BarnameNevis_Tir1401\\BarnameNevis1401.Domains\\BarnameNevis1401.Domains.csproj": {
+    "C:\\TirAspCore\\gallery\\BarnameNevis1401.Domains\\BarnameNevis1401.Domains.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Programming\\Dotnet\\New folder (2)\\BarnameNevis_Tir1401\\BarnameNevis1401.Domains\\BarnameNevis1401.Domains.csproj",
+        "projectUniqueName": "C:\\TirAspCore\\gallery\\BarnameNevis1401.Domains\\BarnameNevis1401.Domains.csproj",
         "projectName": "BarnameNevis1401.Domains",
-        "projectPath": "E:\\Programming\\Dotnet\\New folder (2)\\BarnameNevis_Tir1401\\BarnameNevis1401.Domains\\BarnameNevis1401.Domains.csproj",
-        "packagesPath": "C:\\Users\\gh\\.nuget\\packages\\",
-        "outputPath": "E:\\Programming\\Dotnet\\New folder (2)\\BarnameNevis_Tir1401\\BarnameNevis1401.Domains\\obj\\",
+        "projectPath": "C:\\TirAspCore\\gallery\\BarnameNevis1401.Domains\\BarnameNevis1401.Domains.csproj",
+        "packagesPath": "C:\\Users\\8tagco\\.nuget\\packages\\",
+        "outputPath": "C:\\TirAspCore\\gallery\\BarnameNevis1401.Domains\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\gh\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\8tagco\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
+          "H:\\Stimulsoft_Reports_AIO_2020.2.1_Downloadly.ir\\Stimulsoft Reports AIO 2020.2.1\\Crack\\Libs\\Reports.NetCore": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -274,22 +278,23 @@
         }
       }
     },
-    "E:\\Programming\\Dotnet\\New folder (2)\\BarnameNevis_Tir1401\\BarnameNevis1401.Infrastructure\\BarnameNevis1401.Infrastructure.csproj": {
+    "C:\\TirAspCore\\gallery\\BarnameNevis1401.Infrastructure\\BarnameNevis1401.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Programming\\Dotnet\\New folder (2)\\BarnameNevis_Tir1401\\BarnameNevis1401.Infrastructure\\BarnameNevis1401.Infrastructure.csproj",
+        "projectUniqueName": "C:\\TirAspCore\\gallery\\BarnameNevis1401.Infrastructure\\BarnameNevis1401.Infrastructure.csproj",
         "projectName": "BarnameNevis1401.Infrastructure",
-        "projectPath": "E:\\Programming\\Dotnet\\New folder (2)\\BarnameNevis_Tir1401\\BarnameNevis1401.Infrastructure\\BarnameNevis1401.Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\gh\\.nuget\\packages\\",
-        "outputPath": "E:\\Programming\\Dotnet\\New folder (2)\\BarnameNevis_Tir1401\\BarnameNevis1401.Infrastructure\\obj\\",
+        "projectPath": "C:\\TirAspCore\\gallery\\BarnameNevis1401.Infrastructure\\BarnameNevis1401.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\8tagco\\.nuget\\packages\\",
+        "outputPath": "C:\\TirAspCore\\gallery\\BarnameNevis1401.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\gh\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\8tagco\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
+          "H:\\Stimulsoft_Reports_AIO_2020.2.1_Downloadly.ir\\Stimulsoft Reports AIO 2020.2.1\\Crack\\Libs\\Reports.NetCore": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -332,42 +337,43 @@
         }
       }
     },
-    "E:\\Programming\\Dotnet\\New folder (2)\\BarnameNevis_Tir1401\\BarnameNevis1401\\BarnameNevis1401.csproj": {
+    "C:\\TirAspCore\\gallery\\BarnameNevis1401\\BarnameNevis1401.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Programming\\Dotnet\\New folder (2)\\BarnameNevis_Tir1401\\BarnameNevis1401\\BarnameNevis1401.csproj",
+        "projectUniqueName": "C:\\TirAspCore\\gallery\\BarnameNevis1401\\BarnameNevis1401.csproj",
         "projectName": "BarnameNevis1401",
-        "projectPath": "E:\\Programming\\Dotnet\\New folder (2)\\BarnameNevis_Tir1401\\BarnameNevis1401\\BarnameNevis1401.csproj",
-        "packagesPath": "C:\\Users\\gh\\.nuget\\packages\\",
-        "outputPath": "E:\\Programming\\Dotnet\\New folder (2)\\BarnameNevis_Tir1401\\BarnameNevis1401\\obj\\",
+        "projectPath": "C:\\TirAspCore\\gallery\\BarnameNevis1401\\BarnameNevis1401.csproj",
+        "packagesPath": "C:\\Users\\8tagco\\.nuget\\packages\\",
+        "outputPath": "C:\\TirAspCore\\gallery\\BarnameNevis1401\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\gh\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\8tagco\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
+          "H:\\Stimulsoft_Reports_AIO_2020.2.1_Downloadly.ir\\Stimulsoft Reports AIO 2020.2.1\\Crack\\Libs\\Reports.NetCore": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "E:\\Programming\\Dotnet\\New folder (2)\\BarnameNevis_Tir1401\\BarnameNevis1401.ApplicationService\\BarnameNevis1401.ApplicationService.csproj": {
-                "projectPath": "E:\\Programming\\Dotnet\\New folder (2)\\BarnameNevis_Tir1401\\BarnameNevis1401.ApplicationService\\BarnameNevis1401.ApplicationService.csproj"
+              "C:\\TirAspCore\\gallery\\BarnameNevis1401.ApplicationService\\BarnameNevis1401.ApplicationService.csproj": {
+                "projectPath": "C:\\TirAspCore\\gallery\\BarnameNevis1401.ApplicationService\\BarnameNevis1401.ApplicationService.csproj"
               },
-              "E:\\Programming\\Dotnet\\New folder (2)\\BarnameNevis_Tir1401\\BarnameNevis1401.Core\\BarnameNevis1401.Core.csproj": {
-                "projectPath": "E:\\Programming\\Dotnet\\New folder (2)\\BarnameNevis_Tir1401\\BarnameNevis1401.Core\\BarnameNevis1401.Core.csproj"
+              "C:\\TirAspCore\\gallery\\BarnameNevis1401.Core\\BarnameNevis1401.Core.csproj": {
+                "projectPath": "C:\\TirAspCore\\gallery\\BarnameNevis1401.Core\\BarnameNevis1401.Core.csproj"
               },
-              "E:\\Programming\\Dotnet\\New folder (2)\\BarnameNevis_Tir1401\\BarnameNevis1401.Data.SqlServer\\BarnameNevis1401.Data.SqlServer.csproj": {
-                "projectPath": "E:\\Programming\\Dotnet\\New folder (2)\\BarnameNevis_Tir1401\\BarnameNevis1401.Data.SqlServer\\BarnameNevis1401.Data.SqlServer.csproj"
+              "C:\\TirAspCore\\gallery\\BarnameNevis1401.Data.SqlServer\\BarnameNevis1401.Data.SqlServer.csproj": {
+                "projectPath": "C:\\TirAspCore\\gallery\\BarnameNevis1401.Data.SqlServer\\BarnameNevis1401.Data.SqlServer.csproj"
               },
-              "E:\\Programming\\Dotnet\\New folder (2)\\BarnameNevis_Tir1401\\BarnameNevis1401.Domains\\BarnameNevis1401.Domains.csproj": {
-                "projectPath": "E:\\Programming\\Dotnet\\New folder (2)\\BarnameNevis_Tir1401\\BarnameNevis1401.Domains\\BarnameNevis1401.Domains.csproj"
+              "C:\\TirAspCore\\gallery\\BarnameNevis1401.Domains\\BarnameNevis1401.Domains.csproj": {
+                "projectPath": "C:\\TirAspCore\\gallery\\BarnameNevis1401.Domains\\BarnameNevis1401.Domains.csproj"
               },
-              "E:\\Programming\\Dotnet\\New folder (2)\\BarnameNevis_Tir1401\\BarnameNevis1401.Infrastructure\\BarnameNevis1401.Infrastructure.csproj": {
-                "projectPath": "E:\\Programming\\Dotnet\\New folder (2)\\BarnameNevis_Tir1401\\BarnameNevis1401.Infrastructure\\BarnameNevis1401.Infrastructure.csproj"
+              "C:\\TirAspCore\\gallery\\BarnameNevis1401.Infrastructure\\BarnameNevis1401.Infrastructure.csproj": {
+                "projectPath": "C:\\TirAspCore\\gallery\\BarnameNevis1401.Infrastructure\\BarnameNevis1401.Infrastructure.csproj"
               }
             }
           }
@@ -459,6 +465,10 @@
             "RestSharp": {
               "target": "Package",
               "version": "[108.0.1, )"
+            },
+            "Stimulsoft.Reports.Web.NetCore": {
+              "target": "Package",
+              "version": "[2020.2.1, )"
             }
           },
           "imports": [

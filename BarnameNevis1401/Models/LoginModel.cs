@@ -11,5 +11,5 @@ public class LoginModel
     [Required]
     [MinLength(6)]
     public string Password { get; set; }
-    public string ReturnUrl { get; set; }
+    public string? ReturnUrl { get; set; }
 }
