@@ -39,7 +39,6 @@
       <Folder Include="Data\Selectmodels" />
       <Folder Include="Migrations" />
       <Folder Include="Pages" />
-      <Folder Include="Pictures" />
       <Folder Include="Services" />
       <Folder Include="wwwroot\dist\fonts\iranyekan" />
       <Folder Include="wwwroot\lib\datatable" />

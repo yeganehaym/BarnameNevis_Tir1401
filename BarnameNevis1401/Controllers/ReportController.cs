@@ -1,4 +1,5 @@
-﻿using BarnameNevis1401.Core;
+﻿using System.Drawing;
+using BarnameNevis1401.Core;
 using BarnameNevis1401.Models;
 using DNTPersianUtils.Core;
 using Microsoft.AspNetCore.Mvc;
@@ -10,13 +11,15 @@ namespace BarnameNevis1401.Controllers;
 public class ReportController : Controller
 {
     private IPaymentService _paymentService;
+    private IWebHostEnvironment _env;
 
     private IUserService _userService;
     // GET
-    public ReportController(IPaymentService paymentService, IUserService userService)
+    public ReportController(IPaymentService paymentService, IUserService userService, IWebHostEnvironment env)
     {
         _paymentService = paymentService;
         _userService = userService;
+        _env = env;
     }
 
     public IActionResult Index()
@@ -69,6 +72,14 @@ public class ReportController : Controller
             user.Space
         });
         report.RegBusinessObject("Payments",paymentList);
+
+        using (var fs=new FileStream(Path.Combine(_env.ContentRootPath,"Pictures","profile.png"),FileMode.Open))
+        {
+            report.Dictionary.Variables.Add("avatar",Image.FromStream(fs));
+        }
+        
+        
+        report.Dictionary.Variables.Add("PersianDate",DateTime.Now.ToShortPersianDateString());
 
         return StiNetCoreViewer.GetReportResult(this, report);
     }

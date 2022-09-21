@@ -135,6 +135,7 @@ ExcelPackage.LicenseContext = LicenseContext.Commercial;
 
 var app = builder.Build();
 
+Stimulsoft.Base.StiLicense.LoadFromFile(Path.Combine(app.Environment.ContentRootPath,"Reports","license.key"));
 
 using (var scope=app.Services.CreateScope())
 {

@@ -31,9 +31,9 @@ public class TagController : Controller
     public async Task<IActionResult> LoadTags(DataTableParam param)
     {
         var s = Request.Query["search[value]"].ToString();
-        var tags = await _tagService.GetTags(param.Start, param.Length,s);
-        var total = await _tagService.GetTagsCount();
-        var filter = await _tagService.GetTagsCount(s);
+        var tags = await _tagService.GetTags(User.GetUserId(),param.Start, param.Length,s);
+        var total = await _tagService.GetTagsCount(User.GetUserId());
+        var filter = await _tagService.GetTagsCount(User.GetUserId(),s);
         var result = new DataTableResult<TagData>();
         result.Data = tags;
         result.RecordsTotal = total;
@@ -121,6 +121,7 @@ public class TagController : Controller
                 var tag = new Tag()
                 {
                     Name = model.TagName,
+                    UserId = User.GetUserId()
                 };
                 var rows = await _tagService.AddTagAsync(tag);
                 if (rows > 0)
@@ -160,5 +161,19 @@ public class TagController : Controller
         {
             return Content("Not Ok");
         }
+    }
+
+    public async Task<IActionResult> GetTags(string query)
+    {
+        var tags=await _tagService.FilterTags(User.GetUserId(), query);
+        var output = tags
+            .Select(x => new
+            {
+                x.Id,
+                x.Name
+            })
+            .ToList();
+
+        return Json(output);
     }
 }

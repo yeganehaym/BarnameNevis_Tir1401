@@ -1,0 +1,77 @@
+﻿@model BarnameNevis1401.Domains.Images.ImageItem
+
+<form method="post" >
+    <img src="@Url.Action("ShowImage",new {id=Model.Id})" style="width: 400px;" class="img-fluid" />
+    
+    <br/>
+    
+    <div class="tags-input" id="_my_tags_input">
+       <span class="data"></span>
+           <span class="autocomplete"><input type="text"><div class="autocomplete-items"></div>
+           </span>
+    </div>
+    
+    
+    <br/>
+    <button id="btn"  type="submit" class="btn btn-primary">Save Tags</button>
+</form>
+
+@section Header
+{
+    <link href="~/dist/tagsinput/tags.css" rel="stylesheet" />
+}
+
+@section Scripts
+{
+    <script src="~/dist/tagsinput/tags.js"></script>
+    <script>
+  function runSuggestions(query) {
+   
+      /*
+      using ajax to populate suggestions
+       */
+      let sug_area=$('.autocomplete .autocomplete-items');
+      $.getJSON("@Url.Action("GetTags", "Tag")?query=" + query, function( data ) {
+          //update the data used for suggestions for purpose of retrieval after suggestions click
+          _tag_input_suggestions_data = data;
+          $.each(data,function (key,value) {
+              let template = $("<div>"+value.name+"</div>").hide()
+              sug_area.append(template)
+              template.show()
+   
+          })
+      });
+   
+  }
+  $('#_my_tags_input').find("input").on('keyup',function(e){
+      runSuggestions($(this).val());
+  });
+  var submit=false;
+  $("form").submit(function (e){
+      if (submit==false)
+      {
+                e.preventDefault();
+                return;
+      }
+      submit=false;
+      })
+      
+      $("#btn").on('click',function (){
+            let tags = $('#_my_tags_input').tagsValues();
+            console.log(tags);
+            
+            $.ajax({
+            url:'@Url.Action("SetTags")',
+            data:{
+                tags,
+                id:@Model.Id
+                },
+            type:'POST',
+            success:function (data){
+                }
+            });
+           // submit=true;
+            //$("form").submit();
+      });
+  </script>
+}

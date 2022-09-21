@@ -15,12 +15,17 @@ public class TagService : ITagService
         _context = context;
     }
 
-    private IQueryable<Tag> GetTagQuery(string search)
+    private IQueryable<Tag> GetTagQuery(int? userId,string search)
     {
         var query = _context
             .Tags
             .AsQueryable();
 
+        if (userId.HasValue)
+        {
+            query = query
+                .Where(x => x.UserId == userId.Value);
+        }
         if (String.IsNullOrEmpty(search) == false)
         {
             query = query
@@ -29,9 +34,9 @@ public class TagService : ITagService
 
         return query;
     }
-    public async Task<List<TagData>> GetTags(int skip, int take, string search = null)
+    public async Task<List<TagData>> GetTags(int? userId,int skip, int take, string search = null)
     {
-        var query = GetTagQuery(search);
+        var query = GetTagQuery(userId,search);
         return await query
             .Select(x => new TagData()
             {
@@ -46,9 +51,9 @@ public class TagService : ITagService
             .ToListAsync();
     }
     
-    public async Task<int> GetTagsCount(string search = null)
+    public async Task<int> GetTagsCount(int? userId,string search = null)
     {
-        var query = GetTagQuery(search);
+        var query = GetTagQuery(userId,search);
         return await   query
             .CountAsync();
     }
@@ -95,6 +100,16 @@ public class TagService : ITagService
         }
 
         return 0;
+    }
+
+    public async Task<List<Tag>> FilterTags(int userId, string query)
+    {
+        return await _context
+            .Tags
+            .Where(x => x.UserId == userId && x.Name.StartsWith(query))
+            .Skip(0)
+            .Take(10)
+            .ToListAsync();
     }
 }
 

@@ -1,4 +1,5 @@
 ﻿using System.Security.Claims;
+using BarnameNevis1401.Core;
 using BarnameNevis1401.Data;
 using BarnameNevis1401.Data.SqlServer;
 using BarnameNevis1401.Domains.Images;
@@ -14,10 +15,12 @@ public class ImageController : Controller
 {
     private IWebHostEnvironment _env;
     private ApplicationDbContext _context;
-    public ImageController(IWebHostEnvironment env, ApplicationDbContext context)
+    private IImageService _imageService;
+    public ImageController(IWebHostEnvironment env, ApplicationDbContext context, IImageService imageService)
     {
         _env = env;
         _context = context;
+        _imageService = imageService;
     }
 
     // GET
@@ -95,6 +98,16 @@ public class ImageController : Controller
             .ToList();
         
         return View(images);
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> SetTags(int id)
+    {
+        var image = await _imageService.GetImage(id);
+        if (image == null)
+            return NotFound();
+        
+        return View(image);
     }
     
 }

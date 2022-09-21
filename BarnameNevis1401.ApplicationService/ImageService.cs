@@ -1,5 +1,6 @@
 ﻿using BarnameNevis1401.Core;
 using BarnameNevis1401.Data.SqlServer;
+using BarnameNevis1401.Domains.Images;
 using Microsoft.EntityFrameworkCore;
 
 namespace BarnameNevis1401.ApplicationService;
@@ -19,5 +20,12 @@ public class ImageService:IImageService
             .ImageItems
             .Where(x => x.UserId == userId)
             .SumAsync(x => x.FileSize);
+    }
+
+    public async Task<ImageItem> GetImage(int id)
+    {
+        return await _context
+            .ImageItems
+            .FindAsync(id);
     }
 }
