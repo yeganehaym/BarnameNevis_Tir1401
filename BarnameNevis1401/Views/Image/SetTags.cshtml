@@ -1,13 +1,23 @@
-﻿@model BarnameNevis1401.Domains.Images.ImageItem
+﻿@model SetTagsViewModelGet
 
 <form method="post" >
-    <img src="@Url.Action("ShowImage",new {id=Model.Id})" style="width: 400px;" class="img-fluid" />
+    <img src="@Url.Action("ShowImage",new {id=Model.ImageItem.Id})" style="width: 400px;" class="img-fluid" />
     
     <br/>
     
     <div class="tags-input" id="_my_tags_input">
-       <span class="data"></span>
-           <span class="autocomplete"><input type="text"><div class="autocomplete-items"></div>
+        <span class="data">
+               @{
+                    foreach (var tag in Model.Tags)
+                    {
+                        <span class="tag"><span class="text" _value="@tag.Id">@tag.Name</span><span class="close">×</span></span>
+                    }
+                }
+                            
+        </span>
+        <span class="autocomplete"><input type="text"><div class="autocomplete-items">
+             
+            </div>
            </span>
     </div>
     
@@ -64,10 +74,16 @@
             url:'@Url.Action("SetTags")',
             data:{
                 tags,
-                id:@Model.Id
+                id:@Model.ImageItem.Id
                 },
             type:'POST',
             success:function (data){
+                if (data.result===true)
+                    {
+                        alert('Saved');
+                        return;
+                     }
+                alert('NotSaved');
                 }
             });
            // submit=true;

@@ -1,6 +1,7 @@
 ﻿using BarnameNevis1401.Core;
 using BarnameNevis1401.Data.SqlServer;
 using BarnameNevis1401.Domains.Images;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 
 namespace BarnameNevis1401.ApplicationService;
@@ -110,6 +111,40 @@ public class TagService : ITagService
             .Skip(0)
             .Take(10)
             .ToListAsync();
+    }
+
+    public async Task<int> SearchTagAsync(string tag)
+    {
+        var dbTag = await _context
+            .Tags
+            .FirstOrDefaultAsync(x => x.Name == tag.Trim());
+        if (dbTag == null)
+            return 0;
+
+        return dbTag.Id;
+    }
+
+    public async Task<List<SPTAG>> FindTageByName(string name)
+    {
+        //for insert,update,delete
+        
+        /*var x = _context
+            .Database
+            .ExecuteSqlRaw("update users set amount=amount+@amount",
+                new [] {new SqlParameter("@amount",10000)});
+                  _context
+            .Database
+            .ExecuteSqlInterpolated($"update users set amount=amount+{10000}");
+            
+                */
+
+        //for Select
+        return  await _context
+            .SPTAGS
+            .FromSqlRaw("exec USP_FIND_TAGS @name"
+                , new[] { new SqlParameter("@name", name) })
+            .ToListAsync();
+
     }
 }
 

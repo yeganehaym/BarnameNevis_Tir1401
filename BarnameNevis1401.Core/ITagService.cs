@@ -13,4 +13,6 @@ public interface ITagService
     Task<int> AddTagAsync(Tag tag);
     Task<int> EditTagAsync(Tag tag);
     Task<List<Tag>> FilterTags(int getUserId, string query);
+    Task<int> SearchTagAsync(string tag);
+    Task<List<SPTAG>> FindTageByName(string name);
 }

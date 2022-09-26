@@ -16,11 +16,13 @@ public class ImageController : Controller
     private IWebHostEnvironment _env;
     private ApplicationDbContext _context;
     private IImageService _imageService;
-    public ImageController(IWebHostEnvironment env, ApplicationDbContext context, IImageService imageService)
+    private ITagService _tagService;
+    public ImageController(IWebHostEnvironment env, ApplicationDbContext context, IImageService imageService, ITagService tagService)
     {
         _env = env;
         _context = context;
         _imageService = imageService;
+        _tagService = tagService;
     }
 
     // GET
@@ -106,8 +108,79 @@ public class ImageController : Controller
         var image = await _imageService.GetImage(id);
         if (image == null)
             return NotFound();
-        
-        return View(image);
+
+        var tags = await _imageService.GetTagsAsync(id);
+
+        var vm = new SetTagsViewModelGet()
+        {
+            ImageItem = image,
+            Tags = tags
+        };
+        return View(vm);
     }
-    
+
+    [HttpPost]
+    public async Task<IActionResult> SetTags(SetTagsViewModel viewModel)
+    {
+        var tags = await _imageService.GetTagsAsync(viewModel.Id);
+
+        foreach (var tag in viewModel.Tags)
+        {
+            // 1-Tag ID
+            var tagId = 0;
+            var parsable = int.TryParse(tag, out tagId);
+            if (!parsable)
+            {
+                tagId = await _tagService.SearchTagAsync(tag);
+            }
+            
+            //2-Already Registered?
+
+            Tag dbTag = null;
+            if (tagId > 0)
+            {
+                var isRegistered = tags.Any(x => x.Id == tagId);
+                if(isRegistered)
+                    continue;
+
+                dbTag = await _tagService.FindTagAsync(tagId);
+
+            }
+            else
+            {
+                dbTag = new Tag()
+                {
+                    Name = tag,
+                    UserId = User.GetUserId(),
+                };
+                await _tagService.AddTagAsync(dbTag);
+            }
+
+            await _imageService.NewImageTagAsync(new ImageTag()
+            {
+                Tag = dbTag,
+                ImageItemId = viewModel.Id
+            });
+        }
+
+        foreach (var dbtag in tags)  
+        {
+            if (viewModel.Tags.Contains(dbtag.Id.ToString()) || viewModel.Tags.Contains(dbtag.Name))
+            {
+                continue;
+            }
+
+            dbtag.IsRemoved = true;
+        }
+        var rows = await _context.SaveChangesAsync();
+
+        return Json(new { result = rows > 0 });
+    }
+
+    [AllowAnonymous]
+    public async Task<IActionResult> GetTagsFromSP(string id)
+    {
+        var tags = await _tagService.FindTageByName(id);
+        return Json(tags);
+    }
 }

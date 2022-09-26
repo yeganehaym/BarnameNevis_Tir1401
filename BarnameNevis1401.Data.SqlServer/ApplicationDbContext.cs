@@ -22,6 +22,7 @@ public class ApplicationDbContext:DbContext
     public DbSet<ImageTag> ImageTags { get; set; }
     public DbSet<OtpCode> OtpCodes { get; set; }
     public DbSet<Payment> Payments { get; set; }
+    public DbSet<SPTAG> SPTAGS { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -31,6 +32,10 @@ public class ApplicationDbContext:DbContext
 
        // modelBuilder.Entity<Tag>().HasQueryFilter(x => x.IsRemoved == false);
 
+       modelBuilder.Entity<SPTAG>()
+           .HasNoKey()
+           .ToView("SPTAG");
+       
        var models =
            Enumerable.ToList<Type>(modelBuilder
                    .Model

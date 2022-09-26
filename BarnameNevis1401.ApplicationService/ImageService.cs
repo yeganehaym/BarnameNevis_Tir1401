@@ -28,4 +28,25 @@ public class ImageService:IImageService
             .ImageItems
             .FindAsync(id);
     }
+
+    public async Task<bool> IsTagRegisteredAsync(int imageId,int tagId)
+    {
+        return await _context
+            .ImageTags
+            .AnyAsync(x => x.ImageItemId == imageId && x.TagId == tagId);
+    }
+
+    public async Task NewImageTagAsync(ImageTag imageTag)
+    {
+        await _context.ImageTags.AddAsync(imageTag);
+    }
+
+    public async Task<List<Tag>> GetTagsAsync(int id)
+    {
+        return await _context
+            .ImageTags
+            .Where(x => x.ImageItemId == id)
+            .Select(x => x.Tag)
+            .ToListAsync();
+    }
 }
