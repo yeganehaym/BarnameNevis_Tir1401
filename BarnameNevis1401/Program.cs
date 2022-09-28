@@ -1,4 +1,5 @@
 using System.Security.Claims;
+using System.Text;
 using BarnameNevis1401;
 using BarnameNevis1401.ApplicationService;
 using BarnameNevis1401.Core;
@@ -7,14 +8,19 @@ using BarnameNevis1401.Data.SqlServer;
 using BarnameNevis1401.Domains.Users;
 using BarnameNevis1401.Elmah;
 using BarnameNevis1401.Email;
+using DNTCaptcha.Core;
 using ElmahCore;
 using ElmahCore.Mvc;
 using ElmahCore.Mvc.Notifiers;
 using ElmahCore.Sql;
 using Hangfire;
 using Hangfire.SqlServer;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.JsonWebTokens;
+using Microsoft.IdentityModel.Tokens;
 using OfficeOpenXml;
 using Parbad.Builder;
 using Parbad.Gateway.Mellat;
@@ -48,6 +54,8 @@ builder.Services.AddScoped<ITest>(options =>
     return new Test("ConnctionString");
 });
 
+//==================== Cookie Auth =============================================
+
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(options =>
     {
@@ -72,6 +80,68 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
         };
     });
 
+
+//================ JWT (Json Web Token0 Auth =================================
+/*
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
+    {
+        options.Events = new JwtBearerEvents()
+        {
+            OnTokenValidated = async context =>
+            {
+                var userId = int.Parse(context.Principal.Claims.First(x => x.Type =="UserId").Value);
+                var userService = context.HttpContext.RequestServices.GetRequiredService<IUserService>();
+                var user = await userService.FindUserAsync(userId);
+                var sn = context.Principal.Claims.First(x => x.Type == JwtRegisteredClaimNames.Jti).Value;
+
+                if (sn != user.SerialNumber)
+                {
+                    context.Fail("Serial Number");
+                    return;
+                }
+                context.Success();
+            }
+        };
+        options.TokenValidationParameters = new TokenValidationParameters()
+        {
+            
+            ValidateIssuer = true,
+            ValidateAudience = true,
+            ValidateLifetime = true,
+            ValidateIssuerSigningKey = true,
+            ValidIssuer = builder.Configuration["Jwt:Issuer"],
+            ValidAudience = builder.Configuration["Jwt:Issuer"],
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
+        };
+    });
+*/
+
+builder.Services.AddDNTCaptcha(options =>
+{
+    // options.UseSessionStorageProvider() // -> It doesn't rely on the server or client's times. Also it's the safest one.
+    // options.UseMemoryCacheStorageProvider() // -> It relies on the server's times. It's safer than the CookieStorageProvider.
+    options.UseCookieStorageProvider(SameSiteMode.Strict) // -> It relies on the server and client's times. It's ideal for scalability, because it doesn't save anything in the server's memory.
+        // .UseDistributedCacheStorageProvider() // --> It's ideal for scalability using `services.AddStackExchangeRedisCache()` for instance.
+        // .UseDistributedSerializationProvider()
+
+        // Don't set this line (remove it) to use the installed system's fonts (FontName = "Tahoma").
+        // Or if you want to use a custom font, make sure that font is present in the wwwroot/fonts folder and also use a good and complete font!
+        //.UseCustomFont(Path.Combine(builder.Environment.WebRootPath, "fonts", "IRANSans(FaNum)_Bold.ttf")) // This is optional.
+        .AbsoluteExpiration(minutes: 7)
+        .ShowThousandsSeparators(false)
+        .WithNoise(pixelsDensity: 25, linesCount: 3)
+        .WithEncryptionKey("This is my secure key!")
+        .InputNames(// This is optional. Change it if you don't like the default names.
+            new DNTCaptchaComponent
+            {
+                CaptchaHiddenInputName = "DNTCaptchaText",
+                CaptchaHiddenTokenName = "DNTCaptchaToken",
+                CaptchaInputName = "DNTCaptchaInputText"
+            })
+        .Identifier("dntCaptcha")// This is optional. Change it if you don't like its default name.
+        ;
+});
 
 builder.Services.AddHangfire(configuration => configuration
     .SetDataCompatibilityLevel(CompatibilityLevel.Version_170)
@@ -155,7 +225,7 @@ else
     app.UseElmahExceptionPage();
 }
 
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();

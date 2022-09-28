@@ -1,4 +1,5 @@
-﻿@model LoginModel
+﻿@using DNTCaptcha.Core
+@model LoginModel
 @{
     Layout = "_AuthLayout";
 }
@@ -18,7 +19,28 @@
     <input type="password" class="form-control" asp-for="Password"/>
     <span asp-validation-for="Password"></span>
     <br>
-
+    
+    <dnt-captcha asp-captcha-generator-max="9000"
+                 asp-captcha-generator-min="1000"
+                 asp-captcha-generator-language="Persian"
+                 asp-captcha-generator-display-mode="ShowDigits"
+                 asp-use-relative-urls="true"
+                 asp-placeholder="کد امنیتی را وارد کنید"
+                 asp-validation-error-message="ورود کد امنیتی الزامی است"
+                 asp-font-name="Tahoma"
+                 asp-font-size="20"
+                 asp-fore-color="#333333"
+                 asp-back-color="#FCF6F5FF"
+                 asp-text-box-class="form-control"
+                 asp-text-box-template="<div class='input-group'><span class='input-group-text'><span class='bi-lock'></span></span>{0}</div>"
+                 asp-validation-message-class="text-danger"
+                 asp-refresh-button-class="btn btn-outline-success fas fa-redo"
+                 asp-show-refresh-button="true"
+                 asp-dir="ltr"
+    />
+    
+    
+    
     <button type="submit" class="btn btn-success btn-block">Login</button>
     
     

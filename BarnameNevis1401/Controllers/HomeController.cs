@@ -5,12 +5,13 @@ using BarnameNevis1401.Domains;
 using BarnameNevis1401.Domains.Users;
 using Microsoft.AspNetCore.Mvc;
 using BarnameNevis1401.Models;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 
 namespace BarnameNevis1401.Controllers;
 
-[Authorize]
+[Authorize(AuthenticationSchemes = CookieAuthenticationDefaults.AuthenticationScheme)]
 public class HomeController : Controller
 {
     private ApplicationDbContext _applicationDbContext;

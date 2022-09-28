@@ -10,6 +10,7 @@ using BarnameNevis1401.Email;
 using BarnameNevis1401.Infrastructure;
 using BarnameNevis1401.Models;
 using BarnameNevis1401.SmsManagers;
+using DNTCaptcha.Core;
 using Ghasedak.Core;
 using Hangfire;
 using MailKit.Net.Smtp;
@@ -47,6 +48,9 @@ public class AuthController : Controller
    }
 
    [HttpPost]
+   [ValidateDNTCaptcha(ErrorMessage = "لطفا کد امنیتی را وارد کنید",
+      CaptchaGeneratorLanguage = Language.Persian,
+      CaptchaGeneratorDisplayMode = DisplayMode.ShowDigits)]
    public async Task<IActionResult> Login(LoginModel model)
    {
       
