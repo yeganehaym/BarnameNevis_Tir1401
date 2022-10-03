@@ -33,6 +33,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews()
     .AddRazorRuntimeCompilation();
 
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
 builder.Services.Configure<EmailSettings>(x => builder.Configuration.Bind("email",x));
 
 builder.Services.AddDbContextPool<ApplicationDbContext>(options =>
@@ -82,7 +85,7 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
 
 
 //================ JWT (Json Web Token0 Auth =================================
-/*
+
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
@@ -115,7 +118,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
         };
     });
-*/
+
 
 builder.Services.AddDNTCaptcha(options =>
 {
@@ -205,6 +208,8 @@ ExcelPackage.LicenseContext = LicenseContext.Commercial;
 
 var app = builder.Build();
 
+app.UseSwagger();
+app.UseSwaggerUI();
 Stimulsoft.Base.StiLicense.LoadFromFile(Path.Combine(app.Environment.ContentRootPath,"Reports","license.key"));
 
 using (var scope=app.Services.CreateScope())
