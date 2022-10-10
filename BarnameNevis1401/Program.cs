@@ -85,7 +85,7 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
 
 
 //================ JWT (Json Web Token0 Auth =================================
-
+/*
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
@@ -118,7 +118,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
         };
     });
-
+*/
 
 builder.Services.AddDNTCaptcha(options =>
 {
@@ -192,7 +192,7 @@ builder.Services.AddElmah<SqlErrorLog>(options =>
     options.LogPath = Path.Combine(builder.Environment.ContentRootPath, "logs", "elmah");
     options.OnPermissionCheck = context =>
     {
-        return (context.User?.Identity?.IsAuthenticated??false) && context.User.IsInRole("Admin");
+        return true;//(context.User?.Identity?.IsAuthenticated??false) && context.User.IsInRole("Admin");
     };
     options.ConnectionString = builder.Configuration.GetConnectionString("elmah");
     options.Filters.Add(new NotFoundErrorFilter());

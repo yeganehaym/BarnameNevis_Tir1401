@@ -40,6 +40,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <Folder Include="Attributes" />
       <Folder Include="Data\Configs" />
       <Folder Include="Data\Conversions" />
       <Folder Include="Data\Entities" />

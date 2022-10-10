@@ -5,6 +5,7 @@ using BarnameNevis1401.Data.SqlServer;
 using BarnameNevis1401.Domains.Payments;
 using BarnameNevis1401.Models;
 using DNTPersianUtils.Core;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using OfficeOpenXml;
@@ -14,7 +15,7 @@ using Parbad.Gateway.ZarinPal;
 
 namespace BarnameNevis1401.Controllers;
 
-[Authorize]
+[Authorize(AuthenticationSchemes = CookieAuthenticationDefaults.AuthenticationScheme)]
 public class PaymentController : Controller
 {
     private IPaymentService _paymentService;

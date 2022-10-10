@@ -5,9 +5,13 @@
 
 @section Scripts
 {
-    <script src="//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script src="//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js" asp-append-version="true"></script>
     <script>
+    
+    
     $(document).ready( function () {
+        
+        
         var table=$('#myTable').DataTable({
         serverSide:true,
         processing:true,
@@ -56,8 +60,8 @@
                                  alert('Error');
                                  }
                              },
-                             error:function (data){
-                             }
+                         error:function (data){
+                         }
                          })
                      });
         

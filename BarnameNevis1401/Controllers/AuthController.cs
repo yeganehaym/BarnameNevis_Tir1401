@@ -137,7 +137,7 @@ public class AuthController : Controller
             Mobile = model.MobileNumber
          };
          newUser.GenerateSerialNumber();
-         _userService.NewUser(newUser);
+         await _userService.NewUser(newUser);
          var otpCode = new OtpCode()
          {
             Code = Utils.RandomString(4,RandomType.OnlyNumbers),

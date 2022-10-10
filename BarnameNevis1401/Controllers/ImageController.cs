@@ -5,12 +5,13 @@ using BarnameNevis1401.Data.SqlServer;
 using BarnameNevis1401.Domains.Images;
 using BarnameNevis1401.Infrastructure;
 using BarnameNevis1401.Models;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BarnameNevis1401.Controllers;
 
-[Authorize]
+[Authorize(AuthenticationSchemes = CookieAuthenticationDefaults.AuthenticationScheme)]
 public class ImageController : Controller
 {
     private IWebHostEnvironment _env;

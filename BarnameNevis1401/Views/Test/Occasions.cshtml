@@ -7,18 +7,24 @@
     <button type="submit" class="btn btn-success">Get Occasions</button>
 </form>
 
+
 @{
-    if (Model !=null && Model.Occasion != null)
+    var data = new List<string>();
+    if (Model != null && Model.Occasion != null)
     {
-        <strong>تعطیلی : @(Model.Occasion.IsHoliday ? "Yes" : "No")</strong> 
-        <ul>
+        data = Model.Occasion.Events.Select(x => x.Description).ToList();
+        <strong>تعطیلی : @(Model.Occasion.IsHoliday ? "Yes" : "No")</strong>
+    }
+    
+    <custom asp-items="data"  ></custom>
+        @*<ul>
             @foreach (var ev in Model.Occasion.Events)
             {
                 <li>@ev.Description</li>
             }
-        </ul>
+        </ul>*@
         
-    }
+    
 
    
 }
