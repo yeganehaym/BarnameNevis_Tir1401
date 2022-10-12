@@ -61,4 +61,64 @@
       <ProjectReference Include="..\BarnameNevis1401.Infrastructure\BarnameNevis1401.Infrastructure.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <EmbeddedResource Update="Resources\Controllers\HomeController.en.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>HomeController.en.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Controllers\HomeController.fa.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>HomeController.fa.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Views\Home\Privacy.en.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Privacy.en.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Views\Home\Privacy.Fa.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Privacy.Fa.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\SharedResource.en.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>SharedResource.en.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\SharedResource.fa.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>SharedResource.fa.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="Resources\Controllers\HomeController.en.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>HomeController.en.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Controllers\HomeController.fa.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>HomeController.fa.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Views\Home\Privacy.en.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Privacy.en.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Views\Home\Privacy.Fa.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Privacy.Fa.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\SharedResource.en.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>SharedResource.en.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\SharedResource.fa.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>SharedResource.fa.resx</DependentUpon>
+      </Compile>
+    </ItemGroup>
+
 </Project>

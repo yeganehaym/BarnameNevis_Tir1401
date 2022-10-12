@@ -1,4 +1,9 @@
-﻿@{
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@using Microsoft.Extensions.Localization
+@using BarnameNevis1401.Resources
+@model string
+@inject IStringLocalizer<SharedResource> _Localizer
+@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -6,7 +11,12 @@
     <h1 class="display-4 my-3">
         به
         <span class="text-primary">گالری برنامه نویس</span>
-        خوش آمدید
+        @Model
     </h1>
     <p class="mt-4 d-block">به گالری برنامه نویس خوش آمدید، برنامه ای برای مدیریت عکس های شما</p>
 </div>
+@_Localizer["shared"].Value
+<p>
+    <a asp-controller="Home" asp-action="ChangeLang" asp-route-id="fa">Persian</a>|
+    <a asp-controller="Home" asp-action="ChangeLang" asp-route-id="en">English</a>
+</p>

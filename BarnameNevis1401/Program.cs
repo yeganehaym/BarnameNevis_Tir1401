@@ -1,3 +1,4 @@
+using System.Globalization;
 using System.Security.Claims;
 using System.Text;
 using BarnameNevis1401;
@@ -8,6 +9,7 @@ using BarnameNevis1401.Data.SqlServer;
 using BarnameNevis1401.Domains.Users;
 using BarnameNevis1401.Elmah;
 using BarnameNevis1401.Email;
+using BarnameNevis1401.Resources;
 using DNTCaptcha.Core;
 using ElmahCore;
 using ElmahCore.Mvc;
@@ -18,6 +20,7 @@ using Hangfire.SqlServer;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.JsonWebTokens;
 using Microsoft.IdentityModel.Tokens;
@@ -31,7 +34,15 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews()
-    .AddRazorRuntimeCompilation();
+    .AddRazorRuntimeCompilation()
+    .AddDataAnnotationsLocalization(options =>
+    {
+        options.DataAnnotationLocalizerProvider = (type, factory) =>
+        {
+            return factory.Create(typeof(SharedResource));
+        };
+    });
+   // .AddMvcLocalization(options => options.ResourcesPath = "Resources");
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -206,6 +217,20 @@ builder.Services.AddElmah<SqlErrorLog>(options =>
 
 ExcelPackage.LicenseContext = LicenseContext.Commercial;
 
+
+//================== Localization ======================
+var cultures = new List<CultureInfo>()
+{
+    new CultureInfo("fa"),
+    new CultureInfo("en")
+};
+builder.Services.AddRequestLocalization(options =>
+{
+    options.SupportedCultures = cultures;
+    options.SupportedUICultures = cultures;
+    options.DefaultRequestCulture = new RequestCulture("fa");
+});
+
 var app = builder.Build();
 
 app.UseSwagger();
@@ -237,6 +262,14 @@ app.UseRouting();
 
 app.UseAuthentication();
 app.UseAuthorization();
+
+/*var options = new RequestLocalizationOptions();
+options.RequestCultureProviders.Insert(0,new CustomLocalizationProvider());
+app.UseRequestLocalization(options);*/
+
+
+app.UseRequestLocalization();
+
 app.UseElmah();
 app.UseHangfireDashboard();
 app.UseEndpoints(endpoints =>
@@ -245,9 +278,10 @@ app.UseEndpoints(endpoints =>
     endpoints.MapHangfireDashboard();
 });
 
-
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
-
+app.MapControllerRoute(
+    name: "default2",
+    pattern: "{lang=fa}/{controller=Home}/{action=Index}/{id?}");
 app.Run();

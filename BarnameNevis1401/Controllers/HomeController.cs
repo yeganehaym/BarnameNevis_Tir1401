@@ -7,7 +7,9 @@ using Microsoft.AspNetCore.Mvc;
 using BarnameNevis1401.Models;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Localization;
 
 namespace BarnameNevis1401.Controllers;
 
@@ -15,15 +17,18 @@ namespace BarnameNevis1401.Controllers;
 public class HomeController : Controller
 {
     private ApplicationDbContext _applicationDbContext;
+    private IStringLocalizer<HomeController> _localizer;
 
-    public HomeController(ApplicationDbContext applicationDbContext)
+    public HomeController(ApplicationDbContext applicationDbContext, IStringLocalizer<HomeController> localizer)
     {
         _applicationDbContext = applicationDbContext;
+        _localizer = localizer;
     }
 
     public IActionResult Index()
     {
-        return View();
+        var value = _localizer["Hello"].Value;
+        return View(model:value);
     }
 
     public IActionResult Privacy()
@@ -125,5 +130,13 @@ public class HomeController : Controller
         
         return View(product);
 
+    }
+
+    public IActionResult ChangeLang(string id)
+    {
+        var cookieName = CookieRequestCultureProvider.DefaultCookieName;
+        var cookieValue = CookieRequestCultureProvider.MakeCookieValue(new RequestCulture(id));
+        Response.Cookies.Append(cookieName,cookieValue);
+        return RedirectToAction("Index");
     }
 }
