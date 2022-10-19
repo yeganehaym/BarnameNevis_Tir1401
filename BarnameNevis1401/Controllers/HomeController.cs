@@ -1,14 +1,17 @@
 ﻿using System.Diagnostics;
+using BarnameNevis1401.Attributes;
 using BarnameNevis1401.Data;
 using BarnameNevis1401.Data.SqlServer;
 using BarnameNevis1401.Domains;
 using BarnameNevis1401.Domains.Users;
 using Microsoft.AspNetCore.Mvc;
 using BarnameNevis1401.Models;
+using BarnameNevis1401.Resources;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Localization;
 
 namespace BarnameNevis1401.Controllers;
@@ -18,11 +21,16 @@ public class HomeController : Controller
 {
     private ApplicationDbContext _applicationDbContext;
     private IStringLocalizer<HomeController> _localizer;
+    private IStringLocalizer<SharedResource> _stringLocalizer;
+    private IMemoryCache _memoryCache;
 
-    public HomeController(ApplicationDbContext applicationDbContext, IStringLocalizer<HomeController> localizer)
+    public HomeController(ApplicationDbContext applicationDbContext, IStringLocalizer<HomeController> localizer
+        , IStringLocalizer<SharedResource> stringLocalizer, IMemoryCache memoryCache)
     {
         _applicationDbContext = applicationDbContext;
         _localizer = localizer;
+        _stringLocalizer = stringLocalizer;
+        _memoryCache = memoryCache;
     }
 
     public IActionResult Index()
@@ -36,12 +44,55 @@ public class HomeController : Controller
         return View();
     }
 
-    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+    [AllowAnonymous]
+    [HttpGet]
+    [ResponseCache(CacheProfileName = "Profile1")]
+    public IActionResult TestCache()
+    {
+        var time = DateTime.Now.ToString("HH:mm:ss");
+        return Json(new
+        {
+            time
+        });
+    }
+    
+    [AllowAnonymous]
+    [HttpGet]
+    public IActionResult TestCache2()
+    {
+        var time = string.Empty;
+        
+        if (_memoryCache.Get<string>("time") != null)
+        {
+            time = _memoryCache.Get<string>("time");
+        }
+        else
+        {
+            time = DateTime.Now.ToString("HH:mm:ss");
+            _memoryCache.Set("time", time, TimeSpan.FromSeconds(30));
+        }
+        return Json(new
+        {
+            time
+        });
+    }
+    
+    public IActionResult TestCache3()
+    {
+        return View("TestCache");
+    }
+
     public IActionResult Error()
     {
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
 
+    public IActionResult ShowAttribute()
+    {
+        var name = UserStatus.Active.GetValue();
+        
+        return Content(name);
+    }
     [HttpGet]
     public IActionResult New()
     {

@@ -1,0 +1,7 @@
+﻿
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<h2>Time : <cache expires-after="TimeSpan.FromSeconds(20)" >@DateTime.Now.ToString("HH:mm:ss")</cache> </h2>

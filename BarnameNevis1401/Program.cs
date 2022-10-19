@@ -21,6 +21,7 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Localization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.JsonWebTokens;
 using Microsoft.IdentityModel.Tokens;
@@ -33,7 +34,13 @@ using Parbad.Gateway.ZarinPal;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllersWithViews()
+builder.Services.AddControllersWithViews(options =>
+    {
+        options.CacheProfiles.Add("Profile1",new CacheProfile()
+        {
+            Duration = 60
+        });
+    })
     .AddRazorRuntimeCompilation()
     .AddDataAnnotationsLocalization(options =>
     {
@@ -43,7 +50,8 @@ builder.Services.AddControllersWithViews()
         };
     });
    // .AddMvcLocalization(options => options.ResourcesPath = "Resources");
-
+builder.Services.AddMemoryCache();
+builder.Services.AddResponseCaching();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -256,8 +264,9 @@ else
 }
 
 //app.UseHttpsRedirection();
-app.UseStaticFiles();
+app.UseResponseCaching();
 
+app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthentication();
