@@ -4,6 +4,7 @@ using BarnameNevis1401.Data;
 using BarnameNevis1401.Data.SqlServer;
 using BarnameNevis1401.Domains;
 using BarnameNevis1401.Domains.Users;
+using BarnameNevis1401.Filters;
 using Microsoft.AspNetCore.Mvc;
 using BarnameNevis1401.Models;
 using BarnameNevis1401.Resources;
@@ -33,6 +34,7 @@ public class HomeController : Controller
         _memoryCache = memoryCache;
     }
 
+   // [TypeFilter(typeof(MyLoggerAttribute))]
     public IActionResult Index()
     {
         var value = _localizer["Hello"].Value;

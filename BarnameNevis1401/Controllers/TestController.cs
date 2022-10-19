@@ -1,4 +1,5 @@
-﻿using BarnameNevis1401.Models;
+﻿using BarnameNevis1401.Filters;
+using BarnameNevis1401.Models;
 using BarnameNevis1401.SmsManagers;
 using ElmahCore;
 using Hangfire;
@@ -20,8 +21,9 @@ public class TestController : Controller
         _logger = logger;
     }
 
-    [Authorize(AuthenticationSchemes = CookieAuthenticationDefaults.AuthenticationScheme)]
     // GET
+    [MyAuthorize(Roles = "admin")]
+
     public IActionResult TestCookie()
     {
         var cookie = Request.Cookies["MyCookie"];

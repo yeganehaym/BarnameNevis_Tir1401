@@ -3,6 +3,7 @@ using BarnameNevis1401.Data.SqlServer.Configs;
 using BarnameNevis1401.Data.SqlServer.Conversions;
 using BarnameNevis1401.Domains;
 using BarnameNevis1401.Domains.Images;
+using BarnameNevis1401.Domains.Logs;
 using BarnameNevis1401.Domains.Payments;
 using BarnameNevis1401.Domains.Users;
 using Microsoft.EntityFrameworkCore;
@@ -22,6 +23,7 @@ public class ApplicationDbContext:DbContext
     public DbSet<ImageTag> ImageTags { get; set; }
     public DbSet<OtpCode> OtpCodes { get; set; }
     public DbSet<Payment> Payments { get; set; }
+    public DbSet<Log> Logs { get; set; }
     public DbSet<SPTAG> SPTAGS { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -32,6 +34,7 @@ public class ApplicationDbContext:DbContext
 
        // modelBuilder.Entity<Tag>().HasQueryFilter(x => x.IsRemoved == false);
 
+       modelBuilder.Entity<Log>().Property(x => x.Agent).HasMaxLength(200);
        modelBuilder.Entity<SPTAG>()
            .HasNoKey()
            .ToView("SPTAG");

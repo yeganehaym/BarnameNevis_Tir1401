@@ -9,6 +9,7 @@ using BarnameNevis1401.Data.SqlServer;
 using BarnameNevis1401.Domains.Users;
 using BarnameNevis1401.Elmah;
 using BarnameNevis1401.Email;
+using BarnameNevis1401.Filters;
 using BarnameNevis1401.Resources;
 using DNTCaptcha.Core;
 using ElmahCore;
@@ -40,6 +41,8 @@ builder.Services.AddControllersWithViews(options =>
         {
             Duration = 60
         });
+
+        options.Filters.Add(typeof(MyLoggerAttribute));
     })
     .AddRazorRuntimeCompilation()
     .AddDataAnnotationsLocalization(options =>
