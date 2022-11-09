@@ -47,7 +47,8 @@ public class MyLoggerAttribute:Attribute,IAsyncActionFilter
             foreach (var key in keys)
             {
                 var value = context.HttpContext.Request.Form[key].ToString();
-                dictionary.Add(key,value);
+                if(dictionary.ContainsKey(key)==false)
+                    dictionary.Add(key,value);
             }
         }
         

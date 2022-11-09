@@ -7,15 +7,18 @@ using BarnameNevis1401.Domains.Logs;
 using BarnameNevis1401.Domains.Payments;
 using BarnameNevis1401.Domains.Users;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure;
 
 namespace BarnameNevis1401.Data.SqlServer;
 
-public class ApplicationDbContext:DbContext
+public class ApplicationDbContext:DbContext,IUnitOfWork
 {
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options):base(options)
     {
         
     }
+    
+
     public DbSet<User> Users { get; set; }
     public DbSet<Product> Products { get; set; }
     public DbSet<ImageItem> ImageItems { get; set; }
@@ -26,6 +29,8 @@ public class ApplicationDbContext:DbContext
     public DbSet<Log> Logs { get; set; }
     public DbSet<SPTAG> SPTAGS { get; set; }
 
+
+    
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         //modelBuilder.Entity<User>().Property(x => x.FirstName).HasMaxLength(100);

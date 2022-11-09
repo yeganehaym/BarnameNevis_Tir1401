@@ -18,6 +18,8 @@
       <PackageReference Include="Hangfire.SqlServer" Version="1.7.30" />
       <PackageReference Include="MailKit" Version="3.3.0" />
       <PackageReference Include="Mapster" Version="7.3.0" />
+      <PackageReference Include="MediatR" Version="11.0.0" />
+      <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
       <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.9" />
       <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="6.0.6" />
       <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.7" />
@@ -55,6 +57,7 @@
     <ItemGroup>
       <ProjectReference Include="..\BarnameNevis1401.ApplicationService\BarnameNevis1401.ApplicationService.csproj" />
       <ProjectReference Include="..\BarnameNevis1401.Core\BarnameNevis1401.Core.csproj" />
+      <ProjectReference Include="..\BarnameNevis1401.CQRS\BarnameNevis1401.CQRS.csproj" />
       <ProjectReference Include="..\BarnameNevis1401.Data.SqlServer\BarnameNevis1401.Data.SqlServer.csproj" />
       <ProjectReference Include="..\BarnameNevis1401.Domains\BarnameNevis1401.Domains.csproj" />
       <ProjectReference Include="..\BarnameNevis1401.Infrastructure\BarnameNevis1401.Infrastructure.csproj" />
@@ -118,6 +121,10 @@
         <AutoGen>True</AutoGen>
         <DependentUpon>SharedResource.fa.resx</DependentUpon>
       </Compile>
+    </ItemGroup>
+
+    <ItemGroup>
+      <AdditionalFiles Include="Views\CQRS\Index.cshtml" />
     </ItemGroup>
 
 </Project>

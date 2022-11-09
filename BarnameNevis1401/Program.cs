@@ -4,12 +4,14 @@ using System.Text;
 using BarnameNevis1401;
 using BarnameNevis1401.ApplicationService;
 using BarnameNevis1401.Core;
+using BarnameNevis1401.CQRS.Commands.Users;
 using BarnameNevis1401.Data;
 using BarnameNevis1401.Data.SqlServer;
 using BarnameNevis1401.Domains.Users;
 using BarnameNevis1401.Elmah;
 using BarnameNevis1401.Email;
 using BarnameNevis1401.Filters;
+using BarnameNevis1401.Middleware;
 using BarnameNevis1401.Resources;
 using DNTCaptcha.Core;
 using ElmahCore;
@@ -18,12 +20,15 @@ using ElmahCore.Mvc.Notifiers;
 using ElmahCore.Sql;
 using Hangfire;
 using Hangfire.SqlServer;
+using MapsterMapper;
+using MediatR;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.FileProviders;
 using Microsoft.IdentityModel.JsonWebTokens;
 using Microsoft.IdentityModel.Tokens;
 using OfficeOpenXml;
@@ -57,6 +62,7 @@ builder.Services.AddMemoryCache();
 builder.Services.AddResponseCaching();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddMediatR(typeof(CreatOrUpdateUserCommand));
 
 builder.Services.Configure<EmailSettings>(x => builder.Configuration.Bind("email",x));
 
@@ -65,9 +71,11 @@ builder.Services.AddDbContextPool<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("default"));
 });
 
+    builder.Services.AddScoped<IUnitOfWork, ApplicationDbContext>();
 
 
 builder.Services.AddScoped<IInitializerService,InitializeService>();
+builder.Services.AddScoped<IMapper,Mapper>();
 
 builder.Services.AddScoped<IUserService,UserService>();
 builder.Services.AddScoped<ITagService,TagService>();
@@ -242,6 +250,14 @@ builder.Services.AddRequestLocalization(options =>
     options.DefaultRequestCulture = new RequestCulture("fa");
 });
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("Cors1", options =>
+    {
+        options.AllowAnyOrigin()
+            .Build();
+    });
+});
 var app = builder.Build();
 
 app.UseSwagger();
@@ -266,14 +282,61 @@ else
     app.UseElmahExceptionPage();
 }
 
+/*app.Use(async (context,next) =>
+{
+    await context.Response.WriteAsync("BarnameNevis.Dev 1401");
+    await next(context);
+});
+//farghe run and use dar dashtane next hast
+app.Run(async (context) =>
+{
+    await context.Response.WriteAsync("BarnameNevis.Dev 1401");
+});
+*/
+
+app.Map("/yeganeh", app =>
+{
+    app.Run(async context =>
+    {
+        await context.Response.WriteAsync("Welcome To My Page");
+    });
+});
+/*
+app.MapWhen(context =>
+{
+    var scopeFactory = app.Services.GetRequiredService<IServiceScopeFactory>();
+    using (var scope = scopeFactory.CreateScope())
+    {
+        var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+        return dbContext.Logs.Any(x => x.Ip == context.Connection.RemoteIpAddress.ToString());
+    }
+   
+}, app =>
+{
+    app.Run(async context =>
+    {
+        await context.Response.WriteAsync("Your Ip Is Blocked");
+    });
+});
+*/
+
 //app.UseHttpsRedirection();
 app.UseResponseCaching();
+app.UseCors("Cors1");
+
 
 app.UseStaticFiles();
+app.UseStaticFiles(new StaticFileOptions()
+{
+    FileProvider = new PhysicalFileProvider(Path.Combine(builder.Environment.ContentRootPath,"ali"))
+});
+
 app.UseRouting();
 
 app.UseAuthentication();
 app.UseAuthorization();
+
+//app.UseMiddleware<XSSBlock>();
 
 /*var options = new RequestLocalizationOptions();
 options.RequestCultureProviders.Insert(0,new CustomLocalizationProvider());
@@ -283,6 +346,12 @@ app.UseRequestLocalization(options);*/
 app.UseRequestLocalization();
 
 app.UseElmah();
+//app.UseXSSBlocker();
+
+
+
+
+
 app.UseHangfireDashboard();
 app.UseEndpoints(endpoints =>
 {

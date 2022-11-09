@@ -139,6 +139,87 @@
         }
       }
     },
+    "C:\\TirAspCore\\gallery\\BarnameNevis1401.CQRS\\BarnameNevis1401.CQRS.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\TirAspCore\\gallery\\BarnameNevis1401.CQRS\\BarnameNevis1401.CQRS.csproj",
+        "projectName": "BarnameNevis1401.CQRS",
+        "projectPath": "C:\\TirAspCore\\gallery\\BarnameNevis1401.CQRS\\BarnameNevis1401.CQRS.csproj",
+        "packagesPath": "C:\\Users\\8tagco\\.nuget\\packages\\",
+        "outputPath": "C:\\TirAspCore\\gallery\\BarnameNevis1401.CQRS\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\8tagco\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "H:\\Stimulsoft_Reports_AIO_2020.2.1_Downloadly.ir\\Stimulsoft Reports AIO 2020.2.1\\Crack\\Libs\\Reports.NetCore": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\TirAspCore\\gallery\\BarnameNevis1401.Data.SqlServer\\BarnameNevis1401.Data.SqlServer.csproj": {
+                "projectPath": "C:\\TirAspCore\\gallery\\BarnameNevis1401.Data.SqlServer\\BarnameNevis1401.Data.SqlServer.csproj"
+              },
+              "C:\\TirAspCore\\gallery\\BarnameNevis1401.Domains\\BarnameNevis1401.Domains.csproj": {
+                "projectPath": "C:\\TirAspCore\\gallery\\BarnameNevis1401.Domains\\BarnameNevis1401.Domains.csproj"
+              },
+              "C:\\TirAspCore\\gallery\\BarnameNevis1401.Infrastructure\\BarnameNevis1401.Infrastructure.csproj": {
+                "projectPath": "C:\\TirAspCore\\gallery\\BarnameNevis1401.Infrastructure\\BarnameNevis1401.Infrastructure.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Mapster.Core": {
+              "target": "Package",
+              "version": "[1.2.0, )"
+            },
+            "Mapster.DependencyInjection": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
+            "MediatR": {
+              "target": "Package",
+              "version": "[11.0.0, )"
+            },
+            "MimeKit": {
+              "target": "Package",
+              "version": "[3.3.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
     "C:\\TirAspCore\\gallery\\BarnameNevis1401.Data.SqlServer\\BarnameNevis1401.Data.SqlServer.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -366,6 +447,9 @@
               "C:\\TirAspCore\\gallery\\BarnameNevis1401.Core\\BarnameNevis1401.Core.csproj": {
                 "projectPath": "C:\\TirAspCore\\gallery\\BarnameNevis1401.Core\\BarnameNevis1401.Core.csproj"
               },
+              "C:\\TirAspCore\\gallery\\BarnameNevis1401.CQRS\\BarnameNevis1401.CQRS.csproj": {
+                "projectPath": "C:\\TirAspCore\\gallery\\BarnameNevis1401.CQRS\\BarnameNevis1401.CQRS.csproj"
+              },
               "C:\\TirAspCore\\gallery\\BarnameNevis1401.Data.SqlServer\\BarnameNevis1401.Data.SqlServer.csproj": {
                 "projectPath": "C:\\TirAspCore\\gallery\\BarnameNevis1401.Data.SqlServer\\BarnameNevis1401.Data.SqlServer.csproj"
               },
@@ -431,6 +515,14 @@
             "Mapster": {
               "target": "Package",
               "version": "[7.3.0, )"
+            },
+            "MediatR": {
+              "target": "Package",
+              "version": "[11.0.0, )"
+            },
+            "MediatR.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[11.0.0, )"
             },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",

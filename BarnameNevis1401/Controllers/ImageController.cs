@@ -8,6 +8,7 @@ using BarnameNevis1401.Models;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace BarnameNevis1401.Controllers;
 
@@ -18,12 +19,14 @@ public class ImageController : Controller
     private ApplicationDbContext _context;
     private IImageService _imageService;
     private ITagService _tagService;
-    public ImageController(IWebHostEnvironment env, ApplicationDbContext context, IImageService imageService, ITagService tagService)
+    private IUnitOfWork _uow;
+    public ImageController(IWebHostEnvironment env, ApplicationDbContext context, IImageService imageService, ITagService tagService, IUnitOfWork uow)
     {
         _env = env;
         _context = context;
         _imageService = imageService;
         _tagService = tagService;
+        _uow = uow;
     }
 
     // GET
@@ -173,7 +176,7 @@ public class ImageController : Controller
 
             dbtag.IsRemoved = true;
         }
-        var rows = await _context.SaveChangesAsync();
+        var rows = await _uow.SaveChangesAsync();
 
         return Json(new { result = rows > 0 });
     }

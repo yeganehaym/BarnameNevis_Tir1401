@@ -32,7 +32,8 @@ public class AuthController : Controller
    private IUserService _userService;
    private EmailSettings _emailSettings;
 
-   public AuthController(ApplicationDbContext context,IWebHostEnvironment _env, IUserService userService,IOptionsSnapshot<EmailSettings> options)
+   public AuthController(ApplicationDbContext context,IWebHostEnvironment _env, IUserService userService
+      ,IOptionsSnapshot<EmailSettings> options)
    {
       _context = context;
       this._env = _env;

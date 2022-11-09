@@ -1,0 +1,14 @@
+﻿@model BarnameNevis1401.CQRS.Commands.Users.CreatOrUpdateUserCommand
+
+@{
+    Layout = "";
+}
+<form method="post">
+    <input type="text" asp-for="FirstName" placeholder="FirstName" /><br/>
+    <input type="text" asp-for="LastName" placeholder="LastName" /><br/>
+    <input type="text" asp-for="Username" placeholder="Username" /><br/>
+    <input type="text" asp-for="Password" placeholder="Password" /><br/>
+    <input type="text" asp-for="Mobile" placeholder="Mobile" /><br/>
+    <input type="text" asp-for="Email" placeholder="Email" /><br/>
+    <button type="submit" class="btn btn-success">Submit</button>
+</form>

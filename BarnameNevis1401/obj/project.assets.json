@@ -259,6 +259,52 @@
           "lib/netstandard2.0/Mapster.Core.dll": {}
         }
       },
+      "Mapster.DependencyInjection/1.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Mapster": "5.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Mapster.DependencyInjection.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Mapster.DependencyInjection.dll": {}
+        }
+      },
+      "MediatR/11.0.0": {
+        "type": "package",
+        "dependencies": {
+          "MediatR.Contracts": "1.0.1"
+        },
+        "compile": {
+          "lib/netstandard2.1/MediatR.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/MediatR.dll": {}
+        }
+      },
+      "MediatR.Contracts/1.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/MediatR.Contracts.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/MediatR.Contracts.dll": {}
+        }
+      },
+      "MediatR.Extensions.Microsoft.DependencyInjection/11.0.0": {
+        "type": "package",
+        "dependencies": {
+          "MediatR": "11.0.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "6.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.1/MediatR.Extensions.Microsoft.DependencyInjection.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/MediatR.Extensions.Microsoft.DependencyInjection.dll": {}
+        }
+      },
       "Microsoft.AspNetCore.Antiforgery/2.2.0": {
         "type": "package",
         "dependencies": {
@@ -3325,6 +3371,25 @@
           "bin/placeholder/BarnameNevis1401.Core.dll": {}
         }
       },
+      "BarnameNevis1401.CQRS/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "BarnameNevis1401.Data.SqlServer": "1.0.0",
+          "BarnameNevis1401.Domains": "1.0.0",
+          "BarnameNevis1401.Infrastructure": "1.0.0",
+          "Mapster.Core": "1.2.0",
+          "Mapster.DependencyInjection": "1.0.0",
+          "MediatR": "11.0.0",
+          "MimeKit": "3.3.0"
+        },
+        "compile": {
+          "bin/placeholder/BarnameNevis1401.CQRS.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BarnameNevis1401.CQRS.dll": {}
+        }
+      },
       "BarnameNevis1401.Data.SqlServer/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -3776,6 +3841,65 @@
         "lib/netstandard2.0/Mapster.Core.dll",
         "mapster.core.1.2.0.nupkg.sha512",
         "mapster.core.nuspec"
+      ]
+    },
+    "Mapster.DependencyInjection/1.0.0": {
+      "sha512": "nNSGrgu5GirZ8nmuFXHGct+GwXjmbAAb+UqBl3Bwx/vbkCOypuvOziC+wTaNEjz/OE6LMg8yMCZzOtl59Lxw9Q==",
+      "type": "package",
+      "path": "mapster.dependencyinjection/1.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "icon.png",
+        "lib/net40/Mapster.DependencyInjection.dll",
+        "lib/net45/Mapster.DependencyInjection.dll",
+        "lib/netstandard1.3/Mapster.DependencyInjection.dll",
+        "lib/netstandard2.0/Mapster.DependencyInjection.dll",
+        "mapster.dependencyinjection.1.0.0.nupkg.sha512",
+        "mapster.dependencyinjection.nuspec"
+      ]
+    },
+    "MediatR/11.0.0": {
+      "sha512": "8klzVGZQiA2oxZRzQFBZbdPD/IQUm9RYtfiyTDKhxDQ99Gi93+GXt1ZJjH2D7Lh7ZFHCv5XdkwbmfHEQBCatPg==",
+      "type": "package",
+      "path": "mediatr/11.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "gradient_128x128.png",
+        "lib/netstandard2.1/MediatR.dll",
+        "lib/netstandard2.1/MediatR.xml",
+        "mediatr.11.0.0.nupkg.sha512",
+        "mediatr.nuspec"
+      ]
+    },
+    "MediatR.Contracts/1.0.1": {
+      "sha512": "NsRvOxthhkYml4DcBMyJsmym8C4MchioH7wxKVPEg7plFj9Euh/i4IcmZ3Gvgx6+K8obeuhPeJdoBl56wnuo3A==",
+      "type": "package",
+      "path": "mediatr.contracts/1.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "gradient_128x128.png",
+        "lib/net461/MediatR.Contracts.dll",
+        "lib/net461/MediatR.Contracts.xml",
+        "lib/netstandard2.0/MediatR.Contracts.dll",
+        "lib/netstandard2.0/MediatR.Contracts.xml",
+        "mediatr.contracts.1.0.1.nupkg.sha512",
+        "mediatr.contracts.nuspec"
+      ]
+    },
+    "MediatR.Extensions.Microsoft.DependencyInjection/11.0.0": {
+      "sha512": "jfD2NBYvP+HiUil2DWfM4bn+bCLp4H2xvoc9aorcnn2Jpgz7Ey8RyYMpgqeF3bs6CP6t8pzb6WkF5NFF/1RLHA==",
+      "type": "package",
+      "path": "mediatr.extensions.microsoft.dependencyinjection/11.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "gradient_128x128.png",
+        "lib/netstandard2.1/MediatR.Extensions.Microsoft.DependencyInjection.dll",
+        "mediatr.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
+        "mediatr.extensions.microsoft.dependencyinjection.nuspec"
       ]
     },
     "Microsoft.AspNetCore.Antiforgery/2.2.0": {
@@ -10231,6 +10355,11 @@
       "path": "../BarnameNevis1401.Core/BarnameNevis1401.Core.csproj",
       "msbuildProject": "../BarnameNevis1401.Core/BarnameNevis1401.Core.csproj"
     },
+    "BarnameNevis1401.CQRS/1.0.0": {
+      "type": "project",
+      "path": "../BarnameNevis1401.CQRS/BarnameNevis1401.CQRS.csproj",
+      "msbuildProject": "../BarnameNevis1401.CQRS/BarnameNevis1401.CQRS.csproj"
+    },
     "BarnameNevis1401.Data.SqlServer/1.0.0": {
       "type": "project",
       "path": "../BarnameNevis1401.Data.SqlServer/BarnameNevis1401.Data.SqlServer.csproj",
@@ -10250,6 +10379,7 @@
   "projectFileDependencyGroups": {
     "net6.0": [
       "BarnameNevis1401.ApplicationService >= 1.0.0",
+      "BarnameNevis1401.CQRS >= 1.0.0",
       "BarnameNevis1401.Core >= 1.0.0",
       "BarnameNevis1401.Data.SqlServer >= 1.0.0",
       "BarnameNevis1401.Domains >= 1.0.0",
@@ -10265,6 +10395,8 @@
       "Hangfire.SqlServer >= 1.7.30",
       "MailKit >= 3.3.0",
       "Mapster >= 7.3.0",
+      "MediatR >= 11.0.0",
+      "MediatR.Extensions.Microsoft.DependencyInjection >= 11.0.0",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 6.0.9",
       "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation >= 6.0.6",
       "Microsoft.EntityFrameworkCore >= 6.0.7",
@@ -10314,6 +10446,9 @@
             },
             "C:\\TirAspCore\\gallery\\BarnameNevis1401.Core\\BarnameNevis1401.Core.csproj": {
               "projectPath": "C:\\TirAspCore\\gallery\\BarnameNevis1401.Core\\BarnameNevis1401.Core.csproj"
+            },
+            "C:\\TirAspCore\\gallery\\BarnameNevis1401.CQRS\\BarnameNevis1401.CQRS.csproj": {
+              "projectPath": "C:\\TirAspCore\\gallery\\BarnameNevis1401.CQRS\\BarnameNevis1401.CQRS.csproj"
             },
             "C:\\TirAspCore\\gallery\\BarnameNevis1401.Data.SqlServer\\BarnameNevis1401.Data.SqlServer.csproj": {
               "projectPath": "C:\\TirAspCore\\gallery\\BarnameNevis1401.Data.SqlServer\\BarnameNevis1401.Data.SqlServer.csproj"
@@ -10380,6 +10515,14 @@
           "Mapster": {
             "target": "Package",
             "version": "[7.3.0, )"
+          },
+          "MediatR": {
+            "target": "Package",
+            "version": "[11.0.0, )"
+          },
+          "MediatR.Extensions.Microsoft.DependencyInjection": {
+            "target": "Package",
+            "version": "[11.0.0, )"
           },
           "Microsoft.AspNetCore.Authentication.JwtBearer": {
             "target": "Package",

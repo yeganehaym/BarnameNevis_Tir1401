@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Mapster.Core" Version="1.2.0" />
+      <PackageReference Include="Mapster.DependencyInjection" Version="1.0.0" />
+      <PackageReference Include="MediatR" Version="11.0.0" />
+      <PackageReference Include="MimeKit" Version="3.3.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\BarnameNevis1401.Data.SqlServer\BarnameNevis1401.Data.SqlServer.csproj" />
+      <ProjectReference Include="..\BarnameNevis1401.Domains\BarnameNevis1401.Domains.csproj" />
+      <ProjectReference Include="..\BarnameNevis1401.Infrastructure\BarnameNevis1401.Infrastructure.csproj" />
+    </ItemGroup>
+
+</Project>
