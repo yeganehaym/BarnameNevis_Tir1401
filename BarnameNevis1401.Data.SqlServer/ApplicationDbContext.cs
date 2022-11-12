@@ -28,6 +28,7 @@ public class ApplicationDbContext:DbContext,IUnitOfWork
     public DbSet<Payment> Payments { get; set; }
     public DbSet<Log> Logs { get; set; }
     public DbSet<SPTAG> SPTAGS { get; set; }
+    public DbSet<ShopItem> ShopItems { get; set; }
 
 
     
@@ -43,6 +44,9 @@ public class ApplicationDbContext:DbContext,IUnitOfWork
        modelBuilder.Entity<SPTAG>()
            .HasNoKey()
            .ToView("SPTAG");
+
+       modelBuilder.Entity<ShopItem>()
+           .ToTable("ShopItems", options => options.IsTemporal());
        
        var models =
            Enumerable.ToList<Type>(modelBuilder

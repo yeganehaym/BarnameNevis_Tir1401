@@ -1,5 +1,6 @@
 ﻿using BarnameNevis1401.Filters;
 using BarnameNevis1401.Models;
+using BarnameNevis1401.PoolPattern;
 using BarnameNevis1401.SmsManagers;
 using ElmahCore;
 using Hangfire;
@@ -142,5 +143,21 @@ public class TestController : Controller
         return Content(c.ToString());
     }
 
+    public IActionResult Pool()
+    {
+
+        string s = "";
+        for (int i = 0; i < 10; i++)
+        {
+            var ground = PoolSource.GetGround();
+            s += i + ": " + ground.CreationDate.ToString("HH:mm:ss") + " - " + ground.IsClosed + "|";
+            var t = new Thread(new ThreadStart(()=>{ground.Connect();}));
+            t.Start();
+            Thread.Sleep(3000);
+        }
+
+        return Content(s);
+
+    }
    
 }
