@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "i8Ef6ko5z3Z8wUBXuadQjsefIUho1QM+Ux6RsGMLzJByI9jB+x5AKlr+9CBKuBs31eIQzQIlwK5vUGZ9C9aQHg==",
+  "dgSpecHash": "xQ/FIZ2rQyDzp+4sgeFVRCtP89N9IXWVvK6B/nwtuuITcQ1Sl39KyAKQrqA6p7X25E1UdLUVB+ILBUffdfLXgg==",
   "success": true,
   "projectFilePath": "C:\\TirAspCore\\gallery\\BarnameNevis1401\\BarnameNevis1401.csproj",
   "expectedPackageFiles": [
@@ -67,6 +67,7 @@
     "C:\\Users\\8tagco\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\6.0.7\\microsoft.entityframeworkcore.abstractions.6.0.7.nupkg.sha512",
     "C:\\Users\\8tagco\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\6.0.7\\microsoft.entityframeworkcore.analyzers.6.0.7.nupkg.sha512",
     "C:\\Users\\8tagco\\.nuget\\packages\\microsoft.entityframeworkcore.design\\6.0.7\\microsoft.entityframeworkcore.design.6.0.7.nupkg.sha512",
+    "C:\\Users\\8tagco\\.nuget\\packages\\microsoft.entityframeworkcore.inmemory\\6.0.7\\microsoft.entityframeworkcore.inmemory.6.0.7.nupkg.sha512",
     "C:\\Users\\8tagco\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\6.0.7\\microsoft.entityframeworkcore.relational.6.0.7.nupkg.sha512",
     "C:\\Users\\8tagco\\.nuget\\packages\\microsoft.entityframeworkcore.sqlserver\\6.0.7\\microsoft.entityframeworkcore.sqlserver.6.0.7.nupkg.sha512",
     "C:\\Users\\8tagco\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\6.0.0\\microsoft.extensions.caching.abstractions.6.0.0.nupkg.sha512",
@@ -114,6 +115,7 @@
     "C:\\Users\\8tagco\\.nuget\\packages\\parbad.gateway.zarinpal\\1.2.0\\parbad.gateway.zarinpal.1.2.0.nupkg.sha512",
     "C:\\Users\\8tagco\\.nuget\\packages\\parbad.storage.abstractions\\1.0.0\\parbad.storage.abstractions.1.0.0.nupkg.sha512",
     "C:\\Users\\8tagco\\.nuget\\packages\\parbad.storage.cache\\1.2.0\\parbad.storage.cache.1.2.0.nupkg.sha512",
+    "C:\\Users\\8tagco\\.nuget\\packages\\polly\\7.2.3\\polly.7.2.3.nupkg.sha512",
     "C:\\Users\\8tagco\\.nuget\\packages\\portable.bouncycastle\\1.9.0\\portable.bouncycastle.1.9.0.nupkg.sha512",
     "C:\\Users\\8tagco\\.nuget\\packages\\restsharp\\108.0.1\\restsharp.108.0.1.nupkg.sha512",
     "C:\\Users\\8tagco\\.nuget\\packages\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",

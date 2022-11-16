@@ -17,7 +17,7 @@ public class InitializeService : IInitializerService
     public InitializeService(ApplicationDbContext context)
     {
         _context = context;
-        _context.Database.Migrate();
+        //_context.Database.Migrate();
     }
 
     public void Seed()

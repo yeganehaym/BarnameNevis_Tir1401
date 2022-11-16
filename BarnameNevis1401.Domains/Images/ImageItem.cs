@@ -10,7 +10,7 @@ public class ImageItem:BaseEntity
     
     public User User { get; set; }
     public int UserId { get; set; }
-    public List<ImageTag> ImageTags { get; set; }
+    public virtual List<ImageTag> ImageTags { get; set; }
     
     public byte[] Image { get; set; }
     

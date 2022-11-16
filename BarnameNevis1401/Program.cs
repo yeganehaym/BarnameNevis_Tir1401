@@ -2,7 +2,6 @@ using System.Globalization;
 using System.Security.Claims;
 using System.Text;
 using BarnameNevis1401;
-using BarnameNevis1401.ApplicationService;
 using BarnameNevis1401.Core;
 using BarnameNevis1401.CQRS.Commands.Users;
 using BarnameNevis1401.Data;
@@ -20,7 +19,6 @@ using ElmahCore.Mvc.Notifiers;
 using ElmahCore.Sql;
 using Hangfire;
 using Hangfire.SqlServer;
-using MapsterMapper;
 using MediatR;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -71,21 +69,14 @@ builder.Services.AddDbContextPool<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("default"));
 });
 
-    builder.Services.AddScoped<IUnitOfWork, ApplicationDbContext>();
-
-
-builder.Services.AddScoped<IInitializerService,InitializeService>();
-builder.Services.AddScoped<IMapper,Mapper>();
-
-builder.Services.AddScoped<IUserService,UserService>();
-builder.Services.AddScoped<ITagService,TagService>();
-builder.Services.AddScoped<IPaymentService,PaymentService>();
-builder.Services.AddScoped<IImageService,ImageService>();
-builder.Services.AddScoped<ITest>(options =>
+/*
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
-    var service=options.GetService<IUserService>();
-    return new Test("ConnctionString");
-});
+    options.UseInMemoryDatabase("Test");
+});*/
+
+
+builder.Services.AddServices();
 
 //==================== Cookie Auth =============================================
 

@@ -1,4 +1,4 @@
-﻿namespace BarnameNevis1401.PoolPattern;
+﻿namespace BarnameNevis1401.Patterns.PoolPattern;
 
 public class Ground
 {

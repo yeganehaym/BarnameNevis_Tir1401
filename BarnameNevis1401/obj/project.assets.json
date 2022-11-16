@@ -998,6 +998,18 @@
           "build/net6.0/Microsoft.EntityFrameworkCore.Design.props": {}
         }
       },
+      "Microsoft.EntityFrameworkCore.InMemory/6.0.7": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "6.0.7"
+        },
+        "compile": {
+          "lib/net6.0/Microsoft.EntityFrameworkCore.InMemory.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/Microsoft.EntityFrameworkCore.InMemory.dll": {}
+        }
+      },
       "Microsoft.EntityFrameworkCore.Relational/6.0.7": {
         "type": "package",
         "dependencies": {
@@ -1641,6 +1653,15 @@
         "frameworkReferences": [
           "Microsoft.AspNetCore.App"
         ]
+      },
+      "Polly/7.2.3": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Polly.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Polly.dll": {}
+        }
       },
       "Portable.BouncyCastle/1.9.0": {
         "type": "package",
@@ -4749,6 +4770,20 @@
         "microsoft.entityframeworkcore.design.nuspec"
       ]
     },
+    "Microsoft.EntityFrameworkCore.InMemory/6.0.7": {
+      "sha512": "n0hvDcK/tyrNMAFH0hmT0RRiK2ob8t+AwRbwn8uzQ47lvpfjvMRm8Mc113hb+zYsEBYdztthy69byTXNmjAsLw==",
+      "type": "package",
+      "path": "microsoft.entityframeworkcore.inmemory/6.0.7",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "lib/net6.0/Microsoft.EntityFrameworkCore.InMemory.dll",
+        "lib/net6.0/Microsoft.EntityFrameworkCore.InMemory.xml",
+        "microsoft.entityframeworkcore.inmemory.6.0.7.nupkg.sha512",
+        "microsoft.entityframeworkcore.inmemory.nuspec"
+      ]
+    },
     "Microsoft.EntityFrameworkCore.Relational/6.0.7": {
       "sha512": "0uo4fPDHutMbd9AJJEKl2q/2fYuFGA8tEBE2fQeQFaNDd+F/aUjaXc1FUD84J7Wcax8WP40rZo1E0u9A0yPPZw==",
       "type": "package",
@@ -5764,6 +5799,30 @@
         "lib/netstandard2.1/Parbad.Storage.Cache.xml",
         "parbad.storage.cache.1.2.0.nupkg.sha512",
         "parbad.storage.cache.nuspec"
+      ]
+    },
+    "Polly/7.2.3": {
+      "sha512": "DeCY0OFbNdNxsjntr1gTXHJ5pKUwYzp04Er2LLeN3g6pWhffsGuKVfMBLe1lw7x76HrPkLxKEFxBlpRxS2nDEQ==",
+      "type": "package",
+      "path": "polly/7.2.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Polly.png",
+        "lib/net461/Polly.dll",
+        "lib/net461/Polly.pdb",
+        "lib/net461/Polly.xml",
+        "lib/net472/Polly.dll",
+        "lib/net472/Polly.pdb",
+        "lib/net472/Polly.xml",
+        "lib/netstandard1.1/Polly.dll",
+        "lib/netstandard1.1/Polly.pdb",
+        "lib/netstandard1.1/Polly.xml",
+        "lib/netstandard2.0/Polly.dll",
+        "lib/netstandard2.0/Polly.pdb",
+        "lib/netstandard2.0/Polly.xml",
+        "polly.7.2.3.nupkg.sha512",
+        "polly.nuspec"
       ]
     },
     "Portable.BouncyCastle/1.9.0": {
@@ -10401,12 +10460,14 @@
       "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation >= 6.0.6",
       "Microsoft.EntityFrameworkCore >= 6.0.7",
       "Microsoft.EntityFrameworkCore.Design >= 6.0.7",
+      "Microsoft.EntityFrameworkCore.InMemory >= 6.0.7",
       "Microsoft.EntityFrameworkCore.SqlServer >= 6.0.7",
       "Newtonsoft.Json >= 13.0.1",
       "Parbad >= 3.8.3",
       "Parbad.AspNetCore >= 1.2.0",
       "Parbad.Gateway.ZarinPal >= 1.2.0",
       "Parbad.Storage.Cache >= 1.2.0",
+      "Polly >= 7.2.3",
       "RestSharp >= 108.0.1",
       "Stimulsoft.Reports.Web.NetCore >= 2020.2.1",
       "Swashbuckle.AspNetCore.Annotations >= 6.4.0",
@@ -10542,6 +10603,10 @@
             "target": "Package",
             "version": "[6.0.7, )"
           },
+          "Microsoft.EntityFrameworkCore.InMemory": {
+            "target": "Package",
+            "version": "[6.0.7, )"
+          },
           "Microsoft.EntityFrameworkCore.SqlServer": {
             "target": "Package",
             "version": "[6.0.7, )"
@@ -10565,6 +10630,10 @@
           "Parbad.Storage.Cache": {
             "target": "Package",
             "version": "[1.2.0, )"
+          },
+          "Polly": {
+            "target": "Package",
+            "version": "[7.2.3, )"
           },
           "RestSharp": {
             "target": "Package",

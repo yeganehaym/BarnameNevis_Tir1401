@@ -1,6 +1,8 @@
-﻿using BarnameNevis1401.Filters;
+﻿using System.Text;
+using BarnameNevis1401.Filters;
 using BarnameNevis1401.Models;
-using BarnameNevis1401.PoolPattern;
+using BarnameNevis1401.Patterns.PoolPattern;
+using BarnameNevis1401.Patterns.SingltonPattern;
 using BarnameNevis1401.SmsManagers;
 using ElmahCore;
 using Hangfire;
@@ -8,6 +10,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using Polly;
 using RestSharp;
 
 namespace BarnameNevis1401.Controllers;
@@ -159,5 +162,38 @@ public class TestController : Controller
         return Content(s);
 
     }
-   
+
+    public ActionResult TestSingleton()
+    {
+        var obj = MySingletonCreator.CreateInstance();
+        return new EmptyResult();
+    }
+
+    public IActionResult TestPolicy()
+    {
+       var p= Policy
+            .TimeoutAsync(TimeSpan.FromSeconds(5));
+       p.ExecuteAsync( (ct) =>
+       {
+           /*var s = "";
+           for (int i = 0; i < 1000000000; i++)
+           {
+               s += i.ToString();
+               if (ct.IsCancellationRequested)
+                   return Task.CompletedTask;
+           }*/
+
+           var s = new StringBuilder();
+           for (int i = 0; i < 1000000000; i++)
+           {
+               s.Append(i);
+               if (ct.IsCancellationRequested)
+                   return Task.CompletedTask;
+           }
+
+           return Task.CompletedTask;
+       },CancellationToken.None);
+
+       return Content("OK");
+    }
 }

@@ -27,12 +27,14 @@
         <PrivateAssets>all</PrivateAssets>
         <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       </PackageReference>
+      <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="6.0.7" />
       <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.7" />
       <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
       <PackageReference Include="Parbad" Version="3.8.3" />
       <PackageReference Include="Parbad.AspNetCore" Version="1.2.0" />
       <PackageReference Include="Parbad.Gateway.ZarinPal" Version="1.2.0" />
       <PackageReference Include="Parbad.Storage.Cache" Version="1.2.0" />
+      <PackageReference Include="Polly" Version="7.2.3" />
       <PackageReference Include="RestSharp" Version="108.0.1" />
       <PackageReference Include="Stimulsoft.Reports.Web.NetCore" Version="2020.2.1" />
       <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="6.4.0" />
